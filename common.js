@@ -6,6 +6,7 @@ function loadNavigation() {
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">SBML</a>
+
             <ul class="nav-links">
                 <li><a href="index.html" data-page="index.html">Home</a></li>
                 <li><a href="research.html" data-page="research.html">Research</a></li>
@@ -16,11 +17,25 @@ function loadNavigation() {
                 <li><a href="gallery.html" data-page="gallery.html">Gallery</a></li>
                 <li><a href="contact.html" data-page="contact.html">Contact</a></li>
             </ul>
+
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="ri-menu-line"></i>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html" data-page="index.html">Home</a>
+            <a href="research.html" data-page="research.html">Research</a>
+            <a href="publications.html" data-page="publications.html">Publications</a>
+            <a href="software.html" data-page="software.html">Software</a>
+            <a href="members.html" data-page="members.html">Members</a>
+            <a href="news.html" data-page="news.html">News</a>
+            <a href="gallery.html" data-page="gallery.html">Gallery</a>
+            <a href="contact.html" data-page="contact.html">Contact</a>
         </div>
     </nav>
     `;
     
-    // placeholder 위치에 삽입
     const navPlaceholder = document.getElementById('nav-placeholder');
     if (navPlaceholder) {
         navPlaceholder.innerHTML = navHTML;
@@ -30,13 +45,28 @@ function loadNavigation() {
         let currentPage = path.split("/").pop();
         if (currentPage === "" || currentPage === "/") currentPage = "index.html";
         
+        // Desktop Links Active
         const links = document.querySelectorAll('.nav-links a');
         links.forEach(link => {
             if (link.getAttribute('data-page') === currentPage) {
                 link.classList.add('active');
             }
         });
+
+        // Mobile Links Active
+        const mobileLinks = document.querySelectorAll('.mobile-menu a');
+        mobileLinks.forEach(link => {
+            if (link.getAttribute('data-page') === currentPage) {
+                link.classList.add('active');
+            }
+        });
     }
+}
+
+// [추가됨] 모바일 메뉴 토글 함수
+function toggleMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu.classList.toggle('active');
 }
 
 // 2. 푸터 HTML 생성
