@@ -55,108 +55,47 @@
     </nav>
 
     <div class="page-header">
-        <h1>News & Achievements</h1>
-        <p>Latest updates from our lab</p>
-    </div>
-
-    <section>
-        <div class="container">
-            <h2 class="year-title">2025</h2>
-            
-            <div class="news-item">
-                <p class="news-date">November 2025</p>
-                <h3>Best Poster Awards at Major Conferences</h3>
-                <p>Minchang Jang received best poster presentation award at 2025 KSIEC Fall Meeting & Conference</p>
-                <span class="badge">Award</span>
-            </div>
-
-            <div class="news-item">
-                <p class="news-date">October 2025</p>
-                <h3>Recognition at KIChE Fall Meeting</h3>
-                <p>Jihoon Woo received best poster presentation award at 2025 KIChE Fall Meeting & International Symposium</p>
-                <span class="badge">Award</span>
-            </div>
-
-            <div class="news-item">
-                <p class="news-date">September 2025</p>
-                <h3>Best Paper Award at KSBB-AFOB Conference</h3>
-                <p>Ina Bang received the Best Paper Presentation Award in the Poster Session at the KSBB-AFOB Conference 2025</p>
-                <span class="badge">Award</span>
-            </div>
-
-            <div class="news-item">
-                <p class="news-date">June 2025</p>
-                <h3>Conference Presentation</h3>
-                <p>Jaehyung Kim received best poster presentation award at 2025 KSIEC Spring Meeting & International Conference</p>
-                <span class="badge">Award</span>
-            </div>
-
-            <h2 class="year-title" style="margin-top: 60px;">2024</h2>
-
-            <div class="news-item">
-                <p class="news-date">December 2024</p>
-                <h3>Successful Ph.D. Defense</h3>
-                <p>Joonyoung Park successfully defended his doctoral thesis</p>
-                <span class="badge">Graduation</span>
-            </div>
-
-            <div class="news-item">
-                <p class="news-date">December 2024</p>
-                <h3>Master's Degree Completion</h3>
-                <p>Yunseo Kim successfully defended her master thesis</p>
-                <span class="badge">Graduation</span>
-            </div>
-
-            <div class="news-item">
-                <p class="news-date">April 2024</p>
-                <h3>Conference Recognition</h3>
-                <p>Ina Bang and Joonyoung Park received best poster presentation awards at 2024 KIChE and KSBB spring meetings</p>
-                <span class="badge">Award</span>
-            </div>
-
-            <h2 class="year-title" style="margin-top: 60px;">2023</h2>
-
-            <div class="news-item">
-                <p class="news-date">December 2023</p>
-                <h3>Ph.D. Completion</h3>
-                <p>Seyoung Ko successfully defended his doctoral thesis</p>
-                <span class="badge">Graduation</span>
-            </div>
-
-            <div class="news-item">
-                <p class="news-date">December 2023</p>
-                <h3>International Invited Talk</h3>
-                <p>Dr. Donghyuk Kim gave an invited talk at the Asian Synthetic Biology Association 2023 in Japan</p>
-                <span class="badge">Invited Talk</span>
-            </div>
-
-            <div class="news-item">
-                <p class="news-date">November 2023</p>
-                <h3>Conference Presentation in India</h3>
-                <p>Dr. Donghyuk Kim gave an invited talk at BIOSPECTRUM 2023 in India</p>
-                <span class="badge">Invited Talk</span>
-            </div>
+            <h1>News & Achievements</h1>
+            <p>Latest updates from our lab</p>
         </div>
-    </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Systems Biology and Machine Learning Lab</h4>
-                    <p>Department of Chemical Engineering<br>School of Energy and Chemical Engineering<br>UNIST</p>
+        <section>
+            <div class="container" id="news-container">
                 </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Tel: 052-217-2945<br>Email: <a href="mailto:dkim@unist.ac.kr">dkim@unist.ac.kr</a></p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <p><a href="research.html">Research</a><br><a href="publications.html">Publications</a><br><a href="members.html">Members</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">Copyright © 2025 SBML | All rights reserved</div>
-        </div>
-    </footer>
-</body>
-</html>
+        </section>
+
+        <script src="news-data.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const container = document.getElementById('news-container');
+                let currentYear = null;
+
+                newsData.forEach(item => {
+                    // 연도가 바뀔 때마다 제목 삽입 (기존 .year-title 스타일 적용)
+                    if (item.year !== currentYear) {
+                        currentYear = item.year;
+                        const yearTitle = document.createElement('h2');
+                        yearTitle.className = 'year-title';
+                        // 첫 번째 연도가 아니면 상단 여백 추가 (기존 디자인 반영)
+                        if (container.children.length > 0) {
+                            yearTitle.style.marginTop = '60px';
+                        }
+                        yearTitle.textContent = currentYear;
+                        container.appendChild(yearTitle);
+                    }
+
+                    // 뉴스 카드 생성 (기존 .news-item 구조 유지)
+                    const newsItem = document.createElement('div');
+                    newsItem.className = 'news-item';
+                    newsItem.innerHTML = `
+                        <p class="news-date">${item.month} ${item.year}</p>
+                        <h3>${item.title}</h3>
+                        <p>${item.desc}</p>
+                        <span class="badge">${item.tag}</span>
+                    `;
+                    container.appendChild(newsItem);
+                });
+            });
+        </script>
+    </body>
+    </html>

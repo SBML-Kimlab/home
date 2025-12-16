@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SBML - Systems Biology and Machine Learning Lab | UNIST</title>
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet"/>
@@ -14,7 +13,8 @@
         :root {
             /* 색상 테마 */
             --primary: #3D7684;
-            --primary-dark: #2d5661;
+            --primary-light: #6fbccf;
+            --primary-glow: #a5f3fc;
             --secondary: #516F75;
             --accent: #FF6F00;
             --dark: #0f172a;
@@ -23,387 +23,190 @@
             --bg-light: #f8fafc;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans KR', sans-serif; color: var(--text); line-height: 1.6; }
         
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            color: var(--text);
-            line-height: 1.6;
-        }
-        
-        /* 네비게이션 */
+        /* Navigation */
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
+            position: fixed; top: 0; width: 100%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             z-index: 1000;
         }
-        
         .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
+            max-width: 1400px; margin: 0 auto; padding: 0 40px;
+            display: flex; justify-content: space-between; align-items: center; height: 80px;
         }
+        .logo { font-size: 24px; font-weight: 800; color: var(--primary); text-decoration: none; }
+        .nav-links { display: flex; gap: 40px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text); font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
         
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--primary);
-            letter-spacing: -0.5px;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        /* 히어로 섹션 */
+        /* HERO SECTION */
         .hero {
             margin-top: 80px;
-            min-height: 90vh;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            height: 90vh; 
+            background: radial-gradient(circle at 40% 50%, #1e293b 0%, #020617 90%);
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
         }
-        
-        .hero::before {
-            content: '';
+
+        #metabolic-canvas {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,101.3C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
         }
         
-        .hero-content {
-            max-width: 1400px;
+        .hero-container {
+            max-width: 1600px;
+            width: 100%;
             margin: 0 auto;
             padding: 0 40px;
             position: relative;
             z-index: 1;
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            align-items: center;
+        }
+
+        .hero-visual-space { height: 100%; }
+        
+        .hero-content {
+            text-align: left; 
+            padding-left: 36px;
+            background: rgba(15, 23, 42, 0.3);
+            backdrop-filter: blur(5px);
+            padding: 36px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
         
         .hero h1 {
             font-size: 64px;
             font-weight: 900;
             color: white;
-            margin-bottom: 20px;
-            line-height: 1.2;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         
         .hero h2 {
-            font-size: 32px;
-            color: rgba(255,255,255,0.95);
+            font-size: 24px;
+            color: var(--primary-light); 
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero h2::after {
+            content: '';
+            display: inline-block;
+            width: 10px; height: 3px;
+            background: var(--primary-light);
+            animation: blink 1s infinite;
         }
         
         .hero p {
-            font-size: 20px;
-            color: rgba(255,255,255,0.9);
+            font-size: 18px;
+            color: #cbd5e1; 
             margin-bottom: 40px;
             line-height: 1.8;
         }
         
         .hero-btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             padding: 16px 40px;
-            background: white;
-            color: var(--primary);
+            background: rgba(61, 118, 132, 0.8); 
+            color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            font-size: 16px;
+            border: 1px solid var(--primary-light);
             transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(61, 118, 132, 0.4);
         }
         
         .hero-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
-        }
-        
-        /* 섹션 공통 */
-        section {
-            padding: 100px 0;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-        
-        .section-title {
-            font-size: 42px;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-light);
-            font-size: 18px;
-            margin-bottom: 60px;
-        }
-        
-        /* Research Areas */
-        .research-areas {
-            background: white;
-        }
-        
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .research-card {
-            background: var(--bg-light);
-            padding: 40px;
-            border-radius: 16px;
-            transition: all 0.3s;
-            border-left: 4px solid var(--primary);
-        }
-        
-        .research-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-        }
-        
-        .research-card i {
-            font-size: 40px;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .research-card h3 {
-            font-size: 22px;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-        
-        .research-card p {
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-        
-        /* Publications */
-        .publications {
-            background: var(--bg-light);
-        }
-        
-        .pub-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .pub-card {
-            background: white;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: all 0.3s;
-        }
-        
-        .pub-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-        }
-        
-        .pub-card h4 {
-            font-size: 17px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--text);
-            line-height: 1.4;
-        }
-        
-        .pub-card .authors {
-            display: block;
-            color: var(--text-light);
-            font-size: 14px;
-            margin-bottom: 8px;
-        }
-        
-        .pub-card .journal {
-            display: inline-block;
             background: var(--primary);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        
-        .view-more {
-            text-align: center;
-            margin-top: 40px;
-        }
-        
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 32px;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .btn-primary:hover {
-            background: var(--primary-dark);
+            box-shadow: 0 0 40px rgba(61, 118, 132, 0.8);
             transform: translateX(5px);
         }
+
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* 섹션 공통 */
+        section { padding: 100px 0; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+        .section-title { font-size: 42px; font-weight: 800; text-align: center; margin-bottom: 20px; color: var(--primary); }
+        .section-subtitle { text-align: center; color: var(--text-light); font-size: 18px; margin-bottom: 60px; }
+        
+        /* Research Areas */
+        .research-areas { background: white; }
+        .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .research-card { background: var(--bg-light); padding: 40px; border-radius: 16px; transition: all 0.3s; border-left: 4px solid var(--primary); }
+        .research-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
+        .research-card i { font-size: 40px; color: var(--primary); margin-bottom: 20px; }
+        .research-card h3 { font-size: 22px; margin-bottom: 16px; color: var(--text); }
+        .research-card p { color: var(--text-light); line-height: 1.8; }
+        
+        /* Publications */
+        .publications { background: var(--bg-light); }
+        .pub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
+        .pub-card { background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s; }
+        .pub-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
+        .pub-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 12px; color: var(--text); line-height: 1.4; }
+        .pub-card .authors { display: block; color: var(--text-light); font-size: 14px; margin-bottom: 8px; }
+        .pub-card .journal { display: inline-block; background: var(--primary); color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .view-more { text-align: center; margin-top: 40px; }
+        .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s; }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateX(5px); }
         
         /* News Section */
-        .news-section {
-            background: white;
-        }
-        
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .news-card {
-            background: var(--bg-light);
-            padding: 30px;
-            border-radius: 16px;
-            transition: all 0.3s;
-        }
-        
-        .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-        }
-        
-        .news-date {
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
-        
-        .news-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 12px;
-        }
-        
-        .news-desc {
-            color: var(--text-light);
-            font-size: 14px;
-            line-height: 1.6;
-        }
+        .news-section { background: white; }
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .news-card { background: var(--bg-light); padding: 30px; border-radius: 16px; transition: all 0.3s; }
+        .news-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
+        .news-date { color: var(--primary); font-weight: 600; font-size: 14px; margin-bottom: 12px; }
+        .news-title { font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 12px; }
+        .news-desc { color: var(--text-light); font-size: 14px; line-height: 1.6; }
         
         /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 60px 0 30px;
-        }
+        footer { background: var(--dark); color: white; padding: 60px 0 30px; }
+        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 40px; }
+        .footer-section h4 { margin-bottom: 20px; font-size: 18px; }
+        .footer-section p, .footer-section a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; line-height: 2; }
+        .footer-section a:hover { color: var(--primary); }
+        .footer-bottom { padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; color: rgba(255,255,255,0.5); font-size: 14px; }
         
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-section h4 {
-            margin-bottom: 20px;
-            font-size: 18px;
-        }
-        
-        .footer-section p, .footer-section a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            font-size: 14px;
-            line-height: 2;
-        }
-        
-        .footer-section a:hover {
-            color: var(--primary);
-        }
-        
-        .footer-bottom {
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-            color: rgba(255,255,255,0.5);
-            font-size: 14px;
-        }
-        
-        /* 반응형 */
         @media (max-width: 1024px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 42px;
-            }
-            
-            .hero h2 {
-                font-size: 24px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
+            .nav-links { display: none; }
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero-content { padding-left: 0; margin-top: 300px; padding: 20px; } 
+            .hero h1 { font-size: 42px; }
+            .hero h2 { justify-content: center; }
+            .footer-content { grid-template-columns: 1fr; gap: 40px; }
         }
         
         @media (max-width: 768px) {
-            .section-title {
-                font-size: 32px;
-            }
-            
-            .pub-grid, .research-grid, .news-grid {
-                grid-template-columns: 1fr;
-            }
+            .section-title { font-size: 32px; }
+            .pub-grid, .research-grid, .news-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">SBML</div>
+            <a href="index.html" class="logo">SBML</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="research.html">Research</a></li>
@@ -416,17 +219,27 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h2>Systems Biology and Machine Learning Lab</h2>
-            <h1>Decoding Life<br>Through Data</h1>
-            <p>UNIST School of Energy and Chemical Engineering</p>
-            <a href="#research" class="hero-btn">Explore Our Research</a>
+        <canvas id="metabolic-canvas"></canvas>
+        
+        <div class="hero-container">
+            <div class="hero-visual-space">
+                </div>
+            
+            <div class="hero-content">
+                <h2>Systems Biology & Machine Learning Lab.</h2>
+                <h1>Decoding Life<br>Through Data-Driven AI</h1>
+                <p>
+                    Reconstructing genome-scale metabolic models (GEMs) for bacterial systems.<br>
+                    From <i>E. coli</i> to novel industrial strains, we map the complexity of life.
+                </p>
+                <a href="research.html" class="hero-btn">
+                    Explore Our Research <i class="ri-arrow-right-line"></i>
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Research Areas -->
     <section class="research-areas" id="research">
         <div class="container">
             <h2 class="section-title">Research Areas</h2>
@@ -438,31 +251,26 @@
                     <h3>Transcriptional Regulation</h3>
                     <p>Understanding transcriptional regulation of bacterial pathogens including <i>Salmonella</i> and <i>E. coli</i> using ChIP-seq and RNA-seq analysis</p>
                 </div>
-                
                 <div class="research-card">
                     <i class="ri-test-tube-line"></i>
                     <h3>High-Value Bacterial Strains</h3>
                     <p>Characterization and optimization of industrially important bacterial strains for biotechnology applications</p>
                 </div>
-                
                 <div class="research-card">
                     <i class="ri-shield-cross-line"></i>
                     <h3>Anti-Microbial Resistance</h3>
                     <p>Investigating mechanisms of antimicrobial resistance and developing strategies to combat resistant pathogens</p>
                 </div>
-                
                 <div class="research-card">
                     <i class="ri-brain-line"></i>
                     <h3>Machine Learning</h3>
                     <p>Developing ML frameworks for biological data analysis, battery health management, and energy systems</p>
                 </div>
-                
                 <div class="research-card">
                     <i class="ri-flask-line"></i>
                     <h3>Genome-Scale Modeling</h3>
                     <p>Reconstructing and analyzing genome-scale metabolic models for understanding complex biological systems</p>
                 </div>
-                
                 <div class="research-card">
                     <i class="ri-battery-charging-line"></i>
                     <h3>Energy Systems</h3>
@@ -472,33 +280,11 @@
         </div>
     </section>
 
-    <!-- Recent Publications -->
     <section class="publications">
         <div class="container">
             <h2 class="section-title">Recent Publications</h2>
             
-            <div class="pub-grid">
-                <div class="pub-card">
-                    <h4>Next generation feasibility study model on H2 production process</h4>
-                    <span class="authors">Byun M, Park S, Lee A, Kim J, Scott-Nevros ZK, Park JY, Lim H*, Kim D*</span>
-                    <br><br>
-                    <span class="journal">In revision</span>
-                </div>
-                
-                <div class="pub-card">
-                    <h4>Transformer-based framework for configuration-agnostic Li-ion battery SoH estimation</h4>
-                    <span class="authors">Kim D et al.</span>
-                    <br><br>
-                    <span class="journal">Under review</span>
-                </div>
-                
-                <div class="pub-card">
-                    <h4>Machine learning approaches for biological information analysis</h4>
-                    <span class="authors">Kim YJ, Lim J, Sukweenadhi J, et al.</span>
-                    <br><br>
-                    <span class="journal">Biotechnol Bioprocess Eng</span>
-                </div>
-            </div>
+            <div class="pub-grid" id="recent-pubs"></div>
             
             <div class="view-more">
                 <a href="publications.html" class="btn-primary">
@@ -509,30 +295,11 @@
         </div>
     </section>
 
-    <!-- News Section -->
     <section class="news-section">
         <div class="container">
             <h2 class="section-title">Latest News</h2>
             
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-date">2025</div>
-                    <div class="news-title">New Research Breakthrough</div>
-                    <div class="news-desc">Our latest work on machine learning for battery systems has been submitted for publication</div>
-                </div>
-                
-                <div class="news-card">
-                    <div class="news-date">2025</div>
-                    <div class="news-title">Patent Filed</div>
-                    <div class="news-desc">Device and method for predicting coenzyme preference of enzyme based on AI model</div>
-                </div>
-                
-                <div class="news-card">
-                    <div class="news-date">2025</div>
-                    <div class="news-title">New Lab Members</div>
-                    <div class="news-desc">Welcome to our new graduate students joining the lab this semester</div>
-                </div>
-            </div>
+            <div class="news-grid" id="recent-news"></div>
             
             <div class="view-more">
                 <a href="news.html" class="btn-primary">
@@ -543,7 +310,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -578,19 +344,192 @@
         </div>
     </footer>
 
+    <script src="publications-data.js"></script>
+    <script src="news-data.js"></script>
+    
     <script>
-        // Smooth scrolling
+        // Hero Canvas Script
+        const canvas = document.getElementById('metabolic-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        
+        const config = {
+            nodeColor: 'rgba(61, 118, 132, 0.7)',
+            lineColor: 'rgba(111, 188, 207, 0.2)',
+            fluxColor: '#a5f3fc',
+            fluxSpeed: 1.5,
+            offsetX: 0.3,
+            scale: 1.0
+        };
+
+        let nodes = [];
+        let edges = [];
+        let fluxes = [];
+
+        function definePathway() {
+            nodes = []; edges = []; fluxes = [];
+            const cx = width * config.offsetX; 
+            const cy = height * 0.1;
+            const stepY = height * 0.07;
+            const stepX = width * 0.04;
+
+            // Nodes
+            nodes.push({id: "GLC", x: cx - stepX*2, y: cy, size: 7});
+            nodes.push({id: "G6P", x: cx, y: cy + stepY, size: 7});
+            nodes.push({id: "F6P", x: cx, y: cy + stepY*2, size: 6});
+            nodes.push({id: "FBP", x: cx, y: cy + stepY*3, size: 6});
+            nodes.push({id: "G3P", x: cx, y: cy + stepY*4, size: 6});
+            nodes.push({id: "PEP", x: cx, y: cy + stepY*5.5, size: 6});
+            nodes.push({id: "PYR", x: cx, y: cy + stepY*7, size: 9});
+            nodes.push({id: "6PG", x: cx + stepX*2, y: cy + stepY*1.2, size: 5});
+            nodes.push({id: "R5P", x: cx + stepX*3, y: cy + stepY*2.5, size: 5});
+            nodes.push({id: "E4P", x: cx + stepX*2, y: cy + stepY*3.5, size: 5});
+            nodes.push({id: "KDPG", x: cx + stepX*1.5, y: cy + stepY*5, size: 5});
+            const tcaCenterY = cy + stepY * 9.5;
+            const tcaRadius = height * 0.13; 
+            nodes.push({id: "AcCoA", x: cx, y: cy + stepY*8, size: 8});
+            nodes.push({id: "CIT", x: cx + tcaRadius * Math.cos(-Math.PI/2 + 0.7), y: tcaCenterY + tcaRadius * Math.sin(-Math.PI/2 + 0.7), size: 6});
+            nodes.push({id: "ICT", x: cx + tcaRadius, y: tcaCenterY, size: 6});
+            nodes.push({id: "AKG", x: cx + tcaRadius * Math.cos(Math.PI/4), y: tcaCenterY + tcaRadius * Math.sin(Math.PI/4), size: 6});
+            nodes.push({id: "SUC", x: cx, y: tcaCenterY + tcaRadius, size: 6});
+            nodes.push({id: "FUM", x: cx + tcaRadius * Math.cos(3*Math.PI/4), y: tcaCenterY + tcaRadius * Math.sin(3*Math.PI/4), size: 6});
+            nodes.push({id: "MAL", x: cx - tcaRadius, y: tcaCenterY, size: 6});
+            nodes.push({id: "OAA", x: cx + tcaRadius * Math.cos(5*Math.PI/4), y: tcaCenterY + tcaRadius * Math.sin(5*Math.PI/4), size: 7});
+            nodes.push({id: "LAC", x: cx - stepX*3, y: cy + stepY*7.5, size: 5});
+            nodes.push({id: "AC", x: cx + stepX*3, y: cy + stepY*8.5, size: 5});
+            nodes.push({id: "ETOH", x: cx + stepX*4, y: cy + stepY*8, size: 5});
+
+            const E = (s, t) => edges.push([s, t]);
+            E(0, 1); E(1, 2); E(2, 3); E(3, 4); E(4, 5); E(5, 6);
+            E(1, 7); E(7, 8); E(8, 2); E(8, 4);
+            E(7, 10); E(10, 6); E(10, 4);
+            E(6, 11); E(5, 18);
+            E(11, 12); E(18, 12); E(12, 13); E(13, 14); E(14, 15); E(15, 16); E(16, 17); E(17, 18);
+            E(6, 19); E(11, 20); E(11, 21);
+
+            for(let i=0; i<40; i++) {
+                nodes.push({ x: Math.random() * width, y: Math.random() * height, size: Math.random() * 2 + 0.5, isBackground: true });
+            }
+        }
+
+        class FluxPacket {
+            constructor(path) {
+                this.path = path; this.currentLeg = 0; this.progress = 0;
+                this.speed = (Math.random() * 0.5 + 0.5) * config.fluxSpeed * 0.015;
+                this.finished = false;
+            }
+            update() {
+                this.progress += this.speed;
+                if (this.progress >= 1) { this.progress = 0; this.currentLeg++; if (this.currentLeg >= this.path.length - 1) this.finished = true; }
+            }
+            draw() {
+                if (this.finished) return;
+                const startNode = nodes[this.path[this.currentLeg]];
+                const endNode = nodes[this.path[this.currentLeg+1]];
+                const x = startNode.x + (endNode.x - startNode.x) * this.progress;
+                const y = startNode.y + (endNode.y - startNode.y) * this.progress;
+                ctx.beginPath(); ctx.arc(x, y, 3, 0, Math.PI * 2); ctx.fillStyle = config.fluxColor; ctx.fill();
+                ctx.shadowBlur = 8; ctx.shadowColor = config.fluxColor;
+            }
+        }
+
+        function spawnFlux() {
+            const rand = Math.random(); let path = [];
+            if (rand < 0.4) path = [0, 1, 2, 3, 4, 5, 6, 11, 12, 13, 14, 15, 16, 17, 18];
+            else if (rand < 0.55) path = [0, 1, 2, 3, 4, 5, 6, 19];
+            else if (rand < 0.7) path = [0, 1, 2, 3, 4, 5, 6, 11, 21];
+            else if (rand < 0.85) path = [0, 1, 7, 8, 2, 3];
+            else path = [0, 1, 7, 10, 6, 11];
+            fluxes.push(new FluxPacket(path));
+        }
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = document.querySelector('.hero').offsetHeight;
+            definePathway();
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.shadowBlur = 0; ctx.lineWidth = 1; ctx.strokeStyle = config.lineColor;
+            edges.forEach(edge => {
+                const n1 = nodes[edge[0]]; const n2 = nodes[edge[1]];
+                ctx.beginPath(); ctx.moveTo(n1.x, n1.y); ctx.lineTo(n2.x, n2.y); ctx.stroke();
+            });
+            nodes.forEach(node => {
+                ctx.beginPath(); ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
+                ctx.fillStyle = node.isBackground ? 'rgba(61, 118, 132, 0.1)' : config.nodeColor; ctx.fill();
+            });
+            if (Math.random() < 0.05) spawnFlux();
+            ctx.shadowBlur = 10;
+            for (let i = fluxes.length - 1; i >= 0; i--) {
+                fluxes[i].update(); fluxes[i].draw(); if (fluxes[i].finished) fluxes.splice(i, 1);
+            }
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', resize);
+        resize(); animate();
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // --------------------------------------------------------
+        // Data Linking Script (Modified for Published Papers Only)
+        // --------------------------------------------------------
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- 1. Recent Publications (Filter: Published only) ---
+            const pubContainer = document.getElementById('recent-pubs');
+            let recentPubs = [];
+            
+            // "submitted" 키는 건너뛰고, 최근 연도부터 순서대로 가져옵니다.
+            // 데이터 구조상 연도 키("2025", "2024" 등)만 사용합니다.
+            const years = ["2025", "2024", "2023"]; // 표시할 최근 연도 범위 설정
+
+            years.forEach(year => {
+                if(publicationsData[year] && publicationsData[year].items) {
+                    recentPubs.push(...publicationsData[year].items);
                 }
             });
+
+            // 상위 3개만 자름
+            const top3Pubs = recentPubs.slice(0, 3);
+
+            let pubHtml = '';
+            top3Pubs.forEach(item => {
+                pubHtml += `
+                    <div class="pub-card">
+                        <h4>${item.title}</h4>
+                        <span class="authors">${item.authors}</span>
+                        <br><br>
+                        <span class="journal">${item.journal}</span>
+                    </div>
+                `;
+            });
+            pubContainer.innerHTML = pubHtml;
+
+
+            // --- 2. Recent News ---
+            const newsContainer = document.getElementById('recent-news');
+            const top3News = newsData.slice(0, 3);
+
+            let newsHtml = '';
+            top3News.forEach(item => {
+                newsHtml += `
+                    <div class="news-card">
+                        <div class="news-date">${item.year}</div>
+                        <div class="news-title">${item.title}</div>
+                        <div class="news-desc">${item.desc}</div>
+                    </div>
+                `;
+            });
+            newsContainer.innerHTML = newsHtml;
         });
     </script>
 </body>
