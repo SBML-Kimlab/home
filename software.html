@@ -6,122 +6,70 @@
     <title>Software - SBML | UNIST</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet"/>
-    <style>
-        :root {--primary: #3D7684;--primary-dark: #2d5661;--secondary: #516F75;--dark: #0f172a;--text: #1e293b;--text-light: #64748b;--bg-light: #f8fafc;}
-        * {margin: 0;padding: 0;box-sizing: border-box;}
-        body {font-family: 'Noto Sans KR', sans-serif;color: var(--text);line-height: 1.6;}
-        nav {position: fixed;top: 0;width: 100%;background: rgba(255, 255, 255, 0.95);backdrop-filter: blur(10px);box-shadow: 0 1px 3px rgba(0,0,0,0.1);z-index: 1000;}
-        .nav-container {max-width: 1400px;margin: 0 auto;padding: 0 40px;display: flex;justify-content: space-between;align-items: center;height: 80px;}
-        .logo {font-size: 24px;font-weight: 800;color: var(--primary);text-decoration: none;}
-        .nav-links {display: flex;gap: 40px;list-style: none;}
-        .nav-links a {text-decoration: none;color: var(--text);font-weight: 500;transition: color 0.3s;}
-        .nav-links a:hover, .nav-links a.active {color: var(--primary);}
-        .page-header {margin-top: 80px;padding: 80px 0;background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);color: white;text-align: center;}
-        .page-header h1 {font-size: 48px;margin-bottom: 20px;}
-        .page-header p {font-size: 20px;opacity: 0.9;}
-        section {padding: 80px 0;}
-        .container {max-width: 1400px;margin: 0 auto;padding: 0 40px;}
-        .software-grid {display: grid;grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));gap: 40px;}
-        .software-card {background: white;border-radius: 16px;padding: 40px;box-shadow: 0 4px 12px rgba(0,0,0,0.08);transition: all 0.3s;}
-        .software-card:hover {transform: translateY(-10px);box-shadow: 0 12px 24px rgba(0,0,0,0.15);}
-        .software-icon {width: 80px;height: 80px;background: var(--primary);border-radius: 16px;display: flex;align-items: center;justify-content: center;font-size: 40px;color: white;margin-bottom: 25px;}
-        .software-card h3 {font-size: 24px;color: var(--text);margin-bottom: 15px;}
-        .software-card .description {color: var(--text-light);margin-bottom: 20px;line-height: 1.8;}
-        .software-card .tags {display: flex;gap: 10px;flex-wrap: wrap;margin-bottom: 20px;}
-        .software-card .tag {background: var(--bg-light);color: var(--primary);padding: 6px 14px;border-radius: 20px;font-size: 12px;font-weight: 600;}
-        .software-card .links {display: flex;gap: 15px;}
-        .software-card .btn {display: inline-flex;align-items: center;gap: 8px;padding: 12px 24px;background: var(--primary);color: white;text-decoration: none;border-radius: 8px;font-weight: 600;transition: all 0.3s;}
-        .software-card .btn:hover {background: var(--primary-dark);}
-        .software-card .btn-secondary {background: var(--bg-light);color: var(--primary);}
-        .software-card .btn-secondary:hover {background: #e2e8f0;}
-        footer {background: var(--dark);color: white;padding: 60px 0 30px;}
-        .footer-content {display: grid;grid-template-columns: 2fr 1fr 1fr;gap: 60px;margin-bottom: 40px;}
-        .footer-section h4 {margin-bottom: 20px;font-size: 18px;}
-        .footer-section p, .footer-section a {color: rgba(255,255,255,0.7);text-decoration: none;font-size: 14px;line-height: 2;}
-        .footer-section a:hover {color: var(--primary);}
-        .footer-bottom {padding-top: 30px;border-top: 1px solid rgba(255,255,255,0.1);text-align: center;color: rgba(255,255,255,0.5);font-size: 14px;}
-        @media (max-width: 1024px) {.nav-links {display: none;}.footer-content {grid-template-columns: 1fr;gap: 40px;}}
-        @media (max-width: 768px) {.page-header h1 {font-size: 36px;}.software-grid {grid-template-columns: 1fr;}}
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">SBML</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="software.html" class="active">Software</a></li>
-                <li><a href="members.html">Members</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div id="nav-placeholder"></div>
+
     <div class="page-header">
-            <h1>Software & Tools</h1>
-            <p>Open-source tools developed by our lab</p>
-        </div>
+        <h1>Software & Tools</h1>
+        <p>Open-source tools developed by our lab</p>
+    </div>
 
-        <section>
-            <div class="container">
-                <div class="software-grid" id="software-list"></div>
+    <section>
+        <div class="container">
+            <div class="software-grid" id="software-list"></div>
 
-                <div style="background: var(--bg-light); padding: 50px; border-radius: 16px; margin-top: 80px; text-align: center;">
-                    <h2 style="font-size: 32px; color: var(--primary); margin-bottom: 20px;">
-                        <i class="ri-open-source-line"></i> Open Source Commitment
-                    </h2>
-                    <p style="font-size: 18px; color: var(--text-light); max-width: 800px; margin: 0 auto;">
-                        We believe in open science and make our software tools publicly available. 
-                        All tools are released under permissive licenses to enable reproducible research and community contributions.
-                    </p>
-                </div>
+            <div style="background: var(--bg-light); padding: 50px; border-radius: 16px; margin-top: 80px; text-align: center;">
+                <h2 style="font-size: 32px; color: var(--primary); margin-bottom: 20px;">
+                    <i class="ri-open-source-line"></i> Open Source Commitment
+                </h2>
+                <p style="font-size: 18px; color: var(--text-light); max-width: 800px; margin: 0 auto;">
+                    We believe in open science and make our software tools publicly available. 
+                    All tools are released under permissive licenses to enable reproducible research and community contributions.
+                </p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <script src="software-data.js"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const container = document.getElementById('software-list');
-                let html = '';
+    <div id="footer-placeholder"></div>
 
-                softwareData.forEach(tool => {
-                    // 태그 생성 (기존 .tag 클래스 적용)
-                    const tagsHtml = tool.tags.map(tag => 
-                        `<span class="tag">${tag}</span>`
-                    ).join('');
-                    
-                    // 링크 버튼 생성 (기존 .btn, .btn-secondary 클래스 적용)
-                    const linksHtml = tool.links.map(link => {
-                        const btnClass = link.type === 'primary' ? 'btn' : 'btn btn-secondary';
-                        return `
-                            <a href="${link.url}" class="${btnClass}">
-                                <i class="${link.icon || 'ri-link'}"></i>
-                                ${link.text}
-                            </a>`;
-                    }).join('');
+    <script src="software-data.js"></script>
+    <script src="common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('software-list');
+            let html = '';
 
-                    // 카드 HTML 생성 (.software-card 구조 유지)
-                    html += `
-                        <div class="software-card">
-                            <div class="software-icon">
-                                <i class="${tool.icon}"></i>
-                            </div>
-                            <h3>${tool.title}</h3>
-                            <p class="description">${tool.desc}</p>
-                            <div class="tags">
-                                ${tagsHtml}
-                            </div>
-                            <div class="links">
-                                ${linksHtml}
-                            </div>
+            softwareData.forEach(tool => {
+                const tagsHtml = tool.tags.map(tag => 
+                    `<span class="tag">${tag}</span>`
+                ).join('');
+                
+                const linksHtml = tool.links.map(link => {
+                    const btnClass = link.type === 'primary' ? 'btn' : 'btn btn-secondary';
+                    return `
+                        <a href="${link.url}" class="${btnClass}">
+                            <i class="${link.icon || 'ri-link'}"></i>
+                            ${link.text}
+                        </a>`;
+                }).join('');
+
+                html += `
+                    <div class="software-card">
+                        <div class="software-icon">
+                            <i class="${tool.icon}"></i>
                         </div>
-                    `;
-                });
-
-                container.innerHTML = html;
+                        <h3>${tool.title}</h3>
+                        <p class="description">${tool.desc}</p>
+                        <div class="tags">${tagsHtml}</div>
+                        <div class="links">${linksHtml}</div>
+                    </div>
+                `;
             });
-        </script>
-    </body>
-    </html>
+
+            container.innerHTML = html;
+        });
+    </script>
+</body>
+</html>

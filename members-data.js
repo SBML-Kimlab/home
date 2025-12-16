@@ -2,6 +2,8 @@ const membersData = {
     pi: {
         name: "Donghyuk Kim, Ph.D.",
         title: "Associate Professor",
+        // 아래에 교수님 사진 파일명을 넣으세요 (예: "dkim.jpg")
+        img: "", 
         affiliation: "School of Energy and Chemical Engineering, UNIST<br>(2020.09 ~ Present)",
         education: [
             "Ph.D., University of California San Diego, Bioengineering",
@@ -11,16 +13,62 @@ const membersData = {
         website: "https://sites.google.com/site/donghyukkim0/"
     },
     students: [
-        { name: "Minchang Jang", degree: "Ph.D. Student", info: "Transcriptional regulatory networks<br>ChIP-seq analysis", icon: "ri-user-star-line" },
-        { name: "Jihoon Woo", degree: "Ph.D. Student", info: "Enzyme engineering<br>Machine learning", icon: "ri-user-star-line" },
-        { name: "Ina Bang", degree: "Ph.D. Student", info: "Codon optimization<br>Genome-scale modeling", icon: "ri-user-star-line" },
-        { name: "Jaehyung Kim", degree: "M.S./Ph.D. Student", info: "Systems biology<br>Data analysis", icon: "ri-user-star-line" },
-        { name: "Seoyoung Kim", degree: "M.S./Ph.D. Student", info: "Metabolic engineering", icon: "ri-user-star-line" },
-        { name: "Gayoung Nong", degree: "Ph.D. Student", info: "Computational biology", icon: "ri-user-star-line" }
+        { 
+            name: "Minchang Jang", 
+            degree: "Ph.D. Student", 
+            info: "Transcriptional regulatory networks<br>ChIP-seq analysis", 
+            icon: "ri-user-star-line",
+            img: "gyumin.jpg" // 예: "minchang.jpg" 
+        },
+        { 
+            name: "Jihoon Woo", 
+            degree: "Ph.D. Student", 
+            info: "Enzyme engineering<br>Machine learning", 
+            icon: "ri-user-star-line",
+            img: "" // 예: "jihoon.jpg"
+        },
+        { 
+            name: "Ina Bang", 
+            degree: "Ph.D. Student", 
+            info: "Codon optimization<br>Genome-scale modeling", 
+            icon: "ri-user-star-line",
+            img: ""
+        },
+        { 
+            name: "Jaehyung Kim", 
+            degree: "M.S./Ph.D. Student", 
+            info: "Systems biology<br>Data analysis", 
+            icon: "ri-user-star-line",
+            img: ""
+        },
+        { 
+            name: "Seoyoung Kim", 
+            degree: "M.S./Ph.D. Student", 
+            info: "Metabolic engineering", 
+            icon: "ri-user-star-line",
+            img: ""
+        },
+        { 
+            name: "Gayoung Nong", 
+            degree: "Ph.D. Student", 
+            info: "Computational biology", 
+            icon: "ri-user-star-line",
+            img: ""
+        }
     ],
     undergraduate: [
-        { name: "Sejeong Hwang", degree: "Undergraduate Intern", info: "2025 U-SURF" },
-        { name: "Sohee Yoon", degree: "Undergraduate Intern", info: "2025 U-WURF" }
+        { 
+            name: "Sejeong Hwang", 
+            degree: "Undergraduate Intern", 
+            info: "2025 U-SURF",
+            img: "" 
+        },
+        { 
+            name: "Sohee Yoon", 
+            degree: "Undergraduate Intern", 
+            info: "2025 U-WURF",
+            img: "" 
+        }
     ],
     alumni: {
         phd: [
