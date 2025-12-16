@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - SBML | UNIST</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet"/>
+    
+    <style>
+        :root {
+            --primary: #3D7684;
+            --primary-dark: #2d5661;
+            --secondary: #516F75;
+            --accent: #FF6F00;
+            --dark: #0f172a;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        /* 네비게이션 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+        
+        /* 페이지 헤더 */
+        .page-header {
+            margin-top: 80px;
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+        
+        /* 섹션 */
+        section {
+            padding: 80px 0;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 50px;
+        }
+        
+        /* 연구 상세 카드 */
+        .research-detail {
+            background: white;
+            border-radius: 16px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary);
+        }
+        
+        .research-detail h3 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .research-detail h3 i {
+            font-size: 36px;
+        }
+        
+        .research-detail h4 {
+            font-size: 20px;
+            color: var(--text);
+            margin: 30px 0 15px 0;
+        }
+        
+        .research-detail p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .research-detail ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .research-detail li {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 2;
+        }
+        
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+        }
+        
+        /* 반응형 */
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .research-detail {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">SBML</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html" class="active">Research</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="software.html">Software</a></li>
+                <li><a href="members.html">Members</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Research</h1>
+        <p>Advancing systems biology and machine learning for biological discoveries</p>
+    </div>
+
+    <!-- Research Details -->
+    <section>
+        <div class="container">
+            <div class="research-detail">
+                <h3><i class="ri-bacteria-line"></i>Transcriptional Regulatory Network Reconstruction</h3>
+                
+                <p>Systems biology has benefited from improvements in omics technologies, leading to an interest in the comprehensive molecular processes that bacteria go through in response to their surroundings.</p>
+                
+                <h4>Approach</h4>
+                <p>By specifically utilizing Chromatin immunoprecipitation (ChIP-seq) and transcriptomics analysis (RNA-seq), we can reconstruct a transcriptional regulatory network (TRN) that offers insight into gene regulation and interaction in response to external stimuli.</p>
+                
+                <h4>Target Organisms</h4>
+                <ul>
+                    <li><i>Escherichia coli</i></li>
+                    <li><i>Salmonella</i> enterica</li>
+                    <li><i>Klebsiella</i> species</li>
+                    <li>Methylobacterium</li>
+                </ul>
+                
+                <h4>Tools & Methods</h4>
+                <p>To conduct the high-throughput experiment data analysis, we have developed a specific pipeline and deep-learning-based high-performance software for TRN reconstruction and analysis.</p>
+            </div>
+
+            <div class="research-detail">
+                <h3><i class="ri-flask-line"></i>Genome-Scale Metabolic Modeling</h3>
+                
+                <p>Genome-scale models (GSMs) are knowledge-based and experimentally validated mathematical representations of biological metabolism. Utilizing GSMs can provide insights into how biological systems function and help in the design of microbial cell factories.</p>
+                
+                <h4>Research Topics</h4>
+                <ul>
+                    <li>Genome-scale model reconstruction of high-value bacterial strains including <i>Streptomyces</i>, <i>Vibrio</i>, and C1 bacteria</li>
+                    <li>Model-based analysis to understand complex biological systems or to design microbial cell factories</li>
+                    <li>Omics data integration for biological discovery</li>
+                </ul>
+                
+                <h4>Applications</h4>
+                <p>Our models are used for metabolic engineering, pathway optimization, and predicting cellular behavior under various environmental conditions.</p>
+            </div>
+
+            <div class="research-detail">
+                <h3><i class="ri-test-tube-line"></i>Characterization of High-Value Bacterial Strains</h3>
+                
+                <p>We focus on understanding and optimizing industrially important bacterial strains for biotechnology applications.</p>
+                
+                <h4>Key Activities</h4>
+                <ul>
+                    <li>Metabolic pathway analysis and optimization</li>
+                    <li>Strain improvement through systems-level understanding</li>
+                    <li>Production of valuable compounds and enzymes</li>
+                    <li>Integration of multi-omics data for comprehensive characterization</li>
+                </ul>
+            </div>
+
+            <div class="research-detail">
+                <h3><i class="ri-shield-cross-line"></i>Anti-Microbial Resistance</h3>
+                
+                <p>Investigating mechanisms of antimicrobial resistance and developing strategies to combat resistant pathogens using systems biology approaches.</p>
+                
+                <h4>Research Focus</h4>
+                <ul>
+                    <li>Understanding resistance mechanisms at the systems level</li>
+                    <li>Identifying novel drug targets through network analysis</li>
+                    <li>Predicting resistance evolution</li>
+                    <li>Developing combination therapy strategies</li>
+                </ul>
+            </div>
+
+            <div class="research-detail">
+                <h3><i class="ri-brain-line"></i>Machine Learning for Biological Data</h3>
+                
+                <p>Developing and applying advanced machine learning frameworks for analyzing biological information and solving complex problems.</p>
+                
+                <h4>Applications</h4>
+                <ul>
+                    <li>Deep learning for transcriptomics data analysis</li>
+                    <li>Enzyme function prediction using AI models</li>
+                    <li>Protein engineering through machine learning</li>
+                    <li>Automated biological discovery from large-scale datasets</li>
+                </ul>
+            </div>
+
+            <div class="research-detail">
+                <h3><i class="ri-battery-charging-line"></i>Machine Learning for Energy Systems</h3>
+                
+                <p>Energy storage with lithium-ion batteries have been widely used for power sources due to their high energy density and convenience for management.</p>
+                
+                <h4>Battery Systems</h4>
+                <p>We are constructing general-purpose deep-learning frameworks for battery prognostics and health management, including:</p>
+                <ul>
+                    <li>State of Health (SoH) estimation</li>
+                    <li>Remaining Useful Life (RUL) prediction</li>
+                    <li>Configuration-agnostic models using Transformers</li>
+                </ul>
+                
+                <h4>Hydrogen Production</h4>
+                <p>Our research extends to energy generation systems such as hydrogen production. We study machine-learning frameworks for predicting the feasibility of hydrogen production systems, particularly in methanol steam reforming with membrane filters.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Systems Biology and Machine Learning Lab</h4>
+                    <p>Department of Chemical Engineering<br>
+                    School of Energy and Chemical Engineering<br>
+                    Ulsan National Institute of Science and Technology (UNIST)</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>
+                        Address: 50 UNIST-gil, Ulsan 44919, South Korea<br>
+                        Building 104, Room 403-1<br>
+                        Tel: 052-217-2945<br>
+                        Email: <a href="mailto:dkim@unist.ac.kr">dkim@unist.ac.kr</a>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <p>
+                        <a href="research.html">Research</a><br>
+                        <a href="publications.html">Publications</a><br>
+                        <a href="members.html">Members</a><br>
+                        <a href="contact.html">Contact</a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                Copyright © 2025 Systems Biology and Machine Learning Lab | All rights reserved
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
