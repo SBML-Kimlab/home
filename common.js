@@ -5,7 +5,9 @@ function loadNavigation() {
     const navHTML = `
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">SBML</a>
+            <a href="index.html" class="logo">
+                <img src="Icons/logo.png" alt="SBML Logo" style="height: 75px; vertical-align: left;">
+            </a>
 
             <ul class="nav-links">
                 <li><a href="index.html" data-page="index.html">Home</a></li>

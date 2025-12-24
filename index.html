@@ -15,19 +15,29 @@
     <section class="hero">
         <canvas id="metabolic-canvas"></canvas>
         <div class="hero-container">
-            <div class="hero-visual-space"></div>
+            
             <div class="hero-content">
-                <h2>Systems Biology & Machine Learning Lab.</h2>
-                <h1>Decoding Life<br>Through Data-Driven AI</h1>
-                <p>
-                    Reconstructing genome-scale metabolic models (GEMs) for bacterial systems.<br>
-                    From <i>E. coli</i> to novel industrial strains, we map the complexity of life.
-                </p>
+                <h2>Systems Biology &<br>Machine Learning Lab.</h2>
+                <h1>
+                    Decoding Life<br>
+                    Through<br>
+                    Data-Driven AI
+                </h1> 
                 <a href="research.html" class="hero-btn">
                     Explore Our Research <i class="ri-arrow-right-line"></i>
                 </a>
             </div>
+
+            <div class="hero-visual-space"></div>
+
         </div>
+
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div class="arrow"></div>
+        </div>            
     </section>
 
     <section class="research-areas" id="research">
@@ -38,7 +48,7 @@
                 <div class="research-card">
                     <i class="ri-bacteria-line"></i>
                     <h3>Transcriptional Regulation</h3>
-                    <p>Understanding transcriptional regulation of bacterial pathogens including <i>Salmonella</i> and <i>E. coli</i> using ChIP-seq and RNA-seq analysis</p>
+                    <p>Understanding transcriptional regulation of bacterial pathogens including <em>Salmonella</em> and <em>E. coli</em> using ChIP-seq and RNA-seq analysis</p>
                 </div>
                 <div class="research-card">
                     <i class="ri-test-tube-line"></i>
@@ -98,174 +108,27 @@
     <script src="publications-data.js"></script>
     <script src="news-data.js"></script>
     <script src="common.js"></script>
+    <script src="home-animation.js"></script>
     <script>
-        // Hero Canvas Script
-        const canvas = document.getElementById('metabolic-canvas');
-        const ctx = canvas.getContext('2d');
-        let width, height;
+    // [추가] 스크롤 인디케이터 클릭 이벤트
+    document.addEventListener('DOMContentLoaded', function() {
+        const scrollIndicator = document.querySelector('.scroll-indicator');
         
-        const config = {
-            nodeColor: 'rgba(61, 118, 132, 0.7)',
-            lineColor: 'rgba(111, 188, 207, 0.2)',
-            fluxColor: '#a5f3fc',
-            fluxSpeed: 1.5,
-            offsetX: 0.3,
-            scale: 1.0
-        };
-
-        let nodes = [];
-        let edges = [];
-        let fluxes = [];
-
-        function definePathway() {
-            nodes = []; edges = []; fluxes = [];
-            const cx = width * config.offsetX; 
-            const cy = height * 0.1;
-            const stepY = height * 0.07;
-            const stepX = width * 0.04;
-
-            nodes.push({id: "GLC", x: cx - stepX*2, y: cy, size: 7});
-            nodes.push({id: "G6P", x: cx, y: cy + stepY, size: 7});
-            nodes.push({id: "F6P", x: cx, y: cy + stepY*2, size: 6});
-            nodes.push({id: "FBP", x: cx, y: cy + stepY*3, size: 6});
-            nodes.push({id: "G3P", x: cx, y: cy + stepY*4, size: 6});
-            nodes.push({id: "PEP", x: cx, y: cy + stepY*5.5, size: 6});
-            nodes.push({id: "PYR", x: cx, y: cy + stepY*7, size: 9});
-            nodes.push({id: "6PG", x: cx + stepX*2, y: cy + stepY*1.2, size: 5});
-            nodes.push({id: "R5P", x: cx + stepX*3, y: cy + stepY*2.5, size: 5});
-            nodes.push({id: "E4P", x: cx + stepX*2, y: cy + stepY*3.5, size: 5});
-            nodes.push({id: "KDPG", x: cx + stepX*1.5, y: cy + stepY*5, size: 5});
-            const tcaCenterY = cy + stepY * 9.5;
-            const tcaRadius = height * 0.13; 
-            nodes.push({id: "AcCoA", x: cx, y: cy + stepY*8, size: 8});
-            nodes.push({id: "CIT", x: cx + tcaRadius * Math.cos(-Math.PI/2 + 0.7), y: tcaCenterY + tcaRadius * Math.sin(-Math.PI/2 + 0.7), size: 6});
-            nodes.push({id: "ICT", x: cx + tcaRadius, y: tcaCenterY, size: 6});
-            nodes.push({id: "AKG", x: cx + tcaRadius * Math.cos(Math.PI/4), y: tcaCenterY + tcaRadius * Math.sin(Math.PI/4), size: 6});
-            nodes.push({id: "SUC", x: cx, y: tcaCenterY + tcaRadius, size: 6});
-            nodes.push({id: "FUM", x: cx + tcaRadius * Math.cos(3*Math.PI/4), y: tcaCenterY + tcaRadius * Math.sin(3*Math.PI/4), size: 6});
-            nodes.push({id: "MAL", x: cx - tcaRadius, y: tcaCenterY, size: 6});
-            nodes.push({id: "OAA", x: cx + tcaRadius * Math.cos(5*Math.PI/4), y: tcaCenterY + tcaRadius * Math.sin(5*Math.PI/4), size: 7});
-            nodes.push({id: "LAC", x: cx - stepX*3, y: cy + stepY*7.5, size: 5});
-            nodes.push({id: "AC", x: cx + stepX*3, y: cy + stepY*8.5, size: 5});
-            nodes.push({id: "ETOH", x: cx + stepX*4, y: cy + stepY*8, size: 5});
-
-            const E = (s, t) => edges.push([s, t]);
-            E(0, 1); E(1, 2); E(2, 3); E(3, 4); E(4, 5); E(5, 6);
-            E(1, 7); E(7, 8); E(8, 2); E(8, 4);
-            E(7, 10); E(10, 6); E(10, 4);
-            E(6, 11); E(5, 18);
-            E(11, 12); E(18, 12); E(12, 13); E(13, 14); E(14, 15); E(15, 16); E(16, 17); E(17, 18);
-            E(6, 19); E(11, 20); E(11, 21);
-
-            for(let i=0; i<40; i++) {
-                nodes.push({ x: Math.random() * width, y: Math.random() * height, size: Math.random() * 2 + 0.5, isBackground: true });
-            }
-        }
-
-        class FluxPacket {
-            constructor(path) {
-                this.path = path; this.currentLeg = 0; this.progress = 0;
-                this.speed = (Math.random() * 0.5 + 0.5) * config.fluxSpeed * 0.015;
-                this.finished = false;
-            }
-            update() {
-                this.progress += this.speed;
-                if (this.progress >= 1) { this.progress = 0; this.currentLeg++; if (this.currentLeg >= this.path.length - 1) this.finished = true; }
-            }
-            draw() {
-                if (this.finished) return;
-                const startNode = nodes[this.path[this.currentLeg]];
-                const endNode = nodes[this.path[this.currentLeg+1]];
-                const x = startNode.x + (endNode.x - startNode.x) * this.progress;
-                const y = startNode.y + (endNode.y - startNode.y) * this.progress;
-                ctx.beginPath(); ctx.arc(x, y, 3, 0, Math.PI * 2); ctx.fillStyle = config.fluxColor; ctx.fill();
-                ctx.shadowBlur = 8; ctx.shadowColor = config.fluxColor;
-            }
-        }
-
-        function spawnFlux() {
-            const rand = Math.random(); let path = [];
-            if (rand < 0.4) path = [0, 1, 2, 3, 4, 5, 6, 11, 12, 13, 14, 15, 16, 17, 18];
-            else if (rand < 0.55) path = [0, 1, 2, 3, 4, 5, 6, 19];
-            else if (rand < 0.7) path = [0, 1, 2, 3, 4, 5, 6, 11, 21];
-            else if (rand < 0.85) path = [0, 1, 7, 8, 2, 3];
-            else path = [0, 1, 7, 10, 6, 11];
-            fluxes.push(new FluxPacket(path));
-        }
-
-        function resize() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = document.querySelector('.hero').offsetHeight;
-            definePathway();
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-            ctx.shadowBlur = 0; ctx.lineWidth = 1; ctx.strokeStyle = config.lineColor;
-            edges.forEach(edge => {
-                const n1 = nodes[edge[0]]; const n2 = nodes[edge[1]];
-                ctx.beginPath(); ctx.moveTo(n1.x, n1.y); ctx.lineTo(n2.x, n2.y); ctx.stroke();
-            });
-            nodes.forEach(node => {
-                ctx.beginPath(); ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
-                ctx.fillStyle = node.isBackground ? 'rgba(61, 118, 132, 0.1)' : config.nodeColor; ctx.fill();
-            });
-            if (Math.random() < 0.05) spawnFlux();
-            ctx.shadowBlur = 10;
-            for (let i = fluxes.length - 1; i >= 0; i--) {
-                fluxes[i].update(); fluxes[i].draw(); if (fluxes[i].finished) fluxes.splice(i, 1);
-            }
-            requestAnimationFrame(animate);
-        }
-
-        window.addEventListener('resize', resize);
-        resize(); animate();
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const pubContainer = document.getElementById('recent-pubs');
-            let recentPubs = [];
-            const years = ["2025", "2024", "2023"]; 
-            years.forEach(year => {
-                if(publicationsData[year] && publicationsData[year].items) {
-                    recentPubs.push(...publicationsData[year].items);
+        if (scrollIndicator) {
+            scrollIndicator.addEventListener('click', function() {
+                // 'research' 아이디를 가진 섹션으로 이동
+                const researchSection = document.getElementById('research');
+                if (researchSection) {
+                    researchSection.scrollIntoView({ 
+                        behavior: 'smooth', // 부드럽게 스크롤
+                        block: 'start'      // 섹션의 시작 부분으로 이동
+                    });
                 }
             });
-            const top3Pubs = recentPubs.slice(0, 3);
-            let pubHtml = '';
-            top3Pubs.forEach(item => {
-                pubHtml += `
-                    <div class="pub-card">
-                        <h4>${item.title}</h4>
-                        <span class="authors">${item.authors}</span>
-                        <br><br>
-                        <span class="journal">${item.journal}</span>
-                    </div>
-                `;
-            });
-            pubContainer.innerHTML = pubHtml;
-
-            const newsContainer = document.getElementById('recent-news');
-            const top3News = newsData.slice(0, 3);
-            let newsHtml = '';
-            top3News.forEach(item => {
-                newsHtml += `
-                    <div class="news-card">
-                        <div class="news-date">${item.year}</div>
-                        <div class="news-title">${item.title}</div>
-                        <div class="news-desc">${item.desc}</div>
-                    </div>
-                `;
-            });
-            newsContainer.innerHTML = newsHtml;
-        });
+        }
+    });
     </script>
+</body>
+</html>
 </body>
 </html>
