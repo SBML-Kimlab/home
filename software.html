@@ -7,6 +7,155 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Image Modal Styles */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            cursor: pointer;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .image-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-modal img {
+            max-width: 95%;
+            max-height: 95vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 0.3s ease;
+        }
+
+        .image-modal-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 48px;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 10000;
+        }
+
+        .image-modal-close:hover {
+            color: #3d7684;
+            transform: rotate(90deg);
+        }
+
+        .software-image {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .software-image::after {
+            content: '\eb6e';
+            font-family: 'remixicon';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .software-image:hover::after {
+            opacity: 0.9;
+        }
+
+        .software-image:hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+<style>
+    /* 기존 스타일 아래에 추가하세요 */
+
+    /* 1. 그리드 레이아웃 정의 (카드가 가로로 나열되도록 설정) */
+    .software-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 30px;
+        width: 100%;
+    }
+
+    /* 2. 카드 스타일 정의 (배경 및 넘치는 컨텐츠 숨김) */
+    .software-card {
+        background: #fff; /* 또는 var(--bg-card) */
+        border: 1px solid #eee;
+        border-radius: 12px;
+        overflow: hidden; /* 중요: 이미지가 카드 둥근 모서리를 넘지 않도록 함 */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        transition: transform 0.2s;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .software-card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* 3. 이미지 크기 강제 조절 (가장 중요한 부분) */
+    .software-image {
+        width: 100%;
+        height: 200px; /* 카드의 이미지 높이 통일 (선택사항) */
+        overflow: hidden;
+    }
+
+    .software-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 이미지가 찌그러지지 않고 영역을 꽉 채움 */
+        display: block;
+    }
+
+    /* 카드 내부 패딩 */
+    .software-header, .description, .tags, .links, .software-citation {
+        padding: 0 20px;
+    }
+    .software-header {
+        padding-top: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+    .links {
+        padding-bottom: 20px;
+        margin-top: auto; /* 버튼을 카드 하단으로 밀어줌 */
+    }
+
+    /* 기존 모달 및 애니메이션 스타일 유지... */
+    .image-modal { ... }
+    </style>
 </head>
 <body>
     <div id="nav-placeholder"></div>
@@ -32,6 +181,12 @@
         </div>
     </section>
 
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="image-modal-close" id="modalClose">&times;</span>
+        <img id="modalImage" src="" alt="Software visualization">
+    </div>
+
     <div id="footer-placeholder"></div>
 
     <script src="software-data.js"></script>
@@ -39,9 +194,12 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const container = document.getElementById('software-list');
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalClose = document.getElementById('modalClose');
             let html = '';
 
-            softwareData.forEach(tool => {
+            softwareData.forEach((tool, index) => {
                 const tagsHtml = tool.tags.map(tag => 
                     `<span class="tag">${tag}</span>`
                 ).join('');
@@ -49,26 +207,75 @@
                 const linksHtml = tool.links.map(link => {
                     const btnClass = link.type === 'primary' ? 'btn' : 'btn btn-secondary';
                     return `
-                        <a href="${link.url}" class="${btnClass}">
+                        <a href="${link.url}" class="${btnClass}" target="_blank" rel="noopener noreferrer">
                             <i class="${link.icon || 'ri-link'}"></i>
                             ${link.text}
                         </a>`;
                 }).join('');
 
+                // Image section - clickable if available
+                const imageHtml = tool.image ? `
+                    <div class="software-image" onclick="openImageModal('${tool.image}', '${tool.title}')" title="Click to enlarge">
+                        <img src="${tool.image}" alt="${tool.title} workflow" loading="lazy">
+                    </div>
+                ` : '';
+
+                // Citation section
+                const citationHtml = tool.citation ? `
+                    <div class="software-citation">
+                        <i class="ri-article-line"></i>
+                        <span>${tool.citation}</span>
+                    </div>
+                ` : '';
+
                 html += `
                     <div class="software-card">
-                        <div class="software-icon">
-                            <i class="${tool.icon}"></i>
+                        <div class="software-header">
+                            <div class="software-icon">
+                                <i class="${tool.icon}"></i>
+                            </div>
+                            <div>
+                                <h3>${tool.title}</h3>
+                                ${tool.subtitle ? `<p class="subtitle">${tool.subtitle}</p>` : ''}
+                            </div>
                         </div>
-                        <h3>${tool.title}</h3>
+                        ${imageHtml}
                         <p class="description">${tool.desc}</p>
                         <div class="tags">${tagsHtml}</div>
+                        ${citationHtml}
                         <div class="links">${linksHtml}</div>
                     </div>
                 `;
             });
 
             container.innerHTML = html;
+
+            // Modal functionality
+            window.openImageModal = function(imageSrc, altText) {
+                modal.classList.add('active');
+                modalImage.src = imageSrc;
+                modalImage.alt = altText + ' - detailed view';
+                document.body.style.overflow = 'hidden';
+            };
+
+            function closeImageModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            // Close modal on click
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal || e.target === modalClose) {
+                    closeImageModal();
+                }
+            });
+
+            // Close modal on ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeImageModal();
+                }
+            });
         });
     </script>
 </body>

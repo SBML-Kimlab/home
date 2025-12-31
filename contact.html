@@ -7,6 +7,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .map-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .map-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .map-btn i {
+            font-size: 16px;
+        }
+        .map-btn-naver {
+            background: #03C75A;
+            color: white;
+        }
+        .map-btn-naver:hover {
+            background: #02b350;
+        }
+        .map-btn-kakao {
+            background: #FEE500;
+            color: #191919;
+        }
+        .map-btn-kakao:hover {
+            background: #fdd800;
+        }
+        .map-btn-google {
+            background: #4285F4;
+            color: white;
+        }
+        .map-btn-google:hover {
+            background: #3367d6;
+        }
+    </style>
 </head>
 <body>
     <div id="nav-placeholder"></div>
@@ -20,59 +67,54 @@
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-card">
-                    <h2><i class="ri-map-pin-line"></i>Location</h2>
-                    <div class="contact-item">
-                        <h3>Address</h3>
-                        <p>50 UNIST-gil, Ulsan 44919<br>South Korea</p>
-                    </div>
-                    <div class="contact-item">
-                        <h3>Building & Room</h3>
-                        <p>Building 104, Room 403-1</p>
-                    </div>
-                </div>
-
-                <div class="contact-card">
                     <h2><i class="ri-phone-line"></i>Contact Information</h2>
-                    <div class="contact-item">
-                        <h3>Phone</h3>
-                        <p><a href="tel:+82522172945">+82-52-217-2945</a></p>
-                    </div>
                     <div class="contact-item">
                         <h3>Email</h3>
                         <p><a href="mailto:dkim@unist.ac.kr">dkim@unist.ac.kr</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Phone</h3>
+                        <p><a href="tel:+82522172945">+82-52-217-2945</a></p>
                     </div>
                     <div class="contact-item">
                         <h3>PI Website</h3>
                         <p><a href="https://sites.google.com/site/donghyukkim0/" target="_blank">Prof. Donghyuk Kim</a></p>
                     </div>
                 </div>
+
+                <div class="contact-card">
+                    <h2><i class="ri-map-pin-line"></i>Location</h2>
+                    <div class="contact-item">
+                        <h3>Address</h3>
+                        <p>Building 104, Room 403-1<br>50 UNIST-gil, Ulsan 44919, South Korea</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3 style="color: var(--text);">Find on Map</h3>
+                        <div class="map-buttons" style="justify-content: flex-start; margin-top: 10px;">
+                            <a href="https://naver.me/x4FL6hmX" target="_blank" rel="noopener noreferrer" class="map-btn map-btn-naver">
+                                <i class="ri-map-pin-2-fill"></i>
+                                Naver
+                            </a>
+                            <a href="https://place.map.kakao.com/11314948" target="_blank" rel="noopener noreferrer" class="map-btn map-btn-kakao">
+                                <i class="ri-map-pin-2-fill"></i>
+                                Kakao
+                            </a>
+                            <a href="https://maps.google.com/?q=UNIST,Ulsan,South+Korea" target="_blank" rel="noopener noreferrer" class="map-btn map-btn-google">
+                                <i class="ri-map-pin-2-fill"></i>
+                                Google
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="map-container">
-                <div class="map-placeholder">
-                    <p><i class="ri-map-2-line" style="font-size: 48px; margin-bottom: 20px;"></i><br>
-                    Google Maps Location<br>
-                    <small style="font-size: 14px;">UNIST Building 104, Ulsan, South Korea</small></p>
-                </div>
-
-                <div class="directions">
-                    <h3><i class="ri-direction-line"></i> How to Get Here</h3>
-                    <ul>
-                        <li><strong>From Ulsan Station:</strong> Take bus 401, 412, or 432 to UNIST (약 40분)</li>
-                        <li><strong>From Ulsan Airport:</strong> Take airport limousine bus or taxi (약 30분)</li>
-                        <li><strong>By Car:</strong> Navigate to "UNIST" or "울산과학기술원" (Free parking available on campus)</li>
-                        <li><strong>Campus Location:</strong> Engineering Building 104 (공학관 104동)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div style="background: var(--bg-light); padding: 50px; border-radius: 16px; margin-top: 60px; text-align: center;">
-                <h2 style="font-size: 32px; color: var(--primary); margin-bottom: 20px;">Join Our Team</h2>
-                <p style="font-size: 18px; color: var(--text-light); margin-bottom: 30px;">
+            <div style="background: var(--bg-light); padding: 40px; border-radius: 16px; margin-top: 50px; text-align: center;">
+                <h2 style="font-size: 28px; color: var(--primary); margin-bottom: 15px;">Join Our Team</h2>
+                <p style="font-size: 16px; color: var(--text-light); margin-bottom: 25px; line-height: 1.6;">
                     We are recruiting highly motivated graduate students and postdocs<br>
                     with backgrounds in biology, bioengineering, chemical engineering, or bioinformatics
                 </p>
-                <a href="mailto:dkim@unist.ac.kr" style="display: inline-block; padding: 16px 40px; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s;">
+                <a href="mailto:dkim@unist.ac.kr" style="display: inline-block; padding: 14px 32px; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s; font-size: 15px;">
                     <i class="ri-mail-line"></i> Contact Dr. Kim
                 </a>
             </div>

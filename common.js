@@ -1,6 +1,6 @@
 /* common.js */
 
-// 1. 네비게이션 HTML 생성
+// Navigation HTML - Reordered menu
 function loadNavigation() {
     const navHTML = `
     <nav>
@@ -12,9 +12,9 @@ function loadNavigation() {
             <ul class="nav-links">
                 <li><a href="index.html" data-page="index.html">Home</a></li>
                 <li><a href="research.html" data-page="research.html">Research</a></li>
+                <li><a href="members.html" data-page="members.html">Members</a></li>
                 <li><a href="publications.html" data-page="publications.html">Publications</a></li>
                 <li><a href="software.html" data-page="software.html">Software</a></li>
-                <li><a href="members.html" data-page="members.html">Members</a></li>
                 <li><a href="news.html" data-page="news.html">News</a></li>
                 <li><a href="gallery.html" data-page="gallery.html">Gallery</a></li>
                 <li><a href="contact.html" data-page="contact.html">Contact</a></li>
@@ -28,9 +28,9 @@ function loadNavigation() {
         <div class="mobile-menu" id="mobile-menu">
             <a href="index.html" data-page="index.html">Home</a>
             <a href="research.html" data-page="research.html">Research</a>
+            <a href="members.html" data-page="members.html">Members</a>
             <a href="publications.html" data-page="publications.html">Publications</a>
             <a href="software.html" data-page="software.html">Software</a>
-            <a href="members.html" data-page="members.html">Members</a>
             <a href="news.html" data-page="news.html">News</a>
             <a href="gallery.html" data-page="gallery.html">Gallery</a>
             <a href="contact.html" data-page="contact.html">Contact</a>
@@ -42,7 +42,7 @@ function loadNavigation() {
     if (navPlaceholder) {
         navPlaceholder.innerHTML = navHTML;
 
-        // 현재 페이지 활성화 (Active Class) 로직
+        // Current page active state
         const path = window.location.pathname;
         let currentPage = path.split("/").pop();
         if (currentPage === "" || currentPage === "/") currentPage = "index.html";
@@ -65,13 +65,13 @@ function loadNavigation() {
     }
 }
 
-// [추가됨] 모바일 메뉴 토글 함수
+// Mobile menu toggle
 function toggleMenu() {
     const mobileMenu = document.getElementById('mobile-menu');
     mobileMenu.classList.toggle('active');
 }
 
-// 2. 푸터 HTML 생성
+// Footer HTML
 function loadFooter() {
     const footerHTML = `
     <footer>
@@ -116,7 +116,7 @@ function loadFooter() {
     }
 }
 
-// 3. 실행
+// Execute on DOM load
 document.addEventListener('DOMContentLoaded', function() {
     loadNavigation();
     loadFooter();

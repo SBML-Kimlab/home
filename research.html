@@ -8,6 +8,291 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Research Detail with Image Layout */
+        .research-detail {
+            scroll-margin-top: 120px;
+            scroll-padding-top: 20px;
+            background: white;
+            border-radius: 16px;
+            padding: 50px;
+            margin-bottom: 60px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+        
+        .research-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .research-header i {
+            font-size: 36px;
+            color: var(--primary);
+        }
+        
+        .research-header h3 {
+            font-size: 28px;
+            color: var(--text);
+            margin: 0;
+            font-weight: 700;
+        }
+        
+        .research-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        
+        .research-text > p:first-child {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 30px;
+        }
+        
+        .research-text h4 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        
+        .research-text p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        .research-text ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 15px 0;
+        }
+        
+        .research-text ul li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+        
+        .research-text ul li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .research-images {
+            position: sticky;
+            top: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .research-image {
+            width: 100%;
+            position: relative;
+        }
+        
+        .research-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .research-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+        }
+        
+        /* Zoom indicator on hover */
+        .research-image::after {
+            content: '\eb9e'; /* Remix Icon zoom-in */
+            font-family: 'remixicon';
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .research-image:hover::after {
+            opacity: 1;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 600;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+        
+        /* Image Modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s;
+        }
+        
+        .image-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content-wrapper {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-image {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 0.3s;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            border-radius: 50%;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2001;
+        }
+        
+        .modal-close:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: rotate(90deg);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .research-detail {
+                padding: 35px;
+            }
+            
+            .research-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .research-images {
+                position: relative;
+                top: 0;
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .research-detail {
+                padding: 25px;
+                margin-bottom: 40px;
+            }
+            
+            .research-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .research-header i {
+                font-size: 32px;
+            }
+            
+            .research-header h3 {
+                font-size: 22px;
+            }
+            
+            .research-text h4 {
+                font-size: 16px;
+            }
+            
+            .research-images {
+                gap: 15px;
+            }
+            
+            .modal-close {
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 24px;
+            }
+        }
+        
+        /* Mobile scroll adjustment */
+        @media (max-width: 768px) {
+            .research-detail {
+                scroll-margin-top: 100px !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="nav-placeholder"></div>
@@ -18,89 +303,157 @@
     </div>
 
     <section>
-        <div class="container">
-            <div class="research-detail">
-                <h3><i class="ri-bacteria-line"></i>Transcriptional Regulatory Network Reconstruction</h3>
-                <p>Systems biology has benefited from improvements in omics technologies, leading to an interest in the comprehensive molecular processes that bacteria go through in response to their surroundings.</p>
-                <h4>Approach</h4>
-                <p>By specifically utilizing Chromatin immunoprecipitation (ChIP-seq) and transcriptomics analysis (RNA-seq), we can reconstruct a transcriptional regulatory network (TRN) that offers insight into gene regulation and interaction in response to external stimuli.</p>
-                <h4>Target Organisms</h4>
-                <ul>
-                    <li><i>Escherichia coli</i></li>
-                    <li><i>Salmonella</i> enterica</li>
-                    <li><i>Klebsiella</i> species</li>
-                    <li>Methylobacterium</li>
-                </ul>
-                <h4>Tools & Methods</h4>
-                <p>To conduct the high-throughput experiment data analysis, we have developed a specific pipeline and deep-learning-based high-performance software for TRN reconstruction and analysis.</p>
-            </div>
-
-            <div class="research-detail">
-                <h3><i class="ri-flask-line"></i>Genome-Scale Metabolic Modeling</h3>
-                <p>Genome-scale models (GSMs) are knowledge-based and experimentally validated mathematical representations of biological metabolism. Utilizing GSMs can provide insights into how biological systems function and help in the design of microbial cell factories.</p>
-                <h4>Research Topics</h4>
-                <ul>
-                    <li>Genome-scale model reconstruction of high-value bacterial strains including <i>Streptomyces</i>, <i>Vibrio</i>, and C1 bacteria</li>
-                    <li>Model-based analysis to understand complex biological systems or to design microbial cell factories</li>
-                    <li>Omics data integration for biological discovery</li>
-                </ul>
-                <h4>Applications</h4>
-                <p>Our models are used for metabolic engineering, pathway optimization, and predicting cellular behavior under various environmental conditions.</p>
-            </div>
-
-            <div class="research-detail">
-                <h3><i class="ri-test-tube-line"></i>Characterization of High-Value Bacterial Strains</h3>
-                <p>We focus on understanding and optimizing industrially important bacterial strains for biotechnology applications.</p>
-                <h4>Key Activities</h4>
-                <ul>
-                    <li>Metabolic pathway analysis and optimization</li>
-                    <li>Strain improvement through systems-level understanding</li>
-                    <li>Production of valuable compounds and enzymes</li>
-                    <li>Integration of multi-omics data for comprehensive characterization</li>
-                </ul>
-            </div>
-
-            <div class="research-detail">
-                <h3><i class="ri-shield-cross-line"></i>Anti-Microbial Resistance</h3>
-                <p>Investigating mechanisms of antimicrobial resistance and developing strategies to combat resistant pathogens using systems biology approaches.</p>
-                <h4>Research Focus</h4>
-                <ul>
-                    <li>Understanding resistance mechanisms at the systems level</li>
-                    <li>Identifying novel drug targets through network analysis</li>
-                    <li>Predicting resistance evolution</li>
-                    <li>Developing combination therapy strategies</li>
-                </ul>
-            </div>
-
-            <div class="research-detail">
-                <h3><i class="ri-brain-line"></i>Machine Learning for Biological Data</h3>
-                <p>Developing and applying advanced machine learning frameworks for analyzing biological information and solving complex problems.</p>
-                <h4>Applications</h4>
-                <ul>
-                    <li>Deep learning for transcriptomics data analysis</li>
-                    <li>Enzyme function prediction using AI models</li>
-                    <li>Protein engineering through machine learning</li>
-                    <li>Automated biological discovery from large-scale datasets</li>
-                </ul>
-            </div>
-
-            <div class="research-detail">
-                <h3><i class="ri-battery-charging-line"></i>Machine Learning for Energy Systems</h3>
-                <p>Energy storage with lithium-ion batteries have been widely used for power sources due to their high energy density and convenience for management.</p>
-                <h4>Battery Systems</h4>
-                <p>We are constructing general-purpose deep-learning frameworks for battery prognostics and health management, including:</p>
-                <ul>
-                    <li>State of Health (SoH) estimation</li>
-                    <li>Remaining Useful Life (RUL) prediction</li>
-                    <li>Configuration-agnostic models using Transformers</li>
-                </ul>
-                <h4>Hydrogen Production</h4>
-                <p>Our research extends to energy generation systems such as hydrogen production. We study machine-learning frameworks for predicting the feasibility of hydrogen production systems, particularly in methanol steam reforming with membrane filters.</p>
-            </div>
+        <div class="container" id="research-container">
+            <!-- Research items will be dynamically loaded here -->
         </div>
     </section>
 
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <button class="modal-close" onclick="closeImageModal()">
+            <i class="ri-close-line"></i>
+        </button>
+        <div class="modal-content-wrapper">
+            <img id="modalImage" class="modal-image" src="" alt="">
+        </div>
+    </div>
+
     <div id="footer-placeholder"></div>
+
+    <script src="research-data.js"></script>
     <script src="common.js"></script>
+    <script>
+        let currentImageIndex = 0;
+        let currentImages = [];
+        
+        function openImageModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = imageSrc;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal on background click
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeImageModal();
+            }
+        });
+        
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeImageModal();
+            }
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('research-container');
+            
+            researchData.forEach(research => {
+                // Create research detail section
+                const detailDiv = document.createElement('div');
+                detailDiv.className = 'research-detail';
+                detailDiv.id = research.id;
+                
+                // Create header
+                const headerDiv = document.createElement('div');
+                headerDiv.className = 'research-header';
+                headerDiv.innerHTML = `
+                    <i class="${research.icon}"></i>
+                    <h3>${research.title}</h3>
+                `;
+                detailDiv.appendChild(headerDiv);
+                
+                // Create content grid
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'research-content';
+                
+                // Create text column
+                const textDiv = document.createElement('div');
+                textDiv.className = 'research-text';
+                
+                // Add description
+                const descP = document.createElement('p');
+                descP.innerHTML = research.description;
+                textDiv.appendChild(descP);
+                
+                // Add sections
+                research.sections.forEach(section => {
+                    const h4 = document.createElement('h4');
+                    h4.textContent = section.heading;
+                    textDiv.appendChild(h4);
+                    
+                    if (section.content) {
+                        const p = document.createElement('p');
+                        p.innerHTML = section.content;
+                        textDiv.appendChild(p);
+                    }
+                    
+                    if (section.items) {
+                        const ul = document.createElement('ul');
+                        section.items.forEach(item => {
+                            const li = document.createElement('li');
+                            li.innerHTML = item;
+                            ul.appendChild(li);
+                        });
+                        textDiv.appendChild(ul);
+                    }
+                });
+                
+                contentDiv.appendChild(textDiv);
+                
+                // Create images column
+                const imagesContainer = document.createElement('div');
+                imagesContainer.className = 'research-images';
+                
+                // Add all images
+                research.images.forEach((imagePath, index) => {
+                    const imageWrapper = document.createElement('div');
+                    imageWrapper.className = 'research-image';
+                    
+                    const img = new Image();
+                    img.src = imagePath;
+                    img.alt = `${research.title} - Image ${index + 1}`;
+                    
+                    img.onload = function() {
+                        imageWrapper.innerHTML = '';
+                        img.onclick = function() {
+                            openImageModal(imagePath);
+                        };
+                        imageWrapper.appendChild(img);
+                    };
+                    
+                    img.onerror = function() {
+                        imageWrapper.innerHTML = `
+                            <div class="image-placeholder">
+                                <i class="ri-image-line" style="font-size: 48px;"></i>
+                            </div>
+                        `;
+                    };
+                    
+                    // Add placeholder initially
+                    imageWrapper.innerHTML = `
+                        <div class="image-placeholder">
+                            <i class="ri-image-line" style="font-size: 48px;"></i>
+                        </div>
+                    `;
+                    
+                    imagesContainer.appendChild(imageWrapper);
+                });
+                
+                contentDiv.appendChild(imagesContainer);
+                detailDiv.appendChild(contentDiv);
+                container.appendChild(detailDiv);
+            });
+        });
+    </script>
 </body>
 </html>

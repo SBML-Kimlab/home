@@ -6,172 +6,234 @@
     <title>Members - SBML | UNIST</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet"/>
-    
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Compact PI Card Override */
+        .pi-card {
+            padding: 40px !important;
+            margin-bottom: 50px !important;
+        }
+        .pi-photo {
+            width: 150px !important;
+            height: 150px !important;
+            margin: 0 auto 20px !important;
+        }
+        .pi-card h2 {
+            font-size: 28px !important;
+            margin-bottom: 8px !important;
+        }
+        .pi-card .title {
+            font-size: 16px !important;
+            margin-bottom: 15px !important;
+        }
+        .pi-card .bio {
+            max-width: 700px !important;
+            margin: 25px auto !important;
+        }
+        .pi-card .bio h3 {
+            font-size: 16px !important;
+            margin-bottom: 12px !important;
+        }
+        .pi-card .bio p {
+            font-size: 14px !important;
+            margin-bottom: 6px !important;
+        }
+        .pi-card .contact {
+            gap: 20px !important;
+            margin-top: 15px !important;
+        }
+        .pi-card .contact a {
+            font-size: 14px !important;
+        }
+    </style>
 </head>
 <body>
     <div id="nav-placeholder"></div>
 
     <div class="page-header">
-        <h1>Lab Members</h1>
+        <h1>Members</h1>
         <p>Meet our research team</p>
     </div>
 
-    <section style="background: white;">
-        <div class="container" id="pi-container"></div>
-    </section>
-
-    <section style="background: var(--bg-light);">
+    <section>
         <div class="container">
-            <h2 class="section-title">Graduate Students</h2>
-            <div class="members-grid" id="students-grid"></div>
-        </div>
-    </section>
+            <!-- Principal Investigator -->
+            <div class="pi-card" id="pi-section"></div>
 
-    <section style="background: white;">
-        <div class="container">
-            <h2 class="section-title">Undergraduate Researchers</h2>
-            <div class="members-grid" id="undergrad-grid"></div>
-        </div>
-    </section>
+            <!-- Post-doc / Senior Researchers -->
+            <h2 style="font-size: 32px; color: var(--text); margin-bottom: 30px; margin-top: 60px;">
+                <i class="ri-microscope-line" style="color: var(--primary);"></i> Post-Doc & Senior Researchers
+            </h2>
+            <div class="members-grid" id="postdoc-section"></div>
 
-    <section style="background: var(--bg-light);">
-        <div class="container">
-            <h2 class="section-title">Alumni</h2>
-            <div class="alumni-section" id="alumni-container"></div>
+            <!-- Graduate Students -->
+            <h2 style="font-size: 32px; color: var(--text); margin-bottom: 30px; margin-top: 60px;">
+                <i class="ri-graduation-cap-line" style="color: var(--primary);"></i> Graduate Students
+            </h2>
+            <div class="members-grid" id="students-section"></div>
+
+            <!-- Hiring Notice -->
+            <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 50px; border-radius: 16px; margin: 80px 0 60px 0; text-align: center; color: white;">
+                <h2 style="font-size: 32px; margin-bottom: 20px;">
+                    <i class="ri-team-line"></i> We're Hiring!
+                </h2>
+                <p style="font-size: 18px; margin-bottom: 30px; opacity: 0.95;">
+                    We are currently looking for motivated post-docs, graduate students, and undergraduate interns to join our team.
+                </p>
+                <a href="contact.html" class="btn" style="background: white; color: var(--primary); display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: 0.3s;">
+                    <i class="ri-mail-line"></i>
+                    Contact Us
+                </a>
+            </div>
+
+            <!-- Alumni -->
+            <div class="alumni-section">
+                <h2 style="font-size: 32px; color: var(--text); margin-bottom: 30px;">
+                    <i class="ri-star-line" style="color: var(--primary);"></i> Alumni
+                </h2>
+                <div id="alumni-list"></div>
+            </div>
+
+            <!-- Lab Interns -->
+            <div style="margin-top: 60px;">
+                <h2 style="font-size: 32px; color: var(--text); margin-bottom: 30px;">
+                    <i class="ri-seedling-line" style="color: var(--primary);"></i> Lab Interns
+                </h2>
+                <div id="interns-list" style="background: var(--bg-light); padding: 30px; border-radius: 12px;"></div>
+            </div>
         </div>
     </section>
 
     <div id="footer-placeholder"></div>
 
-    <div id="imageModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="img01">
-        <div id="caption"></div>
-    </div>
-
     <script src="members-data.js"></script>
     <script src="common.js"></script>
-    
     <script>
-        // --- 1. 모달(사진 확대) 관련 기능 ---
-        function openModal(imgSrc, captionText) {
-            const modal = document.getElementById("imageModal");
-            const modalImg = document.getElementById("img01");
-            const caption = document.getElementById("caption");
-            
-            modal.style.display = "block";
-            modalImg.src = imgSrc;
-            caption.innerHTML = captionText;
-        }
-
-        function closeModal() {
-            document.getElementById("imageModal").style.display = "none";
-        }
-
-        // 배경 클릭 시 닫기
-        window.onclick = function(event) {
-            const modal = document.getElementById("imageModal");
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        // 키보드 ESC 누르면 닫기
-        document.addEventListener('keydown', function(e) {
-            if (e.key === "Escape") closeModal();
-        });
-
-        // --- 2. 데이터 렌더링 ---
         document.addEventListener('DOMContentLoaded', function() {
-            // PI 정보 렌더링
-            const pi = membersData.pi;
-            
-            // 사진 유무 확인 및 모달 연결
-            let piPhotoContent = '';
-            if (pi.img && pi.img.trim() !== "") {
-                piPhotoContent = `<img src="member-photo/${pi.img}" alt="${pi.name}" onclick="openModal(this.src, '${pi.name}')">`;
-            } else {
-                piPhotoContent = `<i class="ri-user-line"></i>`;
-            }
+            // Principal Investigator
+            const piSection = document.getElementById('pi-section');
+            piSection.innerHTML = `
+                <a href="${piData.cv}" target="_blank" rel="noopener noreferrer" class="pi-photo" style="cursor: pointer; text-decoration: none;">
+                    <img src="${piData.photo}" alt="${piData.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\\'ri-user-line\\'></i>';">
+                </a>
+                <h2>${piData.name}, Ph.D.</h2>
+                <p class="title">${piData.position}</p>
+                <p class="title" style="font-size: 15px; color: var(--text-light);">${piData.department}</p>
+                
+                <div class="bio" style="text-align: left;">
+                    <h3 style="color: var(--primary);">Education</h3>
+                    ${piData.education.map(edu => `<p>• ${edu}</p>`).join('')}
+                    
+                    <h3 style="color: var(--primary); margin-top: 20px;">Career</h3>
+                    ${piData.career.map(career => `<p>• ${career}</p>`).join('')}
+                </div>
 
-            document.getElementById('pi-container').innerHTML = `
-                <h2 class="section-title">Principal Investigator</h2>
-                <div class="pi-card">
-                    <div class="pi-photo">
-                        ${piPhotoContent}
-                    </div>
-                    <h2>${pi.name}</h2>
-                    <p class="title">${pi.title}</p>
-                    <p class="bio">${pi.affiliation}</p>
-                    <p class="bio">${pi.education.join('<br>')}</p>
-                    <div class="contact">
-                        <a href="mailto:${pi.email}">
-                            <i class="ri-mail-line"></i> ${pi.email}
-                        </a>
-                        <a href="${pi.website}" target="_blank">
-                            <i class="ri-globe-line"></i> Personal Website
-                        </a>
-                    </div>
+                <div class="contact">
+                    <a href="mailto:${piData.email}"><i class="ri-mail-line"></i> ${piData.email}</a>
+                    <a href="${piData.cv}" target="_blank" rel="noopener noreferrer"><i class="ri-file-text-line"></i> CV</a>
                 </div>
             `;
 
-            // 학생 및 학부생 렌더링 함수
-            function renderMembers(list, containerId) {
-                const container = document.getElementById(containerId);
-                let html = '';
-                list.forEach(member => {
-                    let iconContent = '';
-                    if (member.img && member.img.trim() !== "") {
-                        iconContent = `<img src="member-photo/${member.img}" alt="${member.name}" onclick="openModal(this.src, '${member.name}')">`;
-                    } else {
-                        iconContent = `<i class="${member.icon || 'ri-user-line'}"></i>`;
-                    }
-
-                    html += `
-                        <div class="member-card">
-                            <div class="member-icon">
-                                ${iconContent}
-                            </div>
-                            <h3>${member.name}</h3>
-                            <p class="degree">${member.degree}</p>
-                            <p class="info">${member.info}</p>
+            // Post-doc
+            const postdocSection = document.getElementById('postdoc-section');
+            postdocSection.innerHTML = postdocData.map(member => `
+                <div class="member-card">
+                    ${member.cv ? `
+                        <a href="${member.cv}" target="_blank" rel="noopener noreferrer" class="member-icon" style="cursor: pointer; text-decoration: none;">
+                            <img src="${member.photo}" alt="${member.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\\'ri-user-line\\'></i>';">
+                        </a>
+                    ` : `
+                        <div class="member-icon">
+                            <img src="${member.photo}" alt="${member.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\\'ri-user-line\\'></i>';">
                         </div>
-                    `;
-                });
-                container.innerHTML = html;
-            }
+                    `}
+                    <h3>${member.name}</h3>
+                    <p class="degree">${member.degree}${member.period ? ` (${member.period})` : ''}</p>
+                    <div class="info">
+                        <p style="margin-bottom: 8px;">${member.education}</p>
+                        <p style="margin-top: 12px;">
+                            <a href="mailto:${member.email}" style="color: var(--primary); text-decoration: none;">
+                                <i class="ri-mail-line"></i> Email
+                            </a>
+                            ${member.cv ? ` • <a href="${member.cv}" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;"><i class="ri-file-text-line"></i> CV</a>` : ''}
+                        </p>
+                    </div>
+                </div>
+            `).join('');
 
-            renderMembers(membersData.students, 'students-grid');
-            renderMembers(membersData.undergraduate, 'undergrad-grid');
+            // Graduate Students
+            const studentsSection = document.getElementById('students-section');
+            studentsSection.innerHTML = graduateStudents.map(member => `
+                <div class="member-card">
+                    ${member.cv ? `
+                        <a href="${member.cv}" target="_blank" rel="noopener noreferrer" class="member-icon" style="cursor: pointer; text-decoration: none;">
+                            <img src="${member.photo}" alt="${member.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\\'ri-user-line\\'></i>';">
+                        </a>
+                    ` : `
+                        <div class="member-icon">
+                            <img src="${member.photo}" alt="${member.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\\'ri-user-line\\'></i>';">
+                        </div>
+                    `}
+                    <h3>${member.name}</h3>
+                    <p class="degree">${member.degree}${member.period ? ` (${member.period})` : ''}</p>
+                    <div class="info">
+                        <p style="margin-bottom: 8px; white-space: pre-line;">${member.education}</p>
+                        <p style="margin-top: 12px;">
+                            <a href="mailto:${member.email}" style="color: var(--primary); text-decoration: none;">
+                                <i class="ri-mail-line"></i> Email
+                            </a>
+                            ${member.cv ? ` • <a href="${member.cv}" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;"><i class="ri-file-text-line"></i> CV</a>` : ''}
+                        </p>
+                    </div>
+                </div>
+            `).join('');
 
-            // 졸업생(Alumni) 렌더링
-            const alumniContainer = document.getElementById('alumni-container');
-            let alumniHtml = '';
-            
-            const categories = [
-                { id: 'phd', title: 'Ph.D. Graduates' },
-                { id: 'ms', title: 'M.S. Graduates' },
-                { id: 'postdoc', title: 'Postdocs' }
-            ];
+            // Alumni
+            const alumniList = document.getElementById('alumni-list');
+            alumniList.innerHTML = `
+                <div class="alumni-list" style="columns: 1; column-gap: 40px;">
+                    ${alumniData.map(alumni => `
+                        <li style="margin-bottom: 15px; break-inside: avoid;">
+                            <strong>${alumni.name}</strong> (${alumni.period}) - ${alumni.degree}
+                            ${alumni.position ? `<br><span style="color: var(--text-light); font-size: 14px; margin-left: 20px;">→ ${alumni.position}</span>` : ''}
+                            ${alumni.cv ? ` <a href="${alumni.cv}" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-size: 14px;"><i class="ri-external-link-line"></i></a>` : ''}
+                        </li>
+                    `).join('')}
+                </div>
+            `;
 
-            categories.forEach((cat, index) => {
-                if (membersData.alumni[cat.id] && membersData.alumni[cat.id].length > 0) {
-                    const style = index === 0 
-                        ? 'font-size: 24px; color: var(--primary); margin-bottom: 30px;' 
-                        : 'font-size: 24px; color: var(--primary); margin: 40px 0 30px 0;';
-                    
-                    alumniHtml += `<h3 style="${style}">${cat.title}</h3>`;
-                    alumniHtml += `<ul class="alumni-list" style="list-style: none; padding: 0;">`;
-                    membersData.alumni[cat.id].forEach(person => {
-                        alumniHtml += `<li>${person}</li>`;
-                    });
-                    alumniHtml += `</ul>`;
-                }
-            });
-            
-            alumniContainer.innerHTML = alumniHtml;
+            // Interns
+            const internsList = document.getElementById('interns-list');
+            internsList.innerHTML = `
+                <div style="columns: 3; column-gap: 30px;">
+                    ${internsData.map(intern => `
+                        <div style="margin-bottom: 12px; break-inside: avoid; font-size: 14px; color: var(--text-light);">
+                            <strong style="color: var(--text);">${intern.name}</strong> (${intern.year})
+                            ${intern.program ? `<br><span style="font-size: 13px; color: var(--primary);">${intern.program}</span>` : ''}
+                            ${intern.role ? `<br><span style="font-size: 13px;">${intern.role}</span>` : ''}
+                            ${intern.position ? `<br><span style="font-size: 13px;">→ ${intern.position}</span>` : ''}
+                        </div>
+                    `).join('')}
+                </div>
+            `;
         });
     </script>
+
+    <style>
+        @media (max-width: 1024px) {
+            #interns-list > div {
+                columns: 2 !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            #interns-list > div {
+                columns: 1 !important;
+            }
+            .alumni-list {
+                columns: 1 !important;
+            }
+        }
+    </style>
 </body>
 </html>
