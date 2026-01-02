@@ -463,6 +463,56 @@
                 }
             });
         }
+
+        // 2. Render Recent Publications (Top 3)
+        // [FIX] 'submitted' removed from priorityOrder to show only published papers
+        const recentPubsContainer = document.getElementById('recent-pubs');
+        if (recentPubsContainer && typeof publicationsData !== 'undefined') {
+            let allItems = [];
+            // "submitted" removed from this list
+            const priorityOrder = ["2025", "2024", "2023"]; 
+            
+            priorityOrder.forEach(key => {
+                if (publicationsData[key] && publicationsData[key].items) {
+                    allItems = allItems.concat(publicationsData[key].items);
+                }
+            });
+
+            // Take top 3
+            const recentItems = allItems.slice(0, 3);
+
+            recentItems.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'pub-card';
+                card.innerHTML = `
+                    <h4>${item.title}</h4>
+                    <span class="authors">${item.authors}</span>
+                    <span class="journal">${item.journal}</span>
+                `;
+                if(item.doi || item.link) {
+                    card.style.cursor = "pointer";
+                    card.onclick = () => window.open(item.link || (item.doi ? 'https://doi.org/'+item.doi : '#'), '_blank');
+                }
+                recentPubsContainer.appendChild(card);
+            });
+        }
+
+        // 3. Render Latest News (Top 3)
+        const recentNewsContainer = document.getElementById('recent-news');
+        if (recentNewsContainer && typeof newsData !== 'undefined') {
+            const latestNews = newsData.slice(0, 3);
+            
+            latestNews.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'news-card';
+                card.innerHTML = `
+                    <div class="news-date">${item.date}</div>
+                    <div class="news-title">${item.title}</div>
+                    <div class="news-desc">${item.desc}</div>
+                `;
+                recentNewsContainer.appendChild(card);
+            });
+        }
     });
     </script>
 </body>

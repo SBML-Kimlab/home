@@ -1,3 +1,5 @@
+/* members-data.js - Updated: Yunseo Kim & Mingyu Kim moved to Alumni */
+
 const piData = {
     name: "Donghyuk Kim",
     title: "Principal Investigator",
@@ -76,32 +78,18 @@ const graduateStudents = [
         photo: "member-photo/jinwan.jpg"
     },
     {
-        name: "Yunseo Kim",
-        degree: "M.S. Student",
-        education: "M.S., UNIST, Chemical Engineering\nB.S., Chonnam National University, Food Science and Technology",
-        email: "yunseokim@unist.ac.kr",
-        cv: "https://sites.google.com/view/yunseokim",
-        photo: "member-photo/yunseo.jpg"
-    },
-    {
         name: "Soyee Kim",
         degree: "M.S. Student",
         education: "M.S., Sogang University, Life Sciences\nB.S., Sogang University, Life Sciences",
         email: "s2kim@unist.ac.kr",
         cv: "https://sites.google.com/view/s2kim",
         photo: "member-photo/soyee.jpg"
-    },
-    {
-        name: "Mingyu Kim",
-        degree: "M.S. Student",
-        education: "M.S., UNIST, Chemical Engineering\nB.S., Kyung Hee University, Genetic Engineering",
-        email: "laplas6166@naver.com",
-        cv: "https://sites.google.com/view/mingyu-kim",
-        photo: "member-photo/mingyu.jpg"
     }
 ];
 
 const alumniData = [
+    { name: "Yunseo Kim", period: "2023-2025", degree: "M.S.", cv: "https://sites.google.com/view/yunseokim" },
+    { name: "Mingyu Kim", period: "2023-2025", degree: "M.S.", cv: "https://sites.google.com/view/mingyu-kim" },
     { name: "Linh Khanh Nong", period: "2019-2025", degree: "Ph.D.", cv: "https://sites.google.com/view/nong-khanh-linh/home" },
     { name: "Seyoung Ko", period: "2017-2025", degree: "Ph.D., Post-doc", position: "Korea Food Research Institute (KFRI)", cv: "https://sites.google.com/site/sierrayk01" },
     { name: "Joon Young Park", period: "2018-2025", degree: "Ph.D., Post-doc", position: "Korea Research Institute of Chemical Technology (KRICT), Senior Researcher", cv: "https://sites.google.com/view/joonyoung93/" },
