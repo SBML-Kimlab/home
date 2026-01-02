@@ -310,15 +310,21 @@ document.addEventListener('DOMContentLoaded', function() {
     function resize() {
         const dpr = Math.min(window.devicePixelRatio || 1, 2); 
         
-        // [중요] 모바일에서는 CSS가 100vh/100dvh로 잡혀있으므로 window.inner...를 신뢰해서 사용
-        w = window.innerWidth;
-        h = window.innerHeight;
+        // [수정 전] 브라우저마다 값이 다른 window.inner... 사용
+        // w = window.innerWidth;
+        // h = window.innerHeight;
+
+        // [수정 후] CSS가 잡아놓은(100dvh) 실제 캔버스 크기를 믿고 그대로 가져옴 (가장 정확함)
+        w = canvas.clientWidth || window.innerWidth;
+        h = canvas.clientHeight || window.innerHeight;
+        
         isMobile = w <= 768;
 
         canvas.width = w * dpr;
         canvas.height = h * dpr;
         
-        // CSS가 width/height를 제어하므로 style 설정은 최소화하되, 동기화는 맞춤
+        // CSS가 이미 크기를 잡고 있으므로 style.width/height 강제 주입 코드 제거 가능하지만,
+        // 안전을 위해 동기화만 시켜줍니다.
         canvas.style.width = w + 'px';
         canvas.style.height = h + 'px';
         
