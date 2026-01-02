@@ -67,7 +67,13 @@ section { padding: 80px 0; }
 /* --- Hero Section --- */
 .hero { 
     margin-top: 80px; height: 90vh; 
-    background: radial-gradient(circle at 40% 50%, #1e293b 0%, #020617 90%); 
+    
+    /* [수정] 아래 background 줄을 삭제하거나 주석 처리하세요. */
+    /* background: radial-gradient(circle at 40% 50%, #1e293b 0%, #020617 90%); */ 
+    
+    /* 배경을 투명하게 하거나 삭제해야 뒤에 있는 애니메이션이 보입니다 */
+    background: transparent; 
+
     display: flex; align-items: center; 
     position: relative; overflow: hidden; 
 }
@@ -299,23 +305,28 @@ section { padding: 80px 0; }
 
     /* Hero Section Fix */
     .hero {
-        display: block; 
-        height: auto;
-        min-height: 100dvh; 
-        padding-top: 100px; 
-        padding-bottom: 20px;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important; /* 상단 정렬 강제 */
+        align-items: center !important;
+        
+        height: 100dvh !important;
+        min-height: 100dvh;
+        padding-top: 130px !important; /* 상단 메뉴(80px) + 여백(50px) = 130px */
+        padding-bottom: 20px !important;
+        
         background: radial-gradient(circle at 50% 50%, #1e293b 0%, #020617 90%);
         overflow: hidden;
     }
 
     .hero-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        width: 100%;
-        margin: 0;
-        padding: 0 20px;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important; /* 내부 컨테이너도 상단 정렬 */
+        align-items: center !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 20px !important;
         z-index: 10;
         position: relative;
     }
@@ -324,7 +335,7 @@ section { padding: 80px 0; }
         width: 100%;
         max-width: 500px;
         text-align: center;
-        margin-top: 0;
+        margin-top: 0 !important; /* 불필요한 상단 여백 제거 */
         margin-bottom: 20px;
         background: rgba(15, 23, 42, 0.5); 
         backdrop-filter: blur(5px);
@@ -350,6 +361,79 @@ section { padding: 80px 0; }
     .research-card { flex: 0 0 100%; }
 
     /* [FIX] Force 1 Column for Mobile Grid */
+    .pub-grid, .news-grid, .research-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+}
+/* 3. Mobile (max-width: 768px) - FIXED LAYOUT */
+@media (max-width: 768px) {
+    .mobile-only { display: inline; }
+
+    /* Hero Section Fix */
+    .hero {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important; /* 무조건 위쪽 정렬 */
+        align-items: center !important;
+        
+        height: 85dvh !important;
+        min-height: 85dvh;
+        
+        padding-top: 30px !important; 
+        padding-bottom: 0 !important;
+        
+        background: radial-gradient(circle at 50% 50%, #1e293b 0%, #020617 90%);
+        overflow: hidden;
+    }
+
+    .hero-container {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 20px !important;
+        z-index: 10;
+        position: relative;
+        height: auto !important; /* 높이 제한 해제 */
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+        
+        /* [핵심 수정] 상단 여백 완전 제거 */
+        margin-top: 0 !important; 
+        margin-bottom: 10px; /* 아래쪽 애니메이션과 간격 */
+        
+        background: rgba(15, 23, 42, 0.6); /* 가독성을 위해 배경 조금 더 진하게 */
+        backdrop-filter: blur(8px);
+        padding: 20px; /* 패딩도 살짝 줄임 */
+        border: 1px solid rgba(255,255,255,0.1);
+        box-shadow: none;
+    }
+
+    /* [공간 확보] 모바일 폰트 사이즈 최적화 */
+    .hero h2 { font-size: 26px !important; margin-bottom: 10px; }
+    .hero h1 { font-size: 18px !important; line-height: 1.4; margin-bottom: 15px; }
+    .hero p { font-size: 14px !important; margin-bottom: 20px; }
+    .hero-btn { padding: 12px 30px !important; font-size: 14px !important; }
+
+    #metabolic-canvas {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100% !important;
+        height: 100% !important;
+        z-index: 0;
+    }
+
+    .hero-visual-space { display: none; }
+    .scroll-indicator { display: none; }
+    .research-card { flex: 0 0 100%; }
+
     .pub-grid, .news-grid, .research-grid {
         grid-template-columns: 1fr !important;
         gap: 20px;
