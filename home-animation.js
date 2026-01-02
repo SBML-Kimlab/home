@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("Fixed Animation Script Loaded (v7)");
+    console.log("Animation Script v8 (Mobile Layout Fixed)");
 
     const canvas = document.getElementById('metabolic-canvas');
     if (!canvas) {
@@ -47,11 +47,14 @@ document.addEventListener('DOMContentLoaded', function() {
         greenEdges = [];
         particles = [];
         
-        const safeW = w || window.innerWidth || 300;
-        const safeH = h || window.innerHeight || 300;
+        // CSS에서 position: fixed로 잡았으므로 window 크기를 그대로 씁니다.
+        const safeW = window.innerWidth;
+        const safeH = window.innerHeight;
         
         const startXOffset = isMobile ? 0.5 : 0.55; 
-        const centerYRatio = isMobile ? 0.75 : 0.5; 
+        
+        // [수정] 모바일에서 0.75는 너무 아래입니다. 0.6으로 올려서 잘림 방지
+        const centerYRatio = isMobile ? 0.6 : 0.5; 
         const baseScale = Math.min(safeW / 1600, 1) * (isMobile ? 0.65 : 1); 
 
         // --- 1. Blue Positions ---
@@ -169,6 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             ctx.fillStyle = 'rgba(2, 6, 23, 1)'; 
+            // 캔버스가 fixed이므로 화면 전체를 그냥 덮으면 됩니다.
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             if (holdTimer > 0) {
@@ -185,7 +189,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const t = easeInOutQuart(morphProgress);
             
-            // Color Logic
             const r = Math.round(cfg.blueColor.r + (cfg.greenColor.r - cfg.blueColor.r) * t);
             const g = Math.round(cfg.blueColor.g + (cfg.greenColor.g - cfg.blueColor.g) * t);
             const b = Math.round(cfg.blueColor.b + (cfg.greenColor.b - cfg.blueColor.b) * t);
@@ -241,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (!isMobile) ctx.shadowBlur = 0;
             }
 
-            // Draw Particles (Batch)
+            // Draw Particles
             if (t > 0.5) {
                 const particleOpacity = (t - 0.5) * 2; 
                 ctx.fillStyle = `rgba(255, 255, 255, ${particleOpacity})`;
@@ -280,11 +283,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
                 ctx.fillStyle = mainColor;
-                // [CRITICAL FIX] Pulse 계산 시 음수가 발생하여 반지름이 음수가 되는 것을 방지
+                // 안전장치 유지
                 const pulse = Math.sin((Date.now() * 0.002) + i) * 2; 
                 let finalSize = n.curr.size + (t > 0.8 ? pulse * 0.5 : 0);
-                
-                // [SAFETY] 반지름이 0.1보다 작아지면 0.1로 고정 (음수 방지)
                 finalSize = Math.max(0.1, finalSize);
 
                 ctx.arc(n.curr.x, n.curr.y, finalSize, 0, Math.PI * 2);
@@ -294,7 +295,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 ctx.fillStyle = 'rgba(255,255,255,0.6)';
                 ctx.beginPath();
-                // [SAFETY] 내부 원도 안전하게 처리
                 ctx.arc(n.curr.x, n.curr.y, Math.max(0, n.curr.size * 0.4), 0, Math.PI * 2);
                 ctx.fill();
             }
@@ -309,27 +309,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function resize() {
         const dpr = Math.min(window.devicePixelRatio || 1, 2); 
-        const newWidth = window.innerWidth;
-        const newIsMobile = newWidth <= 768;
-
-        if (newIsMobile && Math.abs(newWidth - lastWidth) < 10) {
-            return;
-        }
         
-        lastWidth = newWidth;
-        isMobile = newIsMobile;
+        // [중요] 모바일에서는 CSS가 100vh/100dvh로 잡혀있으므로 window.inner...를 신뢰해서 사용
+        w = window.innerWidth;
+        h = window.innerHeight;
+        isMobile = w <= 768;
 
-        if (isMobile) {
-            const rect = canvas.getBoundingClientRect();
-            w = rect.width;
-            h = rect.height || window.innerHeight; 
-        } else {
-            w = window.innerWidth;
-            h = window.innerHeight;
-        }
-        
         canvas.width = w * dpr;
         canvas.height = h * dpr;
+        
+        // CSS가 width/height를 제어하므로 style 설정은 최소화하되, 동기화는 맞춤
         canvas.style.width = w + 'px';
         canvas.style.height = h + 'px';
         
