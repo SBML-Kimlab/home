@@ -8,7 +8,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css">
-    </head>
+    <style>
+        /* Lab member highlighting */
+        .lab-member-author {
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        /* Superscript for # and * symbols */
+        .author-marker {
+            vertical-align: super;
+            font-size: 0.75em;
+            font-weight: normal;
+        }
+    </style>
+</head>
 <body>
     <div id="nav-placeholder"></div>
 
@@ -20,7 +34,7 @@
     <section>
         <div class="container">
             <div class="note">
-                <p><strong>Note:</strong> # denotes co-first author, * denotes corresponding author</p>
+                <p><strong>Note:</strong> <sup>#</sup> denotes co-first author, <sup>*</sup> denotes corresponding author. <strong style="color: var(--primary);">Lab members are highlighted in bold.</strong></p>
             </div>
 
             <div class="filter-container">
@@ -45,8 +59,7 @@
                             <span>Select Journals</span>
                             <button id="clear-journals" class="btn-clear">Reset</button>
                         </div>
-                        <div id="journal-list-container">
-                            </div>
+                        <div id="journal-list-container"></div>
                     </div>
                 </div>
             </div>
@@ -60,6 +73,46 @@
     <script src="publications-data.js"></script>
     <script src="common.js"></script>
     <script>
+        // Function to convert # and * to superscript
+        function formatAuthorMarkers(text) {
+            if (!text) return text;
+            text = text.replace(/#/g, '<sup class="author-marker">#</sup>');
+            text = text.replace(/\*/g, '<sup class="author-marker">*</sup>');
+            return text;
+        }
+        
+        // Function to highlight lab members in author list
+        function highlightLabMembers(authorsString, boldAuthors) {
+            if (!authorsString) return authorsString;
+            
+            // If no boldAuthors specified, return formatted authors without bolding
+            if (!boldAuthors || boldAuthors.length === 0) {
+                return authorsString.split(',').map(a => formatAuthorMarkers(a.trim())).join(', ');
+            }
+            
+            const authors = authorsString.split(',').map(a => a.trim());
+            
+            const highlightedAuthors = authors.map(author => {
+                // Remove markers for comparison
+                const cleanAuthor = author.replace(/[#*]/g, '').trim();
+                
+                // Check if this author should be bolded
+                const shouldBold = boldAuthors.some(boldName => 
+                    cleanAuthor.toLowerCase() === boldName.toLowerCase()
+                );
+                
+                let formattedAuthor = formatAuthorMarkers(author);
+                
+                if (shouldBold) {
+                    return `<span class="lab-member-author">${formattedAuthor}</span>`;
+                }
+                
+                return formattedAuthor;
+            });
+            
+            return highlightedAuthors.join(', ');
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             const container = document.getElementById('publication-list');
             const buttons = document.querySelectorAll('.filter-btn');
@@ -68,11 +121,10 @@
             const journalListContainer = document.getElementById('journal-list-container');
             const clearJournalsBtn = document.getElementById('clear-journals');
 
-            // State 관리
             let currentYearFilter = 'all';
-            let selectedJournals = new Set(); // 선택된 저널들을 담을 집합
+            let selectedJournals = new Set();
 
-            // 1. 논문 번호 매기기 (기존 로직 유지)
+            // Number publications
             const numberedCategories = ["2025", "2024", "2023", "2022", "2021", "2020", "older"];
             
             let totalPapers = 0;
@@ -91,11 +143,10 @@
                 }
             });
 
-            // 2. 모든 저널 목록 추출 및 드롭다운 생성
+            // Initialize journal filter
             function initJournalFilter() {
                 const journalCounts = {};
 
-                // 모든 섹션을 순회하며 저널 수집
                 Object.values(publicationsData).forEach(section => {
                     section.items.forEach(item => {
                         const jName = item.journal;
@@ -105,10 +156,8 @@
                     });
                 });
 
-                // 알파벳 순 정렬
                 const sortedJournals = Object.keys(journalCounts).sort();
 
-                // HTML 생성
                 journalListContainer.innerHTML = '';
                 sortedJournals.forEach(journal => {
                     const label = document.createElement('label');
@@ -119,7 +168,6 @@
                         <span class="journal-count">(${journalCounts[journal]})</span>
                     `;
                     
-                    // 체크박스 이벤트 리스너
                     const checkbox = label.querySelector('input');
                     checkbox.addEventListener('change', (e) => {
                         if(e.target.checked) {
@@ -127,7 +175,7 @@
                         } else {
                             selectedJournals.delete(journal);
                         }
-                        renderPublications(); // 변경 시 다시 렌더링
+                        renderPublications();
                         updateFilterButtonState();
                     });
 
@@ -135,7 +183,6 @@
                 });
             }
 
-            // 3. 필터 버튼 상태 업데이트 (활성화 시 색상 변경)
             function updateFilterButtonState() {
                 if(selectedJournals.size > 0) {
                     journalFilterBtn.classList.add('active');
@@ -146,7 +193,6 @@
                 }
             }
 
-            // 4. 렌더링 함수 (연도 필터 + 저널 필터 동시 적용)
             function renderPublications() {
                 container.innerHTML = '';
                 const displayOrder = ["submitted", "2025", "2024", "2023", "2022", "2021", "2020", "older", "patents", "conference"];
@@ -157,17 +203,14 @@
                     const sectionData = publicationsData[key];
                     if (!sectionData) return;
 
-                    // 1차 필터: 연도 탭 확인
                     let showSection = (currentYearFilter === 'all') || (currentYearFilter === key);
 
                     if (showSection) {
-                        // 2차 필터: 선택된 저널에 해당하는 아이템만 골라내기
                         const filteredItems = sectionData.items.filter(item => {
-                            if (selectedJournals.size === 0) return true; // 선택된 저널이 없으면 모두 표시
+                            if (selectedJournals.size === 0) return true;
                             return selectedJournals.has(item.journal);
                         });
 
-                        // 보여줄 아이템이 있을 때만 섹션 생성
                         if (filteredItems.length > 0) {
                             hasResults = true;
                             const sectionEl = document.createElement('div');
@@ -188,9 +231,12 @@
                                     displayTitle = `${item.displayNumber}. ${item.title}`;
                                 }
 
+                                // Use boldAuthors from data
+                                const highlightedAuthors = highlightLabMembers(item.authors, item.boldAuthors);
+
                                 let html = `
                                     <h3>${displayTitle}</h3>
-                                    <p class="pub-authors">${item.authors}</p>
+                                    <p class="pub-authors">${highlightedAuthors}</p>
                                     <div class="pub-meta">
                                         <span class="pub-journal">${item.journal}</span>
                                 `;
@@ -226,16 +272,12 @@
                 }
             }
 
-            // 초기화 실행
             initJournalFilter();
             renderPublications();
 
-            // 5. 이벤트 리스너들
-            
-            // 연도 탭 버튼 클릭
             buttons.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    if(btn.classList.contains('journal-filter-btn')) return; // 저널 필터 버튼은 제외
+                    if(btn.classList.contains('journal-filter-btn')) return;
                     
                     buttons.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
@@ -244,23 +286,19 @@
                 });
             });
 
-            // 저널 필터 드롭다운 토글
             journalFilterBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 journalDropdown.classList.toggle('show');
             });
 
-            // 드롭다운 내부 클릭 시 닫히지 않도록 방지
             journalDropdown.addEventListener('click', (e) => {
                 e.stopPropagation();
             });
 
-            // 외부 클릭 시 드롭다운 닫기
             document.addEventListener('click', () => {
                 journalDropdown.classList.remove('show');
             });
 
-            // Reset 버튼 (저널 선택 전체 해제)
             clearJournalsBtn.addEventListener('click', () => {
                 selectedJournals.clear();
                 const checkboxes = journalListContainer.querySelectorAll('input[type="checkbox"]');
