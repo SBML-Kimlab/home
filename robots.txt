@@ -1,0 +1,10 @@
+# robots.txt for SBML Lab Website
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://sbml-kimlab.github.io/home/sitemap.xml
+
+# Disallow private directories (if any)
+# Disallow: /private/

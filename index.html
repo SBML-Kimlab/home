@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>SBML - Systems Biology and Machine Learning Lab | UNIST</title>
+    <meta name="description" content="UNIST Systems Biology and Machine Learning Lab. 시스템 생물학과 머신러닝을 활용한 대사 네트워크 연구, 전사 조절 네트워크, 항생제 내성 연구를 수행합니다.">
+    <meta name="keywords" content="Systems Biology, Machine Learning, UNIST, Metabolic Engineering, Genome-Scale Modeling, Transcriptional Network, Anti-Microbial Resistance, 시스템생물학, 머신러닝, 유니스트">
+    <meta name="author" content="Systems Biology and Machine Learning Lab, UNIST">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph (SNS 공유 최적화) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SBML - Systems Biology and Machine Learning Lab | UNIST">
+    <meta property="og:description" content="시스템 생물학과 머신러닝을 활용한 첨단 생명공학 연구">
+    <meta property="og:url" content="https://sbml-kimlab.github.io/home/">
+    <meta property="og:image" content="https://sbml-kimlab.github.io/home/Icons/logo.png">
+    <meta property="og:site_name" content="SBML Lab">
+    <meta property="og:locale" content="ko_KR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SBML Lab | UNIST">
+    <meta name="twitter:description" content="시스템 생물학과 머신러닝 연구실">
+    <meta name="twitter:image" content="https://sbml-kimlab.github.io/home/Icons/logo.png">
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self';">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="Icons/logo.png">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <!-- Fonts - Optimized Loading -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" as="style">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sbml-kimlab.github.io/home/">
+    <!-- Google Analytics -->
+    <script src="analytics.js"></script>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <section class="hero" role="banner" aria-label="메인 히어로 섹션">
+        <canvas id="metabolic-canvas" aria-hidden="true"></canvas>
+        <div class="hero-container">
+            
+            <div class="hero-content">
+                <h2>Systems Biology &<br>Machine Learning Lab</h2>
+                <h1>
+                    Decoding Life<br>
+                    Through<br>
+                    Data-Driven AI
+                </h1> 
+                <a href="research.html" class="hero-btn">
+                    Explore Our Research <i class="ri-arrow-right-line"></i>
+                </a>
+            </div>
+
+            <div class="hero-visual-space"></div>
+
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div class="arrow"></div>
+        </div>            
+    </section>
+
+    <section class="research-areas" id="research" aria-labelledby="research-title">
+        <div class="container">
+            <h2 class="section-title" id="research-title">Research Areas</h2>
+            <div class="research-grid">
+                <a href="research.html#transcriptional" class="research-card-link">
+                    <div class="research-card">
+                        <div class="card-content">
+                            <i class="ri-dna-line"></i>
+                            <h3>Transcriptional Regulatory Network</h3>
+                        </div>
+                        <div class="view-detail-btn">view detail</div>
+                    </div>
+                </a>
+
+                <a href="research.html#genome-modeling" class="research-card-link">
+                    <div class="research-card">
+                        <div class="card-content">
+                            <i class="ri-flask-line"></i>
+                            <h3>Genome-Scale Metabolic Modeling</h3>
+                        </div>
+                        <div class="view-detail-btn">view detail</div>
+                    </div>
+                </a>
+
+                <a href="research.html#bacterial-strains" class="research-card-link">
+                    <div class="research-card">
+                        <div class="card-content">
+                            <i class="ri-test-tube-line"></i>
+                            <h3>High-Value Bacterial Strains</h3>
+                        </div>
+                        <div class="view-detail-btn">view detail</div>
+                    </div>
+                </a>
+
+                <a href="research.html#antimicrobial" class="research-card-link">
+                    <div class="research-card">
+                        <div class="card-content">
+                            <i class="ri-shield-cross-line"></i>
+                            <h3>Anti-Microbial Resistance</h3>
+                        </div>
+                        <div class="view-detail-btn">view detail</div>
+                    </div>
+                </a>
+
+                <a href="research.html#machine-learning" class="research-card-link">
+                    <div class="research-card">
+                        <div class="card-content">
+                            <i class="ri-brain-line"></i>
+                            <h3>Machine Learning</h3>
+                        </div>
+                        <div class="view-detail-btn">view detail</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="publications" aria-labelledby="publications-title">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="publications-title">Recent Publications</h2>
+                <a href="publications.html" class="view-all-inline">
+                    View All <i class="ri-arrow-right-line"></i>
+                </a>
+            </div>
+            <div class="pub-grid" id="recent-pubs"></div>
+        </div>
+    </section>
+
+    <section class="news-section" aria-labelledby="news-title">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="news-title">Latest News</h2>
+                <a href="news.html" class="view-all-inline">
+                    View All <i class="ri-arrow-right-line"></i>
+                </a>
+            </div>
+            <div class="news-grid" id="recent-news"></div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Data Scripts -->
+    <script src="publications-data.js"></script>
+    <script src="news-data.js"></script>
+
+    <!-- Common Scripts -->
+    <script src="common.js"></script>
+    <script src="home-animation.js"></script>
+
+    <!-- Performance Optimization -->
+    <script src="optimize-images.js"></script>
+    <script>
+    // Scroll indicator click event
+    document.addEventListener('DOMContentLoaded', function() {
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        
+        if (scrollIndicator) {
+            scrollIndicator.addEventListener('click', function() {
+                const researchSection = document.getElementById('research');
+                if (researchSection) {
+                    researchSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        }
+
+        // 2. Render Recent Publications (Top 3)
+        // [FIX] 'submitted' removed from priorityOrder to show only published papers
+        const recentPubsContainer = document.getElementById('recent-pubs');
+        if (recentPubsContainer && typeof publicationsData !== 'undefined') {
+            let allItems = [];
+            // "submitted" removed from this list
+            const priorityOrder = ["2025", "2024", "2023"]; 
+            
+            priorityOrder.forEach(key => {
+                if (publicationsData[key] && publicationsData[key].items) {
+                    allItems = allItems.concat(publicationsData[key].items);
+                }
+            });
+
+            // Take top 3
+            const recentItems = allItems.slice(0, 3);
+
+            recentItems.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'pub-card';
+                card.innerHTML = `
+                    <h4>${item.title}</h4>
+                    <span class="authors">${item.authors}</span>
+                    <span class="journal">${item.journal}</span>
+                `;
+                if(item.doi || item.link) {
+                    card.style.cursor = "pointer";
+                    card.onclick = () => window.open(item.link || (item.doi ? 'https://doi.org/'+item.doi : '#'), '_blank');
+                }
+                recentPubsContainer.appendChild(card);
+            });
+        }
+
+        // 3. Render Latest News (Top 3)
+        const recentNewsContainer = document.getElementById('recent-news');
+        if (recentNewsContainer && typeof newsData !== 'undefined') {
+            const latestNews = newsData.slice(0, 3);
+            
+            latestNews.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'news-card';
+                card.innerHTML = `
+                    <span class="news-date">${item.tag}</span>
+                    <div class="news-title">${item.title}</div>
+                    <div class="news-desc">${item.desc}</div>
+                `;
+                recentNewsContainer.appendChild(card);
+            });
+        }
+    });
+    </script>
+</body>
+</html>

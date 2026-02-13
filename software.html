@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Software & Tools - SBML | UNIST</title>
+    <meta name="description" content="SBML Lab에서 개발한 오픈소스 소프트웨어 및 도구들입니다. 시스템 생물학과 머신러닝 연구를 위한 고급 소프트웨어를 제공합니다.">
+    <meta name="keywords" content="Software, Tools, Systems Biology, Machine Learning, SBML, UNIST, Open Source, Bioinformatics, Metabolic Modeling, 소프트웨어, 생물정보">
+    <meta name="author" content="Systems Biology and Machine Learning Lab, UNIST">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph (SNS 공유 최적화) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Software & Tools - SBML Lab | UNIST">
+    <meta property="og:description" content="시스템 생물학을 위한 오픈소스 소프트웨어 및 도구 모음">
+    <meta property="og:url" content="https://sbml-kimlab.github.io/home/software.html">
+    <meta property="og:image" content="https://sbml-kimlab.github.io/home/Icons/logo.png">
+    <meta property="og:site_name" content="SBML Lab">
+    <meta property="og:locale" content="ko_KR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Software & Tools - SBML Lab | UNIST">
+    <meta name="twitter:description" content="오픈소스 생물학 소프트웨어 및 도구">
+    <meta name="twitter:image" content="https://sbml-kimlab.github.io/home/Icons/logo.png">
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self';">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="Icons/logo.png">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <!-- Fonts - Optimized Loading -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" as="style">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sbml-kimlab.github.io/home/software.html">
+
+    <style>
+        /* Image Modal Styles */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            cursor: pointer;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .image-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-modal img {
+            max-width: 95%;
+            max-height: 95vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 0.3s ease;
+        }
+
+        .image-modal-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 48px;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 10000;
+        }
+
+        .image-modal-close:hover {
+            color: #3d7684;
+            transform: rotate(90deg);
+        }
+
+        .software-image {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .software-image::after {
+            content: '\eb6e';
+            font-family: 'remixicon';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .software-image:hover::after {
+            opacity: 0.9;
+        }
+
+        .software-image:hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* 1. 그리드 레이아웃 정의 (카드가 가로로 나열되도록 설정) */
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+
+        /* 2. 카드 스타일 정의 (배경 및 넘치는 컨텐츠 숨김) */
+        .software-card {
+            background: #fff; /* 또는 var(--bg-card) */
+            border: 1px solid #eee;
+            border-radius: 12px;
+            overflow: hidden; /* 중요: 이미지가 카드 둥근 모서리를 넘지 않도록 함 */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .software-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* 3. 이미지 크기 강제 조절 (가장 중요한 부분) */
+        .software-image {
+            width: 100%;
+            height: 200px; /* 카드의 이미지 높이 통일 (선택사항) */
+            overflow: hidden;
+        }
+
+        .software-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 이미지가 찌그러지지 않고 영역을 꽉 채움 */
+            display: block;
+        }
+
+        /* 카드 내부 패딩 */
+        .software-header, .description, .tags, .links, .software-citation {
+            padding: 0 20px;
+        }
+        .software-header {
+            padding-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .links {
+            padding-bottom: 20px;
+            margin-top: auto; /* 버튼을 카드 하단으로 밀어줌 */
+        }
+    </style>
+    <!-- Google Analytics -->
+    <script src="analytics.js"></script>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div class="page-header">
+        <h1>Software & Tools</h1>
+        <p>Open-source tools developed by our lab</p>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="software-grid" id="software-list"></div>
+
+            <div style="background: var(--bg-light); padding: 50px; border-radius: 16px; margin-top: 80px; text-align: center;">
+                <h2 style="font-size: 32px; color: var(--primary); margin-bottom: 20px;">
+                    <i class="ri-open-source-line"></i> Open Source Commitment
+                </h2>
+                <p style="font-size: 18px; color: var(--text-light); max-width: 800px; margin: 0 auto;">
+                    We believe in open science and make our software tools publicly available. 
+                    All tools are released under permissive licenses to enable reproducible research and community contributions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="image-modal-close" id="modalClose">&times;</span>
+        <img id="modalImage" src="" alt="Software visualization">
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="software-data.js"></script>
+    <script src="common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('software-list');
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalClose = document.getElementById('modalClose');
+            let html = '';
+
+            softwareData.forEach((tool, index) => {
+                const tagsHtml = tool.tags.map(tag => 
+                    `<span class="tag">${tag}</span>`
+                ).join('');
+                
+                const linksHtml = tool.links.map(link => {
+                    const btnClass = link.type === 'primary' ? 'btn' : 'btn btn-secondary';
+                    return `
+                        <a href="${link.url}" class="${btnClass}" target="_blank" rel="noopener noreferrer">
+                            <i class="${link.icon || 'ri-link'}"></i>
+                            ${link.text}
+                        </a>`;
+                }).join('');
+
+                // Image section - clickable if available
+                const imageHtml = tool.image ? `
+                    <div class="software-image" onclick="openImageModal('${tool.image}', '${tool.title}')" title="Click to enlarge">
+                        <img src="${tool.image}" alt="${tool.title} workflow" loading="lazy">
+                    </div>
+                ` : '';
+
+                // Citation section
+                const citationHtml = tool.citation ? `
+                    <div class="software-citation">
+                        <i class="ri-article-line"></i>
+                        <span>${tool.citation}</span>
+                    </div>
+                ` : '';
+
+                html += `
+                    <div class="software-card">
+                        <div class="software-header">
+                            <div class="software-icon">
+                                <i class="${tool.icon}"></i>
+                            </div>
+                            <div>
+                                <h3>${tool.title}</h3>
+                                ${tool.subtitle ? `<p class="subtitle">${tool.subtitle}</p>` : ''}
+                            </div>
+                        </div>
+                        ${imageHtml}
+                        <p class="description">${tool.desc}</p>
+                        <div class="tags">${tagsHtml}</div>
+                        ${citationHtml}
+                        <div class="links">${linksHtml}</div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+
+            // Modal functionality
+            window.openImageModal = function(imageSrc, altText) {
+                modal.classList.add('active');
+                modalImage.src = imageSrc;
+                modalImage.alt = altText + ' - detailed view';
+                document.body.style.overflow = 'hidden';
+            };
+
+            function closeImageModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            // Close modal on click
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal || e.target === modalClose) {
+                    closeImageModal();
+                }
+            });
+
+            // Close modal on ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeImageModal();
+                }
+            });
+        });
+    </script>
+
+    <script src="optimize-images.js"></script>
+</body>
+</html>

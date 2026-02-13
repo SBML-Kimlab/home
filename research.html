@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Research Areas - Systems Biology & Machine Learning | SBML Lab</title>
+    <meta name="description" content="전사 조절 네트워크, 대사 모델링, 항생제 내성 연구 등 SBML Lab의 주요 연구 분야를 소개합니다. Transcriptional Network, Genome-Scale Metabolic Modeling, AMR.">
+    <meta name="keywords" content="Transcriptional Network, Metabolic Modeling, Anti-Microbial Resistance, Machine Learning, Bacterial Strains, Systems Biology Research, 전사조절네트워크, 대사모델링">
+    <meta name="author" content="SBML Lab, UNIST">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Research Areas | SBML Lab">
+    <meta property="og:description" content="시스템 생물학과 머신러닝을 활용한 첨단 연구 분야">
+    <meta property="og:url" content="https://sbml-kimlab.github.io/home/research.html">
+    <meta property="og:image" content="https://sbml-kimlab.github.io/home/research-photo/GSM.png">
+    <meta property="og:site_name" content="SBML Lab">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Research Areas | SBML Lab">
+    <meta name="twitter:description" content="전사 조절 네트워크, 대사 모델링, 항생제 내성 연구">
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self';">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="Icons/logo.png">
+    <link rel="canonical" href="https://sbml-kimlab.github.io/home/research.html">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <!-- Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" as="style">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Research Detail with Image Layout */
+        .research-detail {
+            scroll-margin-top: 120px;
+            scroll-padding-top: 20px;
+            background: white;
+            border-radius: 16px;
+            padding: 50px;
+            margin-bottom: 60px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+        
+        .research-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .research-header i {
+            font-size: 36px;
+            color: var(--primary);
+        }
+        
+        .research-header h3 {
+            font-size: 28px;
+            color: var(--text);
+            margin: 0;
+            font-weight: 700;
+        }
+        
+        .research-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        
+        .research-text > p:first-child {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 30px;
+        }
+        
+        .research-text h4 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        
+        .research-text p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        .research-text ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 15px 0;
+        }
+        
+        .research-text ul li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+        
+        .research-text ul li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .research-images {
+            position: sticky;
+            top: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .research-image {
+            width: 100%;
+            position: relative;
+        }
+        
+        .research-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .research-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+        }
+        
+        /* Zoom indicator on hover */
+        .research-image::after {
+            content: '\eb9e'; /* Remix Icon zoom-in */
+            font-family: 'remixicon';
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .research-image:hover::after {
+            opacity: 1;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 600;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+        
+        /* Image Modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s;
+        }
+        
+        .image-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content-wrapper {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-image {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 0.3s;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            border-radius: 50%;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2001;
+        }
+        
+        .modal-close:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: rotate(90deg);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .research-detail {
+                padding: 35px;
+            }
+            
+            .research-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .research-images {
+                position: relative;
+                top: 0;
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .research-detail {
+                padding: 25px;
+                margin-bottom: 40px;
+            }
+            
+            .research-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .research-header i {
+                font-size: 32px;
+            }
+            
+            .research-header h3 {
+                font-size: 22px;
+            }
+            
+            .research-text h4 {
+                font-size: 16px;
+            }
+            
+            .research-images {
+                gap: 15px;
+            }
+            
+            .modal-close {
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 24px;
+            }
+        }
+        
+        /* Mobile scroll adjustment */
+        @media (max-width: 768px) {
+            .research-detail {
+                scroll-margin-top: 100px !important;
+            }
+        }
+    </style>
+    <!-- Google Analytics -->
+    <script src="analytics.js"></script>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div class="page-header">
+        <h1>Research</h1>
+        <p>Advancing systems biology and machine learning for biological discoveries</p>
+    </div>
+
+    <section>
+        <div class="container" id="research-container">
+            <!-- Research items will be dynamically loaded here -->
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <button class="modal-close" onclick="closeImageModal()">
+            <i class="ri-close-line"></i>
+        </button>
+        <div class="modal-content-wrapper">
+            <img id="modalImage" class="modal-image" src="" alt="">
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="research-data.js"></script>
+    <script src="common.js"></script>
+    <script>
+        let currentImageIndex = 0;
+        let currentImages = [];
+        
+        function openImageModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = imageSrc;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal on background click
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeImageModal();
+            }
+        });
+        
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeImageModal();
+            }
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('research-container');
+            
+            researchData.forEach(research => {
+                // Create research detail section
+                const detailDiv = document.createElement('div');
+                detailDiv.className = 'research-detail';
+                detailDiv.id = research.id;
+                
+                // Create header
+                const headerDiv = document.createElement('div');
+                headerDiv.className = 'research-header';
+                headerDiv.innerHTML = `
+                    <i class="${research.icon}"></i>
+                    <h3>${research.title}</h3>
+                `;
+                detailDiv.appendChild(headerDiv);
+                
+                // Create content grid
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'research-content';
+                
+                // Create text column
+                const textDiv = document.createElement('div');
+                textDiv.className = 'research-text';
+                
+                // Add description
+                const descP = document.createElement('p');
+                descP.innerHTML = research.description;
+                textDiv.appendChild(descP);
+                
+                // Add sections
+                research.sections.forEach(section => {
+                    const h4 = document.createElement('h4');
+                    h4.textContent = section.heading;
+                    textDiv.appendChild(h4);
+                    
+                    if (section.content) {
+                        const p = document.createElement('p');
+                        p.innerHTML = section.content;
+                        textDiv.appendChild(p);
+                    }
+                    
+                    if (section.items) {
+                        const ul = document.createElement('ul');
+                        section.items.forEach(item => {
+                            const li = document.createElement('li');
+                            li.innerHTML = item;
+                            ul.appendChild(li);
+                        });
+                        textDiv.appendChild(ul);
+                    }
+                });
+                
+                contentDiv.appendChild(textDiv);
+                
+                // Create images column
+                const imagesContainer = document.createElement('div');
+                imagesContainer.className = 'research-images';
+                
+                // Add all images
+                research.images.forEach((imagePath, index) => {
+                    const imageWrapper = document.createElement('div');
+                    imageWrapper.className = 'research-image';
+                    
+                    const img = new Image();
+                    img.src = imagePath;
+                    img.alt = `${research.title} - Image ${index + 1}`;
+                    
+                    img.onload = function() {
+                        imageWrapper.innerHTML = '';
+                        img.onclick = function() {
+                            openImageModal(imagePath);
+                        };
+                        imageWrapper.appendChild(img);
+                    };
+                    
+                    img.onerror = function() {
+                        imageWrapper.innerHTML = `
+                            <div class="image-placeholder">
+                                <i class="ri-image-line" style="font-size: 48px;"></i>
+                            </div>
+                        `;
+                    };
+                    
+                    // Add placeholder initially
+                    imageWrapper.innerHTML = `
+                        <div class="image-placeholder">
+                            <i class="ri-image-line" style="font-size: 48px;"></i>
+                        </div>
+                    `;
+                    
+                    imagesContainer.appendChild(imageWrapper);
+                });
+                
+                contentDiv.appendChild(imagesContainer);
+                detailDiv.appendChild(contentDiv);
+                container.appendChild(detailDiv);
+            });
+        });
+    </script>
+
+    <!-- Performance Optimization -->
+    <script src="optimize-images.js"></script>
+</body>
+</html>

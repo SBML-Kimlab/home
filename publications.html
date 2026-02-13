@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Publications - Research Papers & Patents | SBML Lab</title>
+    <meta name="description" content="SBML Lab의 연구 논문 및 특허 목록. Nature, Science, Cell 등 주요 저널 게재 논문을 확인하세요.">
+    <meta name="keywords" content="Research Publications, Scientific Papers, Patents, Nature, Science, Systems Biology Papers, 연구논문, 특허">
+    <meta name="author" content="SBML Lab, UNIST">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Publications - Research Papers & Patents">
+    <meta property="og:description" content="SBML Lab의 연구 논문 및 특허 목록. Nature, Science, Cell 등 주요 저널 게재 논문을 확인하세요.">
+    <meta property="og:url" content="https://sbml-kimlab.github.io/home/publications.html">
+    <meta property="og:image" content="https://sbml-kimlab.github.io/home/Icons/logo.png">
+    <meta property="og:site_name" content="SBML Lab">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Publications - Research Papers & Patents">
+    <meta name="twitter:description" content="SBML Lab의 연구 논문 및 특허 목록. Nature, Science, Cell 등 주요 저널 게재 논문을 확인하세요.">
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self';">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="Icons/logo.png">
+    <link rel="canonical" href="https://sbml-kimlab.github.io/home/publications.html">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <!-- Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" as="style">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+<style>
+        /* Lab member highlighting */
+        .lab-member-author {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Superscript for # and * symbols */
+        .author-marker {
+            vertical-align: super;
+            font-size: 0.75em;
+            font-weight: normal;
+        }
+
+        /* Clickable card styles */
+        .pub-item.clickable-card {
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s;
+        }
+
+        .pub-item.clickable-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+            background-color: #f8fafc;
+        }
+
+        /* Period badges - 홈페이지 색상 테마에 맞춤 */
+        .period-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .period-badge.period-unist {
+            background: #3D7684;
+            color: white;
+        }
+
+        .period-badge.period-before-unist2 {
+            background: #516F75;
+            color: white;
+        }
+
+        .period-badge.period-before-unist {
+            background: #94a3b8;
+            color: white;
+        }
+
+        /* 필터 버튼 줄바꿈을 위한 CSS */
+        .filter-spacer {
+            flex-basis: 100%;
+            height: 0;
+        }
+
+        /* Filter dividers */
+        .filter-divider {
+            display: inline-block;
+            width: 1px;
+            height: 24px;
+            background-color: #d1d5db;
+            margin: 0 12px;
+            align-self: center;
+        }
+
+        /* Year dropdown */
+        .year-dropdown-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        #year-dropdown-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        #year-dropdown-btn i {
+            font-size: 16px;
+            transition: transform 0.2s ease;
+        }
+
+        #year-dropdown-btn.open i {
+            transform: rotate(180deg);
+        }
+
+        .year-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin-top: 8px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            min-width: 140px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+        }
+
+        .year-dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .year-option {
+            display: block;
+            width: 100%;
+            padding: 10px 16px;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 14px;
+            color: #374151;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+        }
+
+        .year-option:first-child {
+            border-radius: 8px 8px 0 0;
+        }
+
+        .year-option:last-child {
+            border-radius: 0 0 8px 8px;
+        }
+
+        .year-option:hover {
+            background-color: #f3f4f6;
+        }
+
+        .year-option.active {
+            background-color: #3D7684;
+            color: white;
+        }
+
+        .year-option.active:hover {
+            background-color: #2d5a65;
+        }
+    </style>
+    <!-- Google Analytics -->
+    <script src="analytics.js"></script>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div class="page-header">
+        <h1>Publications</h1>
+        <p>Scientific contributions and research outputs</p>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="note">
+                <p><strong>Note:</strong> <sup>#</sup> denotes co-first author, <sup>*</sup> denotes corresponding author. <strong style="color: var(--primary);">Lab members are highlighted in bold.</strong></p>
+            </div>
+
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="submitted">Submitted</button>
+
+                <span class="filter-divider"></span>
+
+                <div class="year-dropdown-wrapper">
+                    <button id="year-dropdown-btn" class="filter-btn">
+                        <span id="year-label">Year</span> <i class="ri-arrow-down-s-line"></i>
+                    </button>
+                    <div id="year-dropdown-menu" class="year-dropdown-menu">
+                        <button class="year-option" data-filter="2026">2026</button>
+                        <button class="year-option" data-filter="2025">2025</button>
+                        <button class="year-option" data-filter="2024">2024</button>
+                        <button class="year-option" data-filter="2023">2023</button>
+                        <button class="year-option" data-filter="2022">2022</button>
+                        <button class="year-option" data-filter="2021">2021</button>
+                        <button class="year-option" data-filter="2020">2020</button>
+                        <button class="year-option" data-filter="2019">2019</button>
+                        <button class="year-option" data-filter="2018">2018</button>
+                        <button class="year-option" data-filter="2017">2017</button>
+                        <button class="year-option" data-filter="older">2016-2009</button>
+                    </div>
+                </div>
+
+                <span class="filter-divider"></span>
+
+                <button class="filter-btn" data-filter="before-unist2">Before UNIST2</button>
+                <button class="filter-btn" data-filter="before-unist">Before UNIST</button>
+
+                <span class="filter-divider"></span>
+
+                <button class="filter-btn" data-filter="patents">Patents</button>
+                <button class="filter-btn" data-filter="conference">Conference</button>
+
+                <div class="journal-filter-wrapper">
+                    <button id="journal-filter-btn" class="journal-filter-btn">
+                        <i class="ri-filter-3-line"></i> Filter by Journal
+                    </button>
+                    <div id="journal-dropdown" class="journal-dropdown">
+                        <div class="dropdown-header">
+                            <span>Select Journals</span>
+                            <button id="clear-journals" class="btn-clear">Reset</button>
+                        </div>
+                        <div id="journal-list-container"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="publication-list"></div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="publications-data.js"></script>
+    <script src="common.js"></script>
+    <script>
+        // Function to convert # and * to superscript
+        function formatAuthorMarkers(text) {
+            if (!text) return text;
+            text = text.replace(/#/g, '<sup class="author-marker">#</sup>');
+            text = text.replace(/\*/g, '<sup class="author-marker">*</sup>');
+            return text;
+        }
+        
+        // Function to highlight lab members in author list
+        function highlightLabMembers(authorsString, boldAuthors) {
+            if (!authorsString) return authorsString;
+            
+            // If no boldAuthors specified, return formatted authors without bolding
+            if (!boldAuthors || boldAuthors.length === 0) {
+                return authorsString.split(',').map(a => formatAuthorMarkers(a.trim())).join(', ');
+            }
+            
+            const authors = authorsString.split(',').map(a => a.trim());
+            
+            const highlightedAuthors = authors.map(author => {
+                // Remove markers for comparison
+                const cleanAuthor = author.replace(/[#*]/g, '').trim();
+                
+                // Check if this author should be bolded
+                const shouldBold = boldAuthors.some(boldName => 
+                    cleanAuthor.toLowerCase() === boldName.toLowerCase()
+                );
+                
+                let formattedAuthor = formatAuthorMarkers(author);
+                
+                if (shouldBold) {
+                    return `<span class="lab-member-author">${formattedAuthor}</span>`;
+                }
+                
+                return formattedAuthor;
+            });
+            
+            return highlightedAuthors.join(', ');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('publication-list');
+            const buttons = document.querySelectorAll('.filter-btn');
+            const journalFilterBtn = document.getElementById('journal-filter-btn');
+            const journalDropdown = document.getElementById('journal-dropdown');
+            const journalListContainer = document.getElementById('journal-list-container');
+            const clearJournalsBtn = document.getElementById('clear-journals');
+
+            let currentYearFilter = 'all';
+            let selectedJournals = new Set();
+
+            // Number publications
+            const numberedCategories = ["2026", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "older"];
+            
+            let totalPapers = 0;
+            numberedCategories.forEach(key => {
+                if(publicationsData[key] && publicationsData[key].items) {
+                    totalPapers += publicationsData[key].items.length;
+                }
+            });
+
+            let currentNumber = totalPapers;
+            numberedCategories.forEach(key => {
+                if(publicationsData[key] && publicationsData[key].items) {
+                    publicationsData[key].items.forEach(item => {
+                        item.displayNumber = currentNumber--;
+                    });
+                }
+            });
+
+            // Initialize journal filter
+            function initJournalFilter() {
+                const journalCounts = {};
+
+                Object.values(publicationsData).forEach(section => {
+                    section.items.forEach(item => {
+                        const jName = item.journal;
+                        if(jName) {
+                            journalCounts[jName] = (journalCounts[jName] || 0) + 1;
+                        }
+                    });
+                });
+
+                const sortedJournals = Object.keys(journalCounts).sort();
+
+                journalListContainer.innerHTML = '';
+                sortedJournals.forEach(journal => {
+                    const label = document.createElement('label');
+                    label.className = 'journal-option';
+                    label.innerHTML = `
+                        <input type="checkbox" value="${journal}">
+                        <span class="journal-name">${journal}</span>
+                        <span class="journal-count">(${journalCounts[journal]})</span>
+                    `;
+                    
+                    const checkbox = label.querySelector('input');
+                    checkbox.addEventListener('change', (e) => {
+                        if(e.target.checked) {
+                            selectedJournals.add(journal);
+                        } else {
+                            selectedJournals.delete(journal);
+                        }
+                        renderPublications();
+                        updateFilterButtonState();
+                    });
+
+                    journalListContainer.appendChild(label);
+                });
+            }
+
+            function updateFilterButtonState() {
+                if(selectedJournals.size > 0) {
+                    journalFilterBtn.classList.add('active');
+                    journalFilterBtn.innerHTML = `<i class="ri-filter-3-fill"></i> ${selectedJournals.size} Selected`;
+                } else {
+                    journalFilterBtn.classList.remove('active');
+                    journalFilterBtn.innerHTML = `<i class="ri-filter-3-line"></i> Filter by Journal`;
+                }
+            }
+
+            function getPeriodLabel(period) {
+                const labels = {
+                    'unist': 'UNIST',
+                    'before-unist2': 'Before UNIST2',
+                    'before-unist': 'Before UNIST'
+                };
+                return labels[period] || '';
+            }
+
+            function renderPublications() {
+                container.innerHTML = '';
+                const displayOrder = ["2026", "submitted", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "older", "patents", "conference"];
+
+                let hasResults = false;
+
+                displayOrder.forEach(key => {
+                    const sectionData = publicationsData[key];
+                    if (!sectionData) return;
+
+                    // Check year filter
+                    let showSection = (currentYearFilter === 'all') || (currentYearFilter === key);
+
+                    // Also check if filtering by period
+                    if (!showSection && sectionData.period) {
+                        showSection = (currentYearFilter === sectionData.period);
+                    }
+
+                    if (showSection) {
+                        const filteredItems = sectionData.items.filter(item => {
+                            if (selectedJournals.size === 0) return true;
+                            return selectedJournals.has(item.journal);
+                        });
+
+                        if (filteredItems.length > 0) {
+                            hasResults = true;
+                            const sectionEl = document.createElement('div');
+                            sectionEl.className = 'year-section fade-in';
+                            sectionEl.id = key;
+
+                            const titleEl = document.createElement('h2');
+                            titleEl.className = 'year-title';
+                            titleEl.textContent = sectionData.title;
+                            sectionEl.appendChild(titleEl);
+
+                            filteredItems.forEach(item => {
+                                const pubItem = document.createElement('div');
+                                pubItem.className = 'pub-item';
+
+                                // Calculate link URL
+                                let linkUrl = null;
+                                if (item.link) {
+                                    linkUrl = item.link;
+                                } else if (item.doi) {
+                                    if (item.doi.startsWith("http")) {
+                                        linkUrl = item.doi;
+                                    } else {
+                                        linkUrl = `https://doi.org/${item.doi}`;
+                                    }
+                                }
+
+                                // Make card clickable if link exists
+                                if (linkUrl) {
+                                    pubItem.classList.add('clickable-card');
+                                    pubItem.onclick = () => window.open(linkUrl, '_blank');
+                                }
+
+                                let displayTitle = item.title;
+                                if (item.displayNumber) {
+                                    displayTitle = `${item.displayNumber}. ${item.title}`;
+                                }
+
+                                // Use boldAuthors from data
+                                const highlightedAuthors = highlightLabMembers(item.authors, item.boldAuthors);
+
+                                let html = `
+                                    <h3>${displayTitle}</h3>
+                                    <p class="pub-authors">${highlightedAuthors}</p>
+                                    <div class="pub-meta">
+                                        <span class="pub-journal">${item.journal}</span>
+                                `;
+
+                                if (item.publishedDate) {
+                                    html += `<span class="pub-year">${item.publishedDate}</span>`;
+                                }
+
+                                // Add period badge
+                                let itemPeriod = sectionData.period;
+
+                                // Special handling for 2018: assign period based on month
+                                if (key === '2018' && item.publishedDate) {
+                                    if (item.publishedDate.includes('Sep') ||
+                                        item.publishedDate.includes('Oct') ||
+                                        item.publishedDate.includes('Nov')) {
+                                        itemPeriod = 'before-unist2';
+                                    } else {
+                                        itemPeriod = 'before-unist';
+                                    }
+                                }
+
+                                if (itemPeriod) {
+                                    const periodLabel = getPeriodLabel(itemPeriod);
+                                    if (periodLabel) {
+                                        html += `<span class="period-badge period-${itemPeriod}">${periodLabel}</span>`;
+                                    }
+                                }
+
+                                html += `</div>`;
+                                pubItem.innerHTML = html;
+                                sectionEl.appendChild(pubItem);
+                            });
+
+                            container.appendChild(sectionEl);
+                        }
+                    }
+                });
+
+                if (!hasResults) {
+                    container.innerHTML = `<div style="text-align:center; padding: 40px; color: #666;">No publications match the selected filters.</div>`;
+                }
+            }
+
+            initJournalFilter();
+            renderPublications();
+
+            // Year dropdown functionality
+            const yearDropdownBtn = document.getElementById('year-dropdown-btn');
+            const yearDropdownMenu = document.getElementById('year-dropdown-menu');
+            const yearLabel = document.getElementById('year-label');
+            const yearOptions = document.querySelectorAll('.year-option');
+
+            yearDropdownBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                yearDropdownMenu.classList.toggle('show');
+                yearDropdownBtn.classList.toggle('open');
+            });
+
+            yearOptions.forEach(option => {
+                option.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const filter = option.getAttribute('data-filter');
+                    const yearText = option.textContent;
+
+                    // Update label
+                    yearLabel.textContent = yearText;
+
+                    // Update active states
+                    buttons.forEach(b => b.classList.remove('active'));
+                    yearOptions.forEach(opt => opt.classList.remove('active'));
+                    option.classList.add('active');
+
+                    // Apply filter
+                    currentYearFilter = filter;
+                    renderPublications();
+
+                    // Close dropdown
+                    yearDropdownMenu.classList.remove('show');
+                    yearDropdownBtn.classList.remove('open');
+                });
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!yearDropdownBtn.contains(e.target) && !yearDropdownMenu.contains(e.target)) {
+                    yearDropdownMenu.classList.remove('show');
+                    yearDropdownBtn.classList.remove('open');
+                }
+            });
+
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if(btn.classList.contains('journal-filter-btn')) return;
+                    if(btn.id === 'year-dropdown-btn') return; // Year 드롭다운 버튼은 제외
+
+                    // Reset year dropdown when other filters are clicked
+                    yearOptions.forEach(opt => opt.classList.remove('active'));
+                    yearLabel.textContent = 'Year';
+
+                    buttons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentYearFilter = btn.getAttribute('data-filter');
+                    renderPublications();
+                });
+            });
+
+            journalFilterBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                journalDropdown.classList.toggle('show');
+            });
+
+            journalDropdown.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+
+            document.addEventListener('click', () => {
+                journalDropdown.classList.remove('show');
+            });
+
+            clearJournalsBtn.addEventListener('click', () => {
+                selectedJournals.clear();
+                const checkboxes = journalListContainer.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(cb => cb.checked = false);
+                renderPublications();
+                updateFilterButtonState();
+            });
+        });
+    </script>
+
+    <!-- Performance Optimization -->
+    <script src="optimize-images.js"></script>
+</body>
+</html>

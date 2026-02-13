@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Gallery - SBML | UNIST</title>
+    <meta name="description" content="SBML Lab의 연구 활동, 학술 행사, 세미나 및 실험실 일상을 담은 갤러리입니다. 우리의 연구 현장을 함께 살펴보세요.">
+    <meta name="keywords" content="Gallery, Photos, Events, Lab Life, SBML, UNIST, Research Activities, Seminars, 갤러리, 사진, 행사, 실험실">
+    <meta name="author" content="Systems Biology and Machine Learning Lab, UNIST">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph (SNS 공유 최적화) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gallery - SBML Lab | UNIST">
+    <meta property="og:description" content="SBML Lab의 연구 활동 및 실험실 일상 갤러리">
+    <meta property="og:url" content="https://sbml-kimlab.github.io/home/gallery.html">
+    <meta property="og:image" content="https://sbml-kimlab.github.io/home/Icons/logo.png">
+    <meta property="og:site_name" content="SBML Lab">
+    <meta property="og:locale" content="ko_KR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gallery - SBML Lab | UNIST">
+    <meta name="twitter:description" content="SBML Lab의 연구 활동 갤러리">
+    <meta name="twitter:image" content="https://sbml-kimlab.github.io/home/Icons/logo.png">
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self';">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="Icons/logo.png">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <!-- Fonts - Optimized Loading -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" as="style">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sbml-kimlab.github.io/home/gallery.html">
+
+    <style>
+        /* Gallery specific styles */
+        .album-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .album-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+        .album-cover {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            background: var(--bg-light);
+        }
+        .album-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .album-card:hover .album-cover img {
+            transform: scale(1.1);
+        }
+        .album-info {
+            padding: 20px;
+        }
+        .album-date {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .album-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .album-description {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+        .photo-count {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        /* Year section */
+        .year-section-gallery {
+            margin-bottom: 60px;
+        }
+        .year-section-gallery.hidden {
+            display: none;
+        }
+
+        /* Modal styles */
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            overflow: hidden;
+        }
+        .gallery-modal.active {
+            display: block;
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 85vh;
+            object-fit: contain;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+        }
+        .modal-close:hover {
+            color: var(--primary);
+        }
+        .modal-prev, .modal-next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 20px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 40px;
+            transition: 0.3s ease;
+            user-select: none;
+            z-index: 10000;
+            background: rgba(0,0,0,0.3);
+            border-radius: 4px;
+        }
+        .modal-next { right: 20px; }
+        .modal-prev { left: 20px; }
+        .modal-prev:hover, .modal-next:hover {
+            background-color: rgba(61,118,132,0.8);
+        }
+        .numbertext {
+            color: white;
+            font-size: 16px;
+            padding: 10px 16px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10000;
+            background: rgba(0,0,0,0.6);
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        .caption {
+            color: white;
+            font-size: 18px;
+            padding: 15px 20px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10000;
+            background: rgba(0,0,0,0.6);
+            border-radius: 6px;
+            max-width: 80%;
+            text-align: center;
+        }
+    </style>
+    <!-- Google Analytics -->
+    <script src="analytics.js"></script>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div class="page-header">
+        <h1>Gallery</h1>
+        <p>Moments from our research journey</p>
+    </div>
+
+    <section>
+        <div class="container">
+            <!-- Year Filter Buttons -->
+            <div class="filter-container" id="year-filters"></div>
+            
+            <!-- Gallery Container -->
+            <div id="gallery-container"></div>
+        </div>
+    </section>
+
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="gallery-modal">
+        <span class="modal-close" onclick="closeGallery()">&times;</span>
+        <a class="modal-prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="modal-next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="numbertext" id="slideNumber"></div>
+        <img class="modal-content" id="galleryImg">
+        <div class="caption" id="caption"></div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="gallery-data.js"></script>
+    <script src="common.js"></script>
+    <script>
+        let allAlbums = [];
+        let currentAlbumIndex = 0;
+        let currentPhotoIndex = 0;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('gallery-container');
+            const filtersContainer = document.getElementById('year-filters');
+            
+            // Flatten all albums into a single array for easier navigation
+            galleryData.forEach(yearData => {
+                yearData.albums.forEach(album => {
+                    allAlbums.push({
+                        year: yearData.year,
+                        ...album
+                    });
+                });
+            });
+            
+            // Get unique years
+            const years = [...new Set(galleryData.map(item => item.year))].sort((a, b) => b - a);
+            
+            // Create filter buttons
+            let filtersHtml = '<button class="filter-btn active" data-year="all">All</button>';
+            years.forEach(year => {
+                filtersHtml += `<button class="filter-btn" data-year="${year}">${year}</button>`;
+            });
+            filtersContainer.innerHTML = filtersHtml;
+            
+            // Render gallery
+            let galleryHtml = '';
+            let globalAlbumIndex = 0;
+            galleryData.forEach(yearData => {
+                galleryHtml += `<div class="year-section-gallery" data-year="${yearData.year}">`;
+                galleryHtml += `<h2 class="year-title">${yearData.year}</h2>`;
+                galleryHtml += '<div class="gallery-grid">';
+                
+                yearData.albums.forEach((album, albumIndex) => {
+                    const photoCount = album.photos.length;
+                    
+                    galleryHtml += `
+                        <div class="album-card" onclick="openGallery(${globalAlbumIndex})">
+                            <div class="album-cover">
+                                <img src="${album.cover}" alt="${album.title}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'300\\' height=\\'200\\'%3E%3Crect fill=\\'%23f1f5f9\\' width=\\'300\\' height=\\'200\\'/%3E%3Ctext fill=\\'%23cbd5e1\\' x=\\'50%25\\' y=\\'50%25\\' text-anchor=\\'middle\\' dy=\\'.3em\\' font-family=\\'Arial\\' font-size=\\'18\\'%3E${album.title}%3C/text%3E%3C/svg%3E'">
+                                <span class="photo-count">
+                                    <i class="ri-image-line"></i> ${photoCount}
+                                </span>
+                            </div>
+                            <div class="album-info">
+                                <div class="album-date">${album.date}</div>
+                                <h3 class="album-title">${album.title}</h3>
+                                <p class="album-description">${album.description}</p>
+                            </div>
+                        </div>
+                    `;
+                    globalAlbumIndex++;
+                });
+                
+                galleryHtml += '</div></div>';
+            });
+            
+            container.innerHTML = galleryHtml;
+            
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const yearSections = document.querySelectorAll('.year-section-gallery');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const selectedYear = this.getAttribute('data-year');
+                    
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    if (selectedYear === 'all') {
+                        yearSections.forEach(section => section.classList.remove('hidden'));
+                    } else {
+                        yearSections.forEach(section => {
+                            if (section.getAttribute('data-year') === selectedYear) {
+                                section.classList.remove('hidden');
+                            } else {
+                                section.classList.add('hidden');
+                            }
+                        });
+                    }
+                    
+                    container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+        });
+
+        // Gallery modal functions
+        function openGallery(albumIndex) {
+            currentAlbumIndex = albumIndex;
+            currentPhotoIndex = 0;
+            
+            showSlide();
+            document.getElementById("galleryModal").classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGallery() {
+            document.getElementById("galleryModal").classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function plusSlides(n) {
+            currentPhotoIndex += n;
+            
+            // Check if we need to move to next/previous album
+            const currentAlbum = allAlbums[currentAlbumIndex];
+            
+            if (currentPhotoIndex >= currentAlbum.photos.length) {
+                // Move to next album
+                if (currentAlbumIndex < allAlbums.length - 1) {
+                    currentAlbumIndex++;
+                    currentPhotoIndex = 0;
+                } else {
+                    // Last photo of last album - wrap to first
+                    currentAlbumIndex = 0;
+                    currentPhotoIndex = 0;
+                }
+            } else if (currentPhotoIndex < 0) {
+                // Move to previous album
+                if (currentAlbumIndex > 0) {
+                    currentAlbumIndex--;
+                    currentPhotoIndex = allAlbums[currentAlbumIndex].photos.length - 1;
+                } else {
+                    // First photo of first album - wrap to last
+                    currentAlbumIndex = allAlbums.length - 1;
+                    currentPhotoIndex = allAlbums[currentAlbumIndex].photos.length - 1;
+                }
+            }
+            
+            showSlide();
+        }
+
+        function showSlide() {
+            const currentAlbum = allAlbums[currentAlbumIndex];
+            const modalImg = document.getElementById("galleryImg");
+            const captionText = document.getElementById("caption");
+            const numberText = document.getElementById("slideNumber");
+
+            modalImg.src = currentAlbum.photos[currentPhotoIndex];
+            captionText.innerHTML = `${currentAlbum.title} (${currentAlbum.year})`;
+            
+            // Calculate total position across all albums
+            let totalPhotos = 0;
+            let currentPosition = 0;
+            
+            for (let i = 0; i < allAlbums.length; i++) {
+                if (i < currentAlbumIndex) {
+                    currentPosition += allAlbums[i].photos.length;
+                }
+                totalPhotos += allAlbums[i].photos.length;
+            }
+            currentPosition += currentPhotoIndex + 1;
+            
+            numberText.innerHTML = `${currentPosition} / ${totalPhotos}`;
+        }
+
+        // Keyboard support
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById("galleryModal").classList.contains('active')) {
+                if (e.key === "ArrowLeft") plusSlides(-1);
+                if (e.key === "ArrowRight") plusSlides(1);
+                if (e.key === "Escape") closeGallery();
+            }
+        });
+        
+        // Click outside to close
+        window.onclick = function(event) {
+            const modal = document.getElementById("galleryModal");
+            if (event.target == modal) closeGallery();
+        }
+    </script>
+
+    <script src="optimize-images.js"></script>
+</body>
+</html>
