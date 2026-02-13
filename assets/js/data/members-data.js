@@ -5,7 +5,7 @@ const piData = {
     title: "Principal Investigator",
     position: "Associate Professor",
     department: "School of Energy and Chemical Engineering, UNIST",
-    photo: "member-photo/professor.jpg",
+    photo: "assets/images/members/professor.jpg",
     email: "dkim@unist.ac.kr",
     cv: "https://sites.google.com/site/donghyukkim0/",
     education: [
@@ -27,7 +27,7 @@ const postdocData = [
         education: "B.S., Kyung Hee University, Genetic Engineering",
         email: "kyumin1012@unist.ac.kr",
         cv: "https://linktr.ee/sysbio_gyumin",
-        photo: "member-photo/gyumin.jpg"
+        photo: "assets/images/members/gyumin.jpg"
     },
     {
         name: "Ina Bang",
@@ -36,56 +36,56 @@ const postdocData = [
         education: "B.S., Kyung Hee University, Genetic Engineering",
         email: "godlz0360@unist.ac.kr",
         cv: "https://sites.google.com/site/inabang95",
-        photo: "member-photo/ina.jpg"
+        photo: "assets/images/members/ina.jpg"
     }
 ];
 
 const graduateStudents = [
-    {
-        name: "Jaehyung Kim",
-        period: "2020-",
-        degree: "M.S.-Ph.D. Student",
-        education: "B.S., UNIST, Chemical Engineering",
-        email: "nick9703@unist.ac.kr",
-        cv: "https://sites.google.com/view/jaehyung",
-        photo: "member-photo/jaehyung.jpg"
-    },
-    {
-        name: "Jihoon Woo",
-        period: "2021-",
-        degree: "M.S.-Ph.D. Student",
-        education: "B.S., Chonbuk National University, Molecular Biology",
-        email: "jihoonwoo@unist.ac.kr",
-        cv: "https://sites.google.com/view/jihoonwoo",
-        photo: "member-photo/jihoon.jpg"
-    },
-    {
-        name: "Minchang Jang",
-        period: "2022-",
-        degree: "M.S.-Ph.D. Student",
-        education: "B.S., Pusan National University, Microbiology",
-        email: "jmc93181104@unist.ac.kr",
-        cv: "https://sites.google.com/view/minchang",
-        photo: "member-photo/minchang.jpg"
-    },
-    {
-        name: "Jinwan Park",
-        period: "2022-",
-        degree: "M.S.-Ph.D. Student",
-        education: "B.S., Chung-Ang University, Food Science and Technology",
-        email: "wanni@unist.ac.kr",
-        cv: "https://sites.google.com/view/jinwan",
-        photo: "member-photo/jinwan.jpg"
-    },
-    {
-        name: "Soyee Kim",
-        period: "2025-",
-        degree: "Ph.D. Student",
-        education: "M.S., Sogang University, Life Sciences\nB.S., Sogang University, Life Sciences",
-        email: "s2kim@unist.ac.kr",
-        cv: "https://sites.google.com/view/s2kim",
-        photo: "member-photo/soyee.jpg"
-    }
+  {
+    name: 'Jaehyung Kim',
+    period: '2020-',
+    degree: 'M.S.-Ph.D. Student',
+    education: 'B.S., UNIST, Chemical Engineering',
+    email: 'nick9703@unist.ac.kr',
+    cv: 'https://sites.google.com/view/jaehyung',
+    photo: 'assets/images/members/jaehyung.jpg'
+  },
+  {
+    name: 'Jihoon Woo',
+    period: '2021-',
+    degree: 'M.S.-Ph.D. Student',
+    education: 'B.S., Chonbuk National University, Molecular Biology',
+    email: 'jihoonwoo@unist.ac.kr',
+    cv: 'https://sites.google.com/view/jihoonwoo',
+    photo: 'assets/images/members/jihoon.jpg'
+  },
+  {
+    name: 'Minchang Jang',
+    period: '2022-',
+    degree: 'M.S.-Ph.D. Student',
+    education: 'B.S., Pusan National University, Microbiology',
+    email: 'jmc93181104@unist.ac.kr',
+    cv: 'https://sites.google.com/view/minchang',
+    photo: 'assets/images/members/minchang.jpg'
+  },
+  {
+    name: 'Jinwan Park',
+    period: '2022-',
+    degree: 'M.S.-Ph.D. Student',
+    education: 'B.S., Chung-Ang University, Food Science and Technology',
+    email: 'wanni@unist.ac.kr',
+    cv: 'https://sites.google.com/view/jinwan',
+    photo: 'assets/images/members/jinwan.jpg'
+  },
+  {
+    name: 'Soyee Kim',
+    period: '2025-',
+    degree: 'Ph.D. Student',
+    education: 'M.S., Sogang University, Life Sciences\nB.S., Sogang University, Life Sciences',
+    email: 's2kim@unist.ac.kr',
+    cv: 'https://sites.google.com/view/s2kim',
+    photo: 'assets/images/members/soyee.jpg'
+  }
 ];
 
 const alumniData = [

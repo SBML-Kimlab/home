@@ -1,0 +1,1359 @@
+const publicationsData = {
+  2017: {
+    title: '2017',
+    period: 'before-unist',
+    items: [
+      {
+        title:
+          'Multiple plasmid-borne virulence genes of Clavibacter michiganensis ssp. capsici critical for disease development in pepper',
+        authors: 'IS Hwang, EJ Oh, D Kim, CS Oh',
+        firstAuthor: 'IS Hwang',
+        boldAuthors: ['D Kim'],
+        journal: 'New Phytol',
+        publishedDate: '2017 Nov',
+        doi: '10.1111/nph.14896',
+        link: 'https://doi.org/10.1111/nph.14896'
+      },
+      {
+        title:
+          'Global transcriptional regulatory network for Escherichia coli robustly connects gene expression to transcription factor activities',
+        authors:
+          'X Fang#, A Sastry#, N Mih, D Kim, JT Yurkovich, CJ Lloyd, J Tan, Y Gao, L Yang*, BO Palsson*',
+        firstAuthor: 'X Fang',
+        correspondingAuthors: ['L Yang', 'BO Palsson'],
+        boldAuthors: ['D Kim'],
+        journal: 'Proc Natl Acad Sci U S A',
+        publishedDate: '2017 Sep',
+        doi: '10.1073/pnas.1702581114',
+        link: 'https://doi.org/10.1073/pnas.1702581114'
+      },
+      {
+        title:
+          'Coordination-Driven Self-Assembly Using Ditopic Pyridyl-Pyrazolyl Donor and p-Cymene Ru(II) Acceptors: [2]Catenane Synthesis and Anticancer Activities',
+        authors: 'JH Jo#, N Singh#, D Kim#, SM Cho, A Mishra, H Kim, SC Kang*, KW Chi*',
+        firstAuthor: 'JH Jo',
+        correspondingAuthors: ['SC Kang', 'KW Chi'],
+        boldAuthors: ['D Kim'],
+        journal: 'Inorg Chem',
+        publishedDate: '2017 June',
+        doi: '10.1021/acs.inorgchem.7b01101',
+        link: 'https://doi.org/10.1021/acs.inorgchem.7b01101'
+      },
+      {
+        title:
+          'Highly efficient silver nanowire/PEDPT:PSS composite microelectrodes via poly(ethylene glycol) photolithography',
+        authors: 'D Kim, Y Ko, W Kim, D Kim, J You',
+        firstAuthor: 'D Kim',
+        boldAuthors: ['D Kim', 'D Kim'],
+        journal: 'Opt Mater Express',
+        publishedDate: '2017 June',
+        doi: '10.1364/OME.7.002272',
+        link: 'https://doi.org/10.1364/OME.7.002272'
+      },
+      {
+        title:
+          'Revealing genome-scale transcriptional regulatory landscape of OmpR highlights its expanded regulatory roles under osmotic stress in Escherichia coli K-12 MG1655',
+        authors: 'SW# Seo*, Y Gao#, D Kim#, R Szubin, J Yang, BK Cho, BO Palsson*',
+        firstAuthor: 'SW Seo',
+        correspondingAuthors: ['SW Seo', 'BO Palsson'],
+        boldAuthors: ['D Kim'],
+        journal: 'Sci Rep',
+        publishedDate: '2017 May',
+        doi: '10.1038/s41598-017-02110-7',
+        link: 'https://doi.org/10.1038/s41598-017-02110-7'
+      },
+      {
+        title:
+          'Selective bio-oxidation of propane to acetone using methane-oxidizing Methylomonas sp. DH-1',
+        authors: 'DH Hur, TT Nguyen, D Kim, EY Lee',
+        firstAuthor: 'DH Hur',
+        boldAuthors: ['D Kim'],
+        journal: 'J Ind Microbiol Biotechnol',
+        publishedDate: '2017 Mar',
+        doi: '10.1007/s10295-017-1936-x',
+        link: 'https://doi.org/10.1007/s10295-017-1936-x'
+      },
+      {
+        title: 'Elucidation of bacterial translation regulatory networks',
+        authors: 'Y Jeong, H Shin, SW Seo, D Kim, S Cho, BK Cho',
+        firstAuthor: 'Y Jeong',
+        boldAuthors: ['D Kim'],
+        journal: 'Curr Opin Sys Biol',
+        publishedDate: '2017 Mar',
+        doi: '10.1016/j.coisb.2017.01.009',
+        link: 'https://doi.org/10.1016/j.coisb.2017.01.009'
+      },
+      {
+        title:
+          'Rice pectin methylesterase inhibitor28 (OsPMEI28) encodes a functional PMEI and its overexpression results in a dwarf phenotype through increased pectin methylesterification levels',
+        authors: 'HP Nguyen#, HY Jeong#, SH Jeon, D Kim, C Lee',
+        firstAuthor: 'HP Nguyen',
+        boldAuthors: ['D Kim'],
+        journal: 'J Plant Physiol',
+        publishedDate: '2017 Jan',
+        doi: '10.1016/j.jplph.2016.11.006',
+        link: 'https://doi.org/10.1016/j.jplph.2016.11.006'
+      }
+    ]
+  },
+  2018: {
+    title: '2018',
+    items: [
+      {
+        title:
+          'Systematic discovery of uncharacterized transcription factors in Escherichia coli K-12 MG1655',
+        authors:
+          'Y Gao, JT Yurkovich, SW Seo, I Kabimoldayev, A Drager, K Chen, A Sastry, N Mih, L Yang, J Eichner, BK Cho, D Kim*, BO Palsson*',
+        firstAuthor: 'Y Gao',
+        correspondingAuthors: ['D Kim', 'BO Palsson'],
+        boldAuthors: ['I Kabimoldayev', 'D Kim'],
+        journal: 'Nucleic Acids Res',
+        publishedDate: '2018 Nov',
+        doi: '10.1093/nar/gky752',
+        link: 'https://doi.org/10.1093/nar/gky752'
+      },
+      {
+        title:
+          'Characterizing posttranslational modifications in prokaryotic metabolism using a multiscale workflow',
+        authors:
+          'E Brunk#, RL Chang, J Xia, H Hefzi, J Yurkovich, D Kim, E Buckmiller, H Wang, BK Cho, C Yang, BO Palsson, GM Church*, NE# Lewis*',
+        firstAuthor: 'E Brunk',
+        correspondingAuthors: ['GM Church', 'NE Lewis'],
+        boldAuthors: ['D Kim'],
+        journal: 'Proc Natl Acad Sci U S A',
+        publishedDate: '2018 Oct',
+        doi: '10.1073/pnas.1811971115',
+        link: 'http://www.pnas.org/content/early/2018/10/08/1811971115'
+      },
+      {
+        title:
+          'Characterization of the Lytic Bacteriophage phiEaP-8 Effective against Both Erwinia amylovora and Erwinia pyrifoliae Causing Severe Diseases in Apple and Pear',
+        authors: 'J Park, GM Lee, D Kim, DH Park, CS Oh',
+        firstAuthor: 'J Park',
+        boldAuthors: ['GM Lee', 'D Kim'],
+        journal: 'Plant Pathol J',
+        publishedDate: '2018 Oct',
+        doi: '10.5423/PPJ.NT.06.2018.0100',
+        link: 'https://doi.org/10.5423/PPJ.NT.06.2018.0100'
+      },
+      {
+        title: 'Basics of genome-scale metabolic modeling and applications on C1-utilization',
+        authors: 'I Kabimoldayev#, AD Nguyen#, L Yang#, S Park, EY Lee, D Kim',
+        firstAuthor: 'I Kabimoldayev',
+        boldAuthors: ['I Kabimoldayev', 'S Park', 'D Kim'],
+        journal: 'FEMS Microbiol Lett',
+        publishedDate: '2018 Sep',
+        doi: '10.1093/femsle/fny241',
+        link: 'https://doi.org/10.1093/femsle/fny241'
+      },
+      {
+        title:
+          'Deciphering bacterial xylose metabolism and metabolic engineering of industrial microorganisms for use as efficient microbial cell factories',
+        authors: 'D Kim, HM Woo',
+        firstAuthor: 'D Kim',
+        boldAuthors: ['D Kim'],
+        journal: 'Appl Microbiol Biotechnol',
+        publishedDate: '2018 Sep',
+        doi: '10.1007/s00253-018-9353-2',
+        link: 'https://doi.org/10.1007/s00253-018-9353-2'
+      },
+      {
+        title:
+          'Draft genome sequence of lytic bacteriophage KP1 infecting bacterial pathogen Klebsiella pneumoniae',
+        authors: 'Y Kim#, I Bang#, YE Yeon, JY Park, BK Han, H Kim, JK Ahn, D Kim',
+        firstAuthor: 'Y Kim',
+        boldAuthors: ['Y Kim', 'I Bang', 'JY Park', 'D Kim'],
+        journal: 'Korean J Microbiol',
+        publishedDate: '2018 Jul',
+        doi: '10.7845/kjm.2018.54.2.152',
+        link: 'https://doi.org/10.7845/kjm.2018.54.2.152'
+      },
+      {
+        title:
+          'Draft genome sequence of lytic bacteriophage CP3 infecting anaerobic bacterial pathogen Clostridium perfringens',
+        authors: 'Y Kim#, S Ko#, YE Yeon, HT Le, BK Han, H Kim, CS Oh, D Kim',
+        firstAuthor: 'Y Kim',
+        boldAuthors: ['Y Kim', 'S Ko', 'D Kim'],
+        journal: 'Korean J Microbiol',
+        publishedDate: '2018 Jul',
+        doi: '10.7845/kjm.2018.54.2.149',
+        link: 'https://doi.org/10.7845/kjm.2018.54.2.149'
+      },
+      {
+        title:
+          'Coordination-driven self-assembly and anticancer studies of thiophene-derived donor and arene ruthenium acceptors',
+        authors: 'T Kim#, HS Song#, J Singh, D Kim, H Kim, SC Kang*, KW Chi*',
+        firstAuthor: 'T Kim',
+        correspondingAuthors: ['SC Kang', 'KW Chi'],
+        boldAuthors: ['D Kim'],
+        journal: 'Inorganica Chimica Acta',
+        publishedDate: '2018 May',
+        doi: '10.1016/j.ica.2018.05.035',
+        link: 'https://doi.org/10.1016/j.ica.2018.05.035'
+      },
+      {
+        title:
+          'Systematic metabolic engineering of Methylomicrobium alcaliphilum 20Z for 2,3-butanediol production from methane',
+        authors:
+          'AD Nguyen, IY Hwang, OK Lee, D Kim, MG Kalyuzhnaya, R Mariyana, S Hadiyati, MS Kim*, EY Lee*',
+        firstAuthor: 'AD Nguyen',
+        correspondingAuthors: ['MS Kim', 'EY Lee'],
+        boldAuthors: ['D Kim'],
+        journal: 'Metab Eng',
+        publishedDate: '2018 May',
+        doi: '10.1016/j.ymben.2018.04.010',
+        link: 'https://doi.org/10.1016/j.ymben.2018.04.010'
+      },
+      {
+        title:
+          'Draft genome sequence of lytic bacteriophage CF1 infecting Citrobacter freundii isolates',
+        authors: 'Y Kim, S Ko, YE Yeon, J Lim, BK Han, H Kim, JK Ahn, D Kim',
+        firstAuthor: 'Y Kim',
+        boldAuthors: ['Y Kim', 'S Ko', 'J Lim', 'D Kim'],
+        journal: 'Korean J Microbiol',
+        publishedDate: '2018 Apr',
+        doi: '10.7845/kjm.2018.7099',
+        link: 'https://doi.org/10.7845/kjm.2018.7099'
+      },
+      {
+        title:
+          'Draft genome sequence of lytic bacteriophage SA7 infecting Staphylococcus aureus isolates',
+        authors: 'Y Kim, GM Lee, A Taizhanova, BK Han, H Kim, JK Ahn, D Kim',
+        firstAuthor: 'Y Kim',
+        boldAuthors: ['Y Kim', 'GM Lee', 'D Kim'],
+        journal: 'Korean J Microbiol',
+        publishedDate: '2018 Apr',
+        doi: '10.7845/kjm.2018.7098',
+        link: 'https://doi.org/10.7845/kjm.2018.7098'
+      },
+      {
+        title:
+          'Draft genome sequence of a bacterial plant pathogen Erwinia pyrifoliae strain EpK1/15 isolated from an apple twig showing black shoot blight',
+        authors: 'GM Lee, EJ Oh, J Park, S Ko, DH Park, D Kim*, CS Oh*',
+        firstAuthor: 'GM Lee',
+        correspondingAuthors: ['D Kim', 'CS Oh'],
+        boldAuthors: ['GM Lee', 'S Ko', 'D Kim'],
+        journal: 'Korean J Microbiol',
+        publishedDate: '2018 Apr',
+        doi: '10.7845/kjm.2018.7087',
+        link: 'https://doi.org/10.7845/kjm.2018.7087'
+      },
+      {
+        title:
+          'Isolation and identification of new bacterial stains producing equol from Pueraria lobata extract fermentation',
+        authors: 'JE Kwon, J Lim, I Kim, D Kim*, SC Kang*',
+        firstAuthor: 'JE Kwon',
+        correspondingAuthors: ['D Kim', 'SC Kang'],
+        boldAuthors: ['J Lim', 'D Kim'],
+        journal: 'PLoS One',
+        publishedDate: '2018 Feb',
+        doi: '10.1371/journal.pone.0192490',
+        link: 'https://doi.org/10.1371/journal.pone.0192490'
+      },
+      {
+        title:
+          'Systems assessment of transcriptional regulation on central carbon metabolism by Cra and CRP',
+        authors: 'D# Kim*, SW Seo#, Y Gao#, H Nam, GI Guzman, BK Cho, BØ Palsson*',
+        firstAuthor: 'D Kim',
+        correspondingAuthors: ['D Kim', 'BØ Palsson'],
+        boldAuthors: ['D Kim'],
+        journal: 'Nucleic Acids Res',
+        publishedDate: '2018 Jan',
+        doi: '10.1093/nar/gky069',
+        link: 'https://doi.org/10.1093/nar/gky069'
+      }
+    ]
+  },
+  2019: {
+    title: '2019',
+    period: 'before-unist',
+    items: [
+      {
+        title:
+          'The Escherichia coli transcriptome mostly consists of independently regulated modules',
+        authors:
+          'VS Anand, Y Gao, R Szubin, Y Hefner, S Xu, D Kim, KS Choudhary, L Yang, ZA King, BO Palsson',
+        firstAuthor: 'VS Anand',
+        boldAuthors: ['D Kim'],
+        journal: 'Nat Commun',
+        publishedDate: '2019 Dec',
+        doi: '10.1038/s41467-019-13483-w',
+        link: 'https://doi.org/10.1038/s41467-019-13483-w'
+      },
+      {
+        title:
+          'Genome-scale evaluation of core one-carbon metabolism in gammaproteobacterial methanotrophs grown on methane and methanol',
+        authors: 'AD Nguyen#, JY Park#, IY Hwang#, R Hamilton, MG Kalyuzhnaya, D Kim*, EY Lee*',
+        firstAuthor: 'AD Nguyen',
+        correspondingAuthors: ['D Kim', 'EY Lee'],
+        boldAuthors: ['JY Park', 'D Kim'],
+        journal: 'Metab Eng',
+        publishedDate: '2019 Oct',
+        doi: '10.1016/j.ymben.2019.10.004',
+        link: 'https://doi.org/10.1016/j.ymben.2019.10.004'
+      },
+      {
+        title:
+          'Photoluminescent And Self-Assembled Hyaluronic Acid-Zinc Oxide-Ginsenoside Rh2 Nanoparticles And Their Potential Caspase-9 Apoptotic Mechanism Towards Cancer Cell Lines',
+        authors:
+          'YJ# Kim*, H Perumalsamy#, V Castro-Aceituno, D Kim, J Markus, S Lee, SY Park, S Kim, DC Yang',
+        firstAuthor: 'YJ Kim',
+        correspondingAuthors: ['YJ Kim'],
+        boldAuthors: ['D Kim', 'S Kim'],
+        journal: 'Int J Nanomedicine',
+        publishedDate: '2019 Sep',
+        doi: '10.2147/IJN.S221328',
+        link: 'https://doi.org/10.2147/IJN.S221328'
+      },
+      {
+        title:
+          'Cellular responses to reactive oxygen species are predicted from molecular mechanisms',
+        authors:
+          'L Yang, N Mih, A Anand, JH Park, J Tan, JT Yurkovich, JM Monk, CJ Lloyd, TE Sandberg, SW Seo, D Kim, VS Anand, P Phaneuf, Y Gao, JT Broddrick, K Chen, D Heckmann, R Szubin, Y Hefner, AM Feist, BO Palsson',
+        firstAuthor: 'L Yang',
+        boldAuthors: ['D Kim'],
+        journal: 'Proc Natl Acad Sci U S A',
+        publishedDate: '2019 Jul',
+        doi: '10.1073/pnas.1905039116',
+        link: 'https://doi.org/10.1073/pnas.1905039116'
+      },
+      {
+        title:
+          'Fermentation product with new equol-producing Lactobacillus paracasei as a probiotic-like product candidate for prevention of skin and intestinal disorder',
+        authors: 'JE Kwon#, J Lim#, I Bang, I Kim, D Kim*, SC Kang*',
+        firstAuthor: 'JE Kwon',
+        correspondingAuthors: ['D Kim', 'SC Kang'],
+        boldAuthors: ['J Lim', 'I Bang', 'D Kim'],
+        journal: 'J Sci Food Agric',
+        publishedDate: '2019 Feb',
+        doi: '10.1002/jsfa.9648',
+        link: 'https://doi.org/10.1002/jsfa.9648'
+      },
+      {
+        title:
+          'A comparative transcriptome analysis of the novel obligate methanotroph Methylomonas sp. DH-1 reveals key differences in transcriptional responses in C1 and secondary metabolite pathways during growth on methane and methanol',
+        authors: 'AD Nguyen, D Kim*, EY Lee*',
+        firstAuthor: 'AD Nguyen',
+        correspondingAuthors: ['D Kim', 'EY Lee'],
+        boldAuthors: ['D Kim'],
+        journal: 'BMC Genomics',
+        publishedDate: '2019 Feb',
+        doi: '10.1186/s12864-019-5487-6',
+        link: 'https://doi.org/10.1186/s12864-019-5487-6'
+      },
+      {
+        title:
+          'Genomic characterization of a newly isolated rhizobacteria Sphingomonas panacis reveals plant growth promoting effect to rice',
+        authors:
+          'YJ# Kim*, J Lim#, J Sukweenadhi, JW Seok, SW Lee, JC Park, A Taizhanova, D Kim*, DC Yang',
+        firstAuthor: 'YJ Kim',
+        correspondingAuthors: ['YJ Kim', 'D Kim'],
+        boldAuthors: ['J Lim', 'D Kim'],
+        journal: 'Biotechnol Bioprocess Eng',
+        publishedDate: '2019 Feb',
+        doi: '10.1007/s12257-018-0386-2',
+        link: 'https://doi.org/10.1007/s12257-018-0386-2'
+      }
+    ]
+  },
+  2020: {
+    period: 'before-unist2',
+    title: '2020',
+    items: [
+      {
+        title:
+          'Genome-wide Identification of DNA-protein Interaction to Reconstruct Bacterial Transcription Regulatory Network',
+        authors: 'JY Park#, H Rimal#, I Bang, LK Nong, D Kim',
+        firstAuthor: 'JY Park',
+        boldAuthors: ['JY Park', 'I Bang', 'LK Nong', 'D Kim'],
+        journal: 'Biotechnol Bioprocess Eng',
+        publishedDate: '2020 Dec',
+        doi: '10.1007/s12257-020-0030-9',
+        link: 'https://doi.org/10.1007/s12257-020-0030-9'
+      },
+      {
+        title:
+          'Development of a Genoserotyping Method for Salmonella Infantis Detection on the Basis of Pangenome Analysis',
+        authors: 'SM Yang, J Baek, E Kim, HB Kim, S Ko, D Kim, H Yoon*, HY Kim*',
+        firstAuthor: 'SM Yang',
+        correspondingAuthors: ['H Yoon', 'HY Kim'],
+        boldAuthors: ['S Ko', 'D Kim'],
+        journal: 'Microorganisms',
+        publishedDate: '2020 Dec',
+        doi: '10.3390/microorganisms9010067',
+        link: 'https://doi.org/10.3390/microorganisms9010067'
+      },
+      {
+        title:
+          'Systems evaluation reveals novel transporter YohJK renders 3-hydroxypropionate tolerance in Escherichia coli',
+        authors: 'TP Nguyen-Vo#, S Ko#, H Ryu, JR Kim, D Kim*, S Park*',
+        firstAuthor: 'TP Nguyen-Vo',
+        correspondingAuthors: ['D Kim', 'S Park'],
+        boldAuthors: ['S Ko', 'D Kim', 'S Park'],
+        journal: 'Sci Rep',
+        publishedDate: '2020 Nov',
+        doi: '10.1038/s41598-020-76120-3',
+        link: 'https://doi.org/10.1038/s41598-020-76120-3'
+      },
+      {
+        title:
+          'Comparative Genome Analysis Reveals Natural Variations in the Genomes of Erwinia pyrifoliae, a Black Shoot Blight Pathogen in Apple and Pear',
+        authors: 'GM Lee, S Ko, EJ Oh, YR Song, D Kim*, CS Oh*',
+        firstAuthor: 'GM Lee',
+        correspondingAuthors: ['D Kim', 'CS Oh'],
+        boldAuthors: ['GM Lee', 'S Ko', 'D Kim'],
+        journal: 'Plant Pathol J',
+        publishedDate: '2020 Oct',
+        doi: '10.5423/PPJ.OA.06.2020.0097',
+        link: 'https://doi.org/10.5423/PPJ.OA.06.2020.0097'
+      },
+      {
+        title:
+          'Adaptive laboratory evolution of Escherichia coli lacking cellular byproduct formation for enhanced acetate utilization through compensatory ATP consumption',
+        authors:
+          'W Seong, GH Han, HS Lim, JI Baek, SJ Kim, D Kim, SK Kim, H Lee, H Kim, SG Lee*, DH Lee*',
+        firstAuthor: 'W Seong',
+        correspondingAuthors: ['SG Lee', 'DH Lee'],
+        boldAuthors: ['D Kim'],
+        journal: 'Metab Eng',
+        publishedDate: '2020 Sep',
+        doi: '10.1016/j.ymben.2020.09.005',
+        link: 'https://doi.org/10.1016/j.ymben.2020.09.005'
+      },
+      {
+        title:
+          'Genomic and Phenotypic Characterization of a Lytic Bacteriophage CF1 Infecting the Multi-drug Resistant Bacterium Citrobacter freundii',
+        authors: 'Y Kim#, S Ko#, YE Yeon, H Kim, CS Oh, JK Ahn*, D Kim*',
+        firstAuthor: 'Y Kim',
+        correspondingAuthors: ['JK Ahn', 'D Kim'],
+        boldAuthors: ['Y Kim', 'S Ko', 'D Kim'],
+        journal: 'Biotechnol Bioprocess Eng',
+        publishedDate: '2020 Jun',
+        doi: '10.1007/s12257-019-0505-8',
+        link: 'https://doi.org/10.1007/s12257-019-0505-8'
+      },
+      {
+        title:
+          'Metabolic role of pyrophosphate-linked phosphofructokinase pfk for C1 assimilation in Methylotuvimicrobium alcaliphilum 20Z',
+        authors: 'AD Nguyen#, G Nam#, D Kim*, EY Lee*',
+        firstAuthor: 'AD Nguyen',
+        correspondingAuthors: ['D Kim', 'EY Lee'],
+        boldAuthors: ['D Kim'],
+        journal: 'Microb Cell Fact',
+        publishedDate: '2020 Jun',
+        doi: '10.1186/s12934-020-01382-5',
+        link: 'https://doi.org/10.1186/s12934-020-01382-5'
+      },
+      {
+        title:
+          'Unlocking the biosynthesis of sesquiterpenoids from methane via the methylerythritol phosphate pathway in methanotrophic bacteria, using α-humulene as a model compound',
+        authors: 'AD Nguyen, D Kim, EY Lee',
+        firstAuthor: 'AD Nguyen',
+        boldAuthors: ['D Kim'],
+        journal: 'Metab Eng',
+        publishedDate: '2020 May',
+        doi: '10.1016/j.ymben.2020.04.011',
+        link: 'https://doi.org/10.1016/j.ymben.2020.04.011'
+      },
+      {
+        title:
+          'Metabolic engineering of Escherichia coli for 2,3-butanediol production from cellulosic biomass by using glucose-inducible gene expression system',
+        authors: 'Sathesh-Prabu C#, D Kim#, SK Lee',
+        firstAuthor: 'Sathesh-Prabu C',
+        boldAuthors: ['D Kim'],
+        journal: 'Bioresour Technol',
+        publishedDate: '2020 Apr',
+        doi: '10.1016/j.biortech.2020.123361',
+        link: 'https://doi.org/10.1016/j.biortech.2020.123361'
+      },
+      {
+        title:
+          'Genome sequence of the potential probiotic eukaryote Saccharomyces cerevisiae KCCM 51299',
+        authors: 'J Hwang#, I Bang#, D Kim, SC Shin, YW Chin, TW Kim, HJ Kim',
+        firstAuthor: 'J Hwang',
+        boldAuthors: ['I Bang', 'D Kim'],
+        journal: '3 Biotech',
+        publishedDate: '2020 Mar',
+        doi: '10.1007/s13205-020-02174-9',
+        link: 'https://doi.org/10.1007/s13205-020-02174-9'
+      },
+      {
+        title:
+          'Comprehensive Genome Analysis on the Novel Species Sphingomonas panacis DCY99T Reveals Insights into Iron Tolerance of Ginseng',
+        authors: 'YJ# Kim*, JY Park#, SR Balusamy, Y Huo, LK Nong, HT Le, DC Yang, D Kim*',
+        firstAuthor: 'YJ Kim',
+        correspondingAuthors: ['YJ Kim', 'D Kim'],
+        boldAuthors: ['JY Park', 'LK Nong', 'D Kim'],
+        journal: 'Int J Mol Sci',
+        publishedDate: '2020 Mar',
+        doi: '10.3390/ijms21062019',
+        link: 'https://doi.org/10.3390/ijms21062019'
+      },
+      {
+        title:
+          'Functional cooperation of the glycine synthase-reductase and Wood-Ljungdahl pathways for autotrophic growth of Clostridium drakei',
+        authors:
+          'Y Song, JS Lee, J Shin, GM Lee, S Jin, SG Kang, JK Lee, DR Kim, EY Lee, SC Kim, S Cho, D Kim*, BK Cho*',
+        firstAuthor: 'Y Song',
+        correspondingAuthors: ['D Kim', 'BK Cho'],
+        boldAuthors: ['GM Lee', 'D Kim'],
+        journal: 'Proc Natl Acad Sci U S A',
+        publishedDate: '2020 Mar',
+        doi: '10.1073/pnas.1912289117',
+        link: 'https://doi.org/10.1073/pnas.1912289117'
+      },
+      {
+        title:
+          'Prevalence of extended-spectrum β-lactamases in the local farm environment and livestock: challenges to mitigate antimicrobial resistance',
+        authors: 'S Lee, RA Mir, SH Park, D Kim, HY Kim, RK Boughton, JG Morris, KC Jeong',
+        firstAuthor: 'S Lee',
+        boldAuthors: ['D Kim'],
+        journal: 'Crit Rev Microbiol',
+        publishedDate: '2020 Jan',
+        doi: '10.1080/1040841X.2020.1715339',
+        link: 'https://doi.org/10.1080/1040841X.2020.1715339'
+      }
+    ]
+  },
+  2021: {
+    title: '2021',
+    period: 'before-unist2',
+    items: [
+      {
+        title:
+          'Rapid Real-Time Polymerase Chain Reaction for Salmonella Serotyping Based on Novel Unique Gene Markers by Pangenome Analysis',
+        authors: 'SM Yang, E Kim, D Kim, HB Kim, J Baek, S Ko, D Kim, H Yoon, HY Kim',
+        firstAuthor: 'SM Yang',
+        boldAuthors: ['D Kim', 'S Ko', 'D Kim'],
+        journal: 'Front Microbiol',
+        publishedDate: '2021 Sep',
+        doi: '10.3389/fmicb.2021.750379',
+        link: 'https://doi.org/10.3389/fmicb.2021.750379'
+      },
+      {
+        title:
+          'Enhanced production of nonanedioic acid from nonanoic acid by engineered Escherichia coli',
+        authors: 'Y Lee, Sathesh-Prabu C, GH Kwak, I Bang, HW Jung, D Kim, SK Lee',
+        firstAuthor: 'Y Lee',
+        boldAuthors: ['I Bang', 'D Kim'],
+        journal: 'Biotechnol J',
+        publishedDate: '2021 May',
+        doi: '10.1002/biot.202000416',
+        link: 'https://doi.org/10.1002/biot.202000416'
+      },
+      {
+        title:
+          'Genomic diversity of Mycobacterium avium subsp. paratuberculosis: pangenomic approach for highlighting unique genomic features with newly constructed complete genomes',
+        authors: 'J Lim#, HT Park#, S Ko, HE Park, GM Lee, S Kim, MK Shin, HS Yoo*, D Kim*',
+        firstAuthor: 'J Lim',
+        correspondingAuthors: ['HS Yoo', 'D Kim'],
+        boldAuthors: ['J Lim', 'S Ko', 'GM Lee', 'S Kim', 'D Kim'],
+        journal: 'Vet Res',
+        publishedDate: '2021 Mar',
+        doi: '10.1186/s13567-021-00905-1',
+        link: 'https://doi.org/10.1186/s13567-021-00905-1'
+      },
+      {
+        title:
+          'Alpha-2-macroglobulin as a new promising biomarker improving the diagnostic sensitivity of bovine paratuberculosis',
+        authors:
+          'HE Park, JS Park, HT Park, JG Choi, JI Shin, M Jung, HL Kang, SC Baik, WK Lee, D Kim, HS Yoo*, MK Shin*',
+        firstAuthor: 'HE Park',
+        correspondingAuthors: ['HS Yoo', 'MK Shin'],
+        boldAuthors: ['D Kim'],
+        journal: 'Front Vet Sci',
+        publishedDate: '2021 Mar',
+        doi: '10.3389/fvets.2021.637716',
+        link: 'https://doi.org/10.3389/fvets.2021.637716'
+      }
+    ]
+  },
+  2022: {
+    period: 'before-unist2',
+    title: '2022',
+    items: [
+      {
+        title:
+          'Revealing Causes for False-Positive and False-Negative Calling of Gene Essentiality in Escherichia coli Using Transposon Insertion Sequencing',
+        authors: 'D Choe, U Kim, S Hwang, SW Seo, D Kim, S Cho, B Palsson, BK Cho',
+        firstAuthor: 'D Choe',
+        boldAuthors: ['D Kim'],
+        journal: 'mSystems',
+        publishedDate: '2022 Dec',
+        doi: '10.1128/msystems.00896-22',
+        link: 'https://doi.org/10.1128/msystems.00896-22'
+      },
+      {
+        title:
+          'ChEAP: ChIP-exo Analysis Pipeline and the investigation of Escherichia coli RpoN protein-DNA interactions',
+        authors: 'I Bang#, LK Nong#, JY Park, HT Le, SM Lee, D Kim',
+        firstAuthor: 'I Bang',
+        boldAuthors: ['I Bang', 'LK Nong', 'JY Park', 'SM Lee', 'D Kim'],
+        journal: 'Comput Struct Biotechnol J',
+        publishedDate: '2022 Dec',
+        doi: '10.1016/j.csbj.2022.11.053',
+        link: 'https://doi.org/10.1016/j.csbj.2022.11.053'
+      },
+      {
+        title: 'Characterization of an Entner–Doudoroff pathway-activated Escherichia coli',
+        authors:
+          'YE Kim#, KH Cho#, I Bang#, CH Kim, YS Ryu, Y Kim, EM Choi, LK Nong, D Kim*, SK Lee*',
+        firstAuthor: 'YE Kim',
+        correspondingAuthors: ['D Kim', 'SK Lee'],
+        boldAuthors: ['I Bang', 'Y Kim', 'LK Nong', 'D Kim'],
+        journal: 'Biotechnol Biofuels Bioprod',
+        publishedDate: '2022 Nov',
+        doi: '10.1186/s13068-022-02219-6',
+        link: 'https://doi.org/10.1186/s13068-022-02219-6'
+      },
+      {
+        title:
+          'Pan-genome analysis reveals comparative genomic features of central metabolic pathways in Methylorubrum extorquens',
+        authors: 'GM Lee, ZK Scott-Nevros, SM Lee, D Kim',
+        firstAuthor: 'GM Lee',
+        boldAuthors: ['GM Lee', 'ZK Scott-Nevros', 'SM Lee', 'D Kim'],
+        journal: 'Biotechnol Bioprocess Eng',
+        publishedDate: '2022 Sep',
+        doi: '10.1007/s12257-022-0154-1',
+        link: 'https://doi.org/10.1007/s12257-022-0154-1'
+      },
+      {
+        title:
+          'Delineating transcriptional crosstalk between Mycobacterium avium subsp. paratuberculosis and human THP-1 cells at the early stage of infection via dual RNA-seq analysis',
+        authors: 'HT Park#, SM Lee#, S Ko, S Kim, HE Park, MK Shin, D Kim*, HS Yoo*',
+        firstAuthor: 'HT Park',
+        correspondingAuthors: ['D Kim', 'HS Yoo'],
+        boldAuthors: ['SM Lee', 'S Ko', 'S Kim', 'D Kim'],
+        journal: 'Vet Res',
+        publishedDate: '2022 Sep',
+        doi: '10.1186/s13567-022-01089-y',
+        link: 'https://doi.org/10.1186/s13567-022-01089-y'
+      },
+      {
+        title:
+          'Comparative genomic analysis of plasmids encoding metallo-β-lactamase NDM-5 in Enterobacterales Korean isolates from companion dogs',
+        authors: 'SM Kyung, SW Choi, J Lim, S Shim, S Kim, YB Im, NE Lee, CY Hwang, D Kim, HS Yoo',
+        firstAuthor: 'SM Kyung',
+        boldAuthors: ['J Lim', 'S Kim', 'D Kim'],
+        journal: 'Sci Rep',
+        publishedDate: '2022 Jan',
+        doi: '10.1038/s41598-022-05585-1',
+        link: 'https://doi.org/10.1038/s41598-022-05585-1'
+      },
+      {
+        title: 'proChIPdb: a chromatin immunoprecipitation database for prokaryotic organisms',
+        authors: 'K Decker#, Y Gao#, K Rychel#, Al Bulushi T, S Chauhan, D Kim, BK Cho, B Palsson',
+        firstAuthor: 'K Decker',
+        boldAuthors: ['D Kim'],
+        journal: 'Nucleic Acids Res',
+        publishedDate: '2022 Jan',
+        doi: '10.1093/nar/gkab1043',
+        link: 'https://doi.org/10.1093/nar/gkab1043'
+      }
+    ]
+  },
+  2023: {
+    title: '2023',
+    period: 'before-unist2',
+    items: [
+      {
+        title:
+          'Experimental promoter identification of a food-borne pathogen Salmonella Enterica Subsp. Enterica Serovar Typhimurium with near single base-pair resolution',
+        authors: 'SM Lee#, HT Le#, A Taizhanova, LK Nong, JY Park, EJ Lee, BO Palsson, D Kim',
+        firstAuthor: 'SM Lee',
+        boldAuthors: ['SM Lee', 'LK Nong', 'JY Park', 'D Kim'],
+        journal: 'Front Microbiol',
+        publishedDate: '2024 Jan (Online 2023)',
+        doi: '10.3389/fmicb.2023.1271121',
+        link: 'https://doi.org/10.3389/fmicb.2023.1271121'
+      },
+      {
+        title:
+          'Blanket antimicrobial resistance gene database with structural information, BOARDS, provides insights on historical landscape of resistance prevalence and effects of mutations in enzyme structure',
+        authors:
+          'S Ko#, J Kim#, J Lim, SM Lee, JY Park, J Woo, ZK Scott-Nevros, JR Kim, H Yoon, D Kim',
+        firstAuthor: 'S Ko',
+        boldAuthors: [
+          'S Ko',
+          'J Kim',
+          'J Lim',
+          'SM Lee',
+          'JY Park',
+          'J Woo',
+          'ZK Scott-Nevros',
+          'D Kim'
+        ],
+        journal: 'mSystems',
+        publishedDate: '2023 Dec',
+        doi: '10.1128/msystems.00943-23',
+        link: 'https://doi.org/10.1128/msystems.00943-23'
+      },
+      {
+        title:
+          'A deep learning-based framework for battery reusability verification: one-step state-of-health estimation of pack and constituent modules using a generative algorithm and graphical representation',
+        authors: 'S Park#, D Lim#, H Lee, D Jung, Y Choi*, H Lim*, D Kim*',
+        firstAuthor: 'S Park',
+        correspondingAuthors: ['Y Choi', 'H Lim', 'D Kim'],
+        boldAuthors: ['S Park', 'D Kim'],
+        journal: 'J. Mater. Chem. A',
+        publishedDate: '2023 Oct',
+        doi: '10.1039/D3TA03603K',
+        link: 'https://doi.org/10.1039/D3TA03603K'
+      },
+      {
+        title:
+          'Design of synthetic promoters for cyanobacteria with generative deep-learning model',
+        authors: 'E Seo, YN Choi, YR Shin, D Kim, JW Lee',
+        firstAuthor: 'E Seo',
+        boldAuthors: ['D Kim'],
+        journal: 'Nucleic Acids Res',
+        publishedDate: '2023 May',
+        doi: '10.1093/nar/gkad451',
+        link: 'https://doi.org/10.1093/nar/gkad451'
+      },
+      {
+        title:
+          'Comparative genomic analysis and BTEX degradation pathways of a thermotolerant Cupriavidus cauae PHS1',
+        authors: 'Sathesh-Prabu C#, J Woo#, Y Kim#, SM Kim, SB Lee, CO Jeon*, D Kim*, SK Lee*',
+        firstAuthor: 'Sathesh-Prabu C',
+        correspondingAuthors: ['CO Jeon', 'D Kim', 'SK Lee'],
+        boldAuthors: ['J Woo', 'Y Kim', 'D Kim'],
+        journal: 'J Microbiol Biotechnol',
+        publishedDate: '2023 Apr',
+        doi: '10.4014/jmb.2301.01011',
+        link: 'https://doi.org/10.4014/jmb.2301.01011'
+      },
+      {
+        title:
+          'The Escherichia coli Fur pan-regulon has few conserved but many unique regulatory targets',
+        authors: 'Y Gao#, I Bang#, Y Seif, D Kim*, BO Palsson*',
+        firstAuthor: 'Y Gao',
+        correspondingAuthors: ['D Kim', 'BO Palsson'],
+        boldAuthors: ['I Bang', 'D Kim'],
+        journal: 'Nucleic Acids Res',
+        publishedDate: '2023 Apr',
+        doi: '10.1093/nar/gkad253',
+        link: 'https://doi.org/10.1093/nar/gkad253'
+      },
+      {
+        title:
+          'Deep-learning based spatio-temporal generative model on assessing state-of-health for Li-ion batteries with partially-cycled profiles',
+        authors: 'S Park#, H Lee#, ZK Scott-Nevros, D Lim, DH Seo, Y Choi*, H Lim*, D Kim*',
+        firstAuthor: 'S Park',
+        correspondingAuthors: ['Y Choi', 'H Lim', 'D Kim'],
+        boldAuthors: ['S Park', 'ZK Scott-Nevros', 'D Kim'],
+        journal: 'Mater Horiz',
+        publishedDate: '2023 Feb',
+        doi: '10.1039/D3MH00013C',
+        link: 'https://doi.org/10.1039/D3MH00013C'
+      },
+      {
+        title:
+          'Deep-learning optimized DEOCSU suite provides an iterable pipeline for accurate ChIP-exo peak calling',
+        authors: 'I Bang#, SM Lee#, S Park#, JY Park, LK Nong, Y Gao, BO Palsson, D Kim',
+        firstAuthor: 'I Bang',
+        boldAuthors: ['I Bang', 'SM Lee', 'S Park', 'JY Park', 'LK Nong', 'D Kim'],
+        journal: 'Brief Bioinform',
+        publishedDate: '2023 Jan',
+        doi: '10.1093/bib/bbad024',
+        link: 'https://doi.org/10.1093/bib/bbad024'
+      },
+      {
+        title:
+          'Model-driven experimental design workflow expands understanding of regulatory role of Nac in Escherichia coli',
+        authors:
+          'JY Park, SM Lee, A Ebrahim, ZK Scott-Nevros, J Kim, L Yang, A Sastry, SW Seo*, BO Palsson*, D Kim*',
+        firstAuthor: 'JY Park',
+        correspondingAuthors: ['SW Seo', 'BO Palsson', 'D Kim'],
+        boldAuthors: ['JY Park', 'SM Lee', 'ZK Scott-Nevros', 'J Kim', 'D Kim'],
+        journal: 'NAR Genom Bioinform',
+        publishedDate: '2023 Jan',
+        doi: '10.1093/nargab/lqad006',
+        link: 'https://doi.org/10.1093/nargab/lqad006'
+      },
+      {
+        title:
+          'Characterization of Klebsiella pneumoniae bacteriophages, KP1 and KP12, with deep learning-based structure prediction',
+        authors: 'YJ Kim#, SM Lee#, LK Nong#, J Kim, SB Kim, D Kim',
+        firstAuthor: 'YJ Kim',
+        boldAuthors: ['SM Lee', 'LK Nong', 'J Kim', 'D Kim'],
+        journal: 'Front Microbiol',
+        publishedDate: '2023 Jan',
+        doi: '10.3389/fmicb.2022.990910',
+        link: 'https://doi.org/10.3389/fmicb.2022.990910'
+      },
+      {
+        title:
+          'A Machine Learning Approach Reveals a Microbiota Signature for Infection with Mycobacterium avium subsp. paratuberculosis in Cattle',
+        authors: 'SM Lee#, HT Park#, S Park, J Lee, D Kim, HS Yoo*, D Kim*',
+        firstAuthor: 'SM Lee',
+        correspondingAuthors: ['HS Yoo', 'D Kim'],
+        boldAuthors: ['SM Lee', 'S Park', 'D Kim', 'D Kim'],
+        journal: 'Microbiol Spectr',
+        publishedDate: '2023 Jan',
+        doi: '10.1128/spectrum.03134-22',
+        link: 'https://doi.org/10.1128/spectrum.03134-22'
+      }
+    ]
+  },
+  2024: {
+    title: '2024',
+    period: 'before-unist2',
+    items: [
+      {
+        title:
+          'Metabolic engineering of Corynebacterium glutamicum for the production of 1,5-pentanediol',
+        authors:
+          'YJ Sohn#, SY Hwang#, H Lee, S Jeon, JY Park, J Kim, D Kim, KJ Jeong, SY Lee, JC Joo*, JB Park*, SJ Park*',
+        firstAuthor: 'YJ Sohn',
+        correspondingAuthors: ['JC Joo', 'JB Park', 'SJ Park'],
+        boldAuthors: ['JY Park', 'J Kim', 'D Kim'],
+        journal: 'Adv Sci',
+        publishedDate: '2024 Dec',
+        doi: '10.1002/advs.202412670',
+        link: 'https://doi.org/10.1002/advs.202412670'
+      },
+      {
+        title:
+          'Deep learning for NAD/NADP cofactor prediction and engineering using transformer attention analysis in enzymes',
+        authors: 'J Kim#, J Woo#, JY Park, KJ Kim, D Kim',
+        firstAuthor: 'J Kim',
+        boldAuthors: ['J Kim', 'J Woo', 'JY Park', 'D Kim'],
+        journal: 'Metab Eng',
+        publishedDate: '2024 Nov',
+        doi: '10.1016/j.ymben.2024.11.007',
+        link: 'https://doi.org/10.1016/j.ymben.2024.11.007'
+      },
+      {
+        title:
+          'An Optimized Method for Reconstruction of Transcriptional Regulatory Networks in Bacteria Using ChIP-exo and RNA-seq Datasets',
+        authors: 'M Jang#, JY Park#, G Lee, D Kim',
+        firstAuthor: 'M Jang',
+        boldAuthors: ['M Jang', 'JY Park', 'GM Lee', 'D Kim'],
+        journal: 'J Microbiol',
+        publishedDate: '2024 Nov',
+        doi: '10.1007/s12275-024-00181-6',
+        link: 'https://doi.org/10.1007/s12275-024-00181-6'
+      },
+      {
+        title:
+          'Unveiling the novel regulatory roles of RpoD-family sigma factors in Salmonella Typhimurium heat shock response through systems biology approaches',
+        authors: 'JY Park#, M Jang#, SM Lee, J Woo, EJ Lee, D Kim',
+        firstAuthor: 'JY Park',
+        boldAuthors: ['JY Park', 'M Jang', 'SM Lee', 'J Woo', 'D Kim'],
+        journal: 'PLoS Genet',
+        publishedDate: '2024 Oct',
+        doi: '10.1371/journal.pgen.1011464',
+        link: 'https://doi.org/10.1371/journal.pgen.1011464'
+      },
+      {
+        title:
+          'Behavioral biometric optical tactile sensor for instantaneous decoupling of dynamic touch signals in real time',
+        authors:
+          'C Son#, J Kim#, D Kang#, S Park#, S Jeong, S Ahn, S Lim, DW Lee, D Kim*, J Kim*, H Ko*, J Lee*',
+        firstAuthor: 'C Son',
+        correspondingAuthors: ['D Kim', 'J Kim', 'H Ko', 'J Lee'],
+        boldAuthors: ['J Kim', 'S Park', 'D Kim', 'J Kim'],
+        journal: 'Nat Commun',
+        publishedDate: '2024 Sep',
+        doi: '10.1038/s41467-024-52331-4',
+        link: 'https://doi.org/10.1038/s41467-024-52331-4'
+      },
+      {
+        title:
+          'Developing the PIP-eco: An integrated genomic pipeline for identification and characterization of Escherichia coli pathotypes encompassing hybrid forms',
+        authors: 'S Ko, HMT Nguyen, W Lee, D Kim',
+        firstAuthor: 'S Ko',
+        boldAuthors: ['S Ko', 'HMT Nguyen', 'D Kim'],
+        journal: 'Comput Struct Biotechnol J',
+        publishedDate: '2024 Jul',
+        doi: '10.1016/j.csbj.2024.07.017',
+        link: 'https://doi.org/10.1016/j.csbj.2024.07.017'
+      },
+      {
+        title:
+          'Use of acetate as substrate for sustainable production of homoserine and threonine by Escherichia coli W3110: A modular metabolic engineering approach',
+        authors: 'TM Vo, JY Park, D Kim, S Park',
+        firstAuthor: 'TM Vo',
+        boldAuthors: ['JY Park', 'D Kim', 'S Park'],
+        journal: 'Metab Eng',
+        publishedDate: '2024 May',
+        doi: '10.1016/j.ymben.2024.05.004',
+        link: 'https://doi.org/10.1016/j.ymben.2024.05.004'
+      }
+    ]
+  },
+  2025: {
+    title: '2025',
+    period: 'before-unist2',
+    items: [
+      {
+        title:
+          'Integrated Genomic and Transcriptomic Insights into Methanol Tolerance Mechanisms in Methylorubrum extorquens AM1 for Biorefinery Applications',
+        authors: 'GM Lee, KN Pham, I Bang, S Ko*, D Kim*',
+        firstAuthor: 'GM Lee',
+        correspondingAuthors: ['S Ko', 'D Kim'],
+        boldAuthors: ['GM Lee', 'I Bang', 'S Ko', 'D Kim'],
+        journal: 'J Biol Eng',
+        publishedDate: 'Accepted'
+      },
+      {
+        title:
+          'Genome-wide regulon of NtrC reveals genetic regulation under nitrogen limitation in Methylomonas sp. DH-1',
+        authors:
+          'SJ Han#, JY Park#, YH Han#, I Bang, OK Lee, JS Hyung, JG Na*, EY Lee*, D Kim*, SW Seo*',
+        firstAuthor: 'SJ Han',
+        correspondingAuthors: ['JG Na', 'EY Lee', 'D Kim', 'SW Seo'],
+        boldAuthors: ['JY Park', 'I Bang', 'D Kim'],
+        journal: 'iScience',
+        publishedDate: '2025 Dec',
+        doi: '10.1016/j.isci.2025.114322',
+        link: 'http://doi.org/10.1016/j.isci.2025.114322'
+      },
+      {
+        title:
+          'Redefining HexR regulatory landscape in Pseudomonas putida KT2440 through integrative systems biology',
+        authors: 'LK Nong, Sathesh-Prabu C, SK Lee, D Kim*',
+        firstAuthor: 'LK Nong',
+        correspondingAuthors: ['D Kim'],
+        boldAuthors: ['LK Nong', 'D Kim'],
+        journal: 'Metab Eng',
+        publishedDate: '2025 Nov',
+        doi: '10.1016/j.ymben.2025.11.014',
+        link: 'https://doi.org/10.1016/j.ymben.2025.11.014'
+      },
+      {
+        title:
+          'Integrated Tn-seq and MAGE-assisted rapid genome engineering targeting in Escherichia coli',
+        authors: 'J Hwang#, YH Han#, I Bang, JY Park, D Kim, J Sung, SW Seo*, S Jang*, GY Jung*',
+        firstAuthor: 'J Hwang',
+        correspondingAuthors: ['SW Seo', 'S Jang', 'GY Jung'],
+        boldAuthors: ['I Bang', 'JY Park', 'D Kim'],
+        journal: 'Trends Biotechnol',
+        publishedDate: '2025 Nov',
+        doi: '10.1016/j.tibtech.2025.10.009',
+        link: 'http://doi.org/10.1016/j.tibtech.2025.10.009'
+      },
+      {
+        title:
+          'Interfacial chemistry-driven reaction dynamics and resultant microstructural evolution in lithium-based all-solid-state batteries',
+        authors:
+          'C Park#, J Choi#, S Park#, HJ Kim, Y Kim, G Lim, J Lee, E Lee, S Jo, J Kim, J Kim, J Lim, T Kim, J Hong*, D Kim*, SK Jung*',
+        firstAuthor: 'C Park',
+        correspondingAuthors: ['J Hong', 'D Kim', 'SK Jung'],
+        boldAuthors: ['S Park', 'Y Kim', 'J Kim', 'J Kim', 'J Lim', 'D Kim'],
+        journal: 'Nat Commun',
+        publishedDate: '2025 Oct',
+        doi: '10.1038/s41467-025-63959-1',
+        link: 'https://doi.org/10.1038/s41467-025-63959-1'
+      },
+      {
+        title:
+          'Dasineura asteriae reprograms the flower gene expressions of vegetative organs to create flower-like gall in Aster scaber',
+        authors:
+          'KH Boo#, YK Oh#, Møller C#, D Lee, GL Jeon, D Kim, Burow M, Großkinsky DK, J Kim, MY Ryu, B Lee, J Suh, CM Ha, Roitsch T, PO Lim, Berger F, JW Suh, SI Kim, TR Oh, SK Cho, W Kim, S Kim*, KZ Riu*, SW Yang*',
+        firstAuthor: 'KH Boo',
+        correspondingAuthors: ['S Kim', 'KZ Riu', 'SW Yang'],
+        boldAuthors: ['D Kim', 'J Kim', 'S Kim'],
+        journal: 'Plant Cell Environ',
+        publishedDate: '2025 Aug',
+        doi: '10.1111/pce.70127',
+        link: 'https://doi.org/10.1111/pce.70127'
+      },
+      {
+        title:
+          'Deep learning-guided structural analysis of a novel bacteriophage KPP105 against multidrug-resistant Klebsiella pneumoniae',
+        authors: 'S Ko#, J Kim#, JH Cho#, Y Kim*, D Kim*',
+        firstAuthor: 'S Ko',
+        correspondingAuthors: ['Y Kim', 'D Kim'],
+        boldAuthors: ['S Ko', 'J Kim', 'Y Kim', 'D Kim'],
+        journal: 'Comput Struct Biotechnol J',
+        publishedDate: '2025 May',
+        doi: '10.1016/j.csbj.2025.04.032',
+        link: 'https://doi.org/10.1016/j.csbj.2025.04.032'
+      },
+      {
+        title:
+          'Biosensor-guided evolution boosts itaconic acid production, unveiling unique insights into the stringent response',
+        authors: 'JH Moon#, J Woo#, JY Park, MH Noh*, D Kim*, GY Jung*',
+        firstAuthor: 'JH Moon',
+        correspondingAuthors: ['MH Noh', 'D Kim', 'GY Jung'],
+        boldAuthors: ['J Woo', 'JY Park', 'D Kim'],
+        journal: 'Bioresour Technol',
+        publishedDate: '2025 Feb',
+        doi: '10.1016/j.biortech.2025.132326',
+        link: 'https://doi.org/10.1016/j.biortech.2025.132326'
+      },
+      {
+        title:
+          'Characterization and therapeutic potential of newly isolated bacteriophages against Staphylococcus species in bovine mastitis',
+        authors: 'JH Cho#, GM Lee#, S Ko*, Y Kim*, D Kim*',
+        firstAuthor: 'JH Cho',
+        correspondingAuthors: ['S Ko', 'Y Kim', 'D Kim'],
+        boldAuthors: ['GM Lee', 'S Ko', 'Y Kim', 'D Kim'],
+        journal: 'J Virol',
+        publishedDate: '2025 Feb',
+        doi: '10.1128/jvi.01901-24',
+        link: 'https://doi.org/10.1128/jvi.01901-24'
+      },
+      {
+        title:
+          'ChIP-mini: a low-input ChIP-exo protocol for elucidating DNA-binding protein dynamics in intracellular pathogens',
+        authors: 'JY Park#, M Jang#, E Choi, SM Lee, I Bang, J Woo, S Kim, EJ Lee*, D Kim*',
+        firstAuthor: 'JY Park',
+        correspondingAuthors: ['EJ Lee', 'D Kim'],
+        boldAuthors: ['JY Park', 'M Jang', 'SM Lee', 'I Bang', 'J Woo', 'S Kim', 'D Kim'],
+        journal: 'Nucleic Acids Res',
+        publishedDate: '2025 Jan',
+        doi: '10.1093/nar/gkaf009',
+        link: 'https://doi.org/10.1093/nar/gkaf009'
+      }
+    ]
+  },
+  2026: {
+    title: '2026',
+    period: 'before-unist2',
+    items: []
+  },
+  submitted: {
+    title: 'Submitted / In Progress',
+    items: [
+      {
+        title:
+          'Anabolic accuracy over catabolic engineering in adaptive laboratory evolution of methanol tolerance',
+        authors: 'GM Lee#, H Ryu, J Kim, S Park, D Kim*',
+        firstAuthor: 'GM Lee',
+        correspondingAuthors: ['D Kim'],
+        boldAuthors: ['GM Lee', 'J Kim', 'S Park', 'D Kim'],
+        journal: 'Submitted',
+        publishedDate: ''
+      },
+      {
+        title:
+          'MEG3 Enhances Survival of Developing Human Neurons with CLCN4-Linked Autophagy Impairment',
+        authors:
+          'D Kim#, Y Koh, HS Jeong, J Kim, H Do, G Son, Y Kim, D Kim, HH Lim*, JE Park*, J Han*',
+        firstAuthor: 'D Kim',
+        correspondingAuthors: ['HH Lim', 'JE Park', 'J Han'],
+        boldAuthors: ['D Kim', 'J Kim', 'Y Kim', 'D Kim'],
+        journal: 'Submitted',
+        publishedDate: ''
+      },
+      {
+        title:
+          'Dehydration-induced phase transition of ARGONAUTE1 (AGO1) attenuates RNA-Induced Silencing Complex (RISC) activity',
+        authors:
+          'TR Oh#, HJ Jung#, W Yang#, JE Kim, MK Han, Møller C, MY Ryu, Yadavalli HC, SW Choi, YK Oh, D Kim, JY Shin, TH Kim, JH Kim, T Chung, JH Jung, PH Lee, WT Kim*, SK Cho*, SW Yang*',
+        firstAuthor: 'TR Oh',
+        correspondingAuthors: ['WT Kim', 'SK Cho', 'SW Yang'],
+        boldAuthors: ['D Kim'],
+        journal: 'Submitted',
+        publishedDate: ''
+      },
+      {
+        title:
+          'Next generation feasibility study model on H2 production process: Machine learning-based framework for feasibility prediction and parametric optimization in methanol steam reforming with membrane filters',
+        authors: 'M Byun#, S Park#, A Lee, J Kim, ZK Scott-Nevros, JY Park, H Lim*, D Kim*',
+        firstAuthor: 'M Byun',
+        correspondingAuthors: ['H Lim', 'D Kim'],
+        boldAuthors: ['S Park', 'J Kim', 'ZK Scott-Nevros', 'JY Park', 'D Kim'],
+        journal: 'In revision',
+        publishedDate: ''
+      },
+      {
+        title:
+          'Transformer-based framework for configuration-agnostic Li-ion battery SoH estimation by exploring novel health indicators',
+        authors: 'S Park#, Y Kim#, R Yoo, Y Choi*, D Kim*',
+        firstAuthor: 'S Park',
+        correspondingAuthors: ['Y Choi', 'D Kim'],
+        boldAuthors: ['S Park', 'Y Kim', 'D Kim'],
+        journal: 'Chem Eng J',
+        publishedDate: 'Resubmitted'
+      },
+      {
+        title:
+          'Elucidation of the RpoD and RpoS sigmulons in Klebsiella pneumoniae MGH 78578 reveals distinct growth phase-specific gene regulation',
+        authors: 'ZK Scott-Nevros#, M Jang#, JY Park*, D Kim*',
+        firstAuthor: 'ZK Scott-Nevros',
+        correspondingAuthors: ['JY Park', 'D Kim'],
+        boldAuthors: ['ZK Scott-Nevros', 'M Jang', 'JY Park', 'D Kim'],
+        journal: 'In preparation',
+        publishedDate: ''
+      }
+    ]
+  },
+  older: {
+    title: '2016 - 2009',
+    period: 'before-unist',
+    items: [
+      {
+        title: 'Multi-omic data integration enables discovery of hidden biological regularities',
+        authors:
+          "A Ebrahim#, E Brunk#, J Tan#, EJ O'Brien, D Kim, R Szubin, JA Lerman, A Lechner, A Sastry, A Bordbar, AM Feist, BO Palsson",
+        firstAuthor: 'A Ebrahim',
+        boldAuthors: ['D Kim'],
+        journal: 'Nat Commun',
+        publishedDate: '2016 Oct',
+        doi: '10.1038/ncomms13091',
+        link: 'https://doi.org/10.1038/ncomms13091'
+      },
+      {
+        title:
+          'Genome-wide Reconstruction of OxyR and SoxRS Transcriptional Regulatory Networks under Oxidative Stress in Escherichia coli K-12 MG1655',
+        authors: 'SW Seo#, D Kim#, R Szubin, BØ Palsson',
+        firstAuthor: 'SW Seo',
+        boldAuthors: ['D Kim'],
+        journal: 'Cell Rep',
+        publishedDate: '2015 Aug',
+        doi: '10.1016/j.celrep.2015.07.043',
+        link: 'https://doi.org/10.1016/j.celrep.2015.07.043'
+      },
+      {
+        title:
+          'A systems biology definition of the core proteome of metabolism and expression is consistent with high-throughput data',
+        authors:
+          'L Yang#, J Tan#, EJ O’Brien, JM Monk, D Kim, H Li, P Charusanti, A Ebrahim, C Lloyd, JT Yurkovich, B Du, A Dräger, A Thomas, Y Sun, D Ma, MA Saunders, BØ Palsson',
+        firstAuthor: 'L Yang',
+        boldAuthors: ['D Kim'],
+        journal: 'Proc Natl Acad Sci U S A',
+        publishedDate: '2015 Aug',
+        doi: '10.1073/pnas.1501384112',
+        link: 'https://doi.org/10.1073/pnas.1501384112'
+      },
+      {
+        title:
+          'Decoding genome-wide GadEWX-transcriptional regulatory networks reveals multifaceted cellular responses to acid stress in Escherichia coli',
+        authors: "SW Seo#, D Kim#, EJ O'Brien, R Szubin, BØ Palsson",
+        firstAuthor: 'SW Seo',
+        boldAuthors: ['D Kim'],
+        journal: 'Nat Commun',
+        publishedDate: '2015 Aug',
+        doi: '10.1038/ncomms8970',
+        link: 'https://doi.org/10.1038/ncomms8970'
+      },
+      {
+        title:
+          'Deciphering Fur transcriptional regulatory network highlights its complex role beyond iron metabolism in Escherichia coli',
+        authors: "SW Seo#, D Kim#, H Latif#, EJ O'Brien, R Szubin, BO Palsson",
+        firstAuthor: 'SW Seo',
+        boldAuthors: ['D Kim'],
+        journal: 'Nat Commun',
+        publishedDate: '2014 Sep',
+        doi: '10.1038/ncomms5910',
+        link: 'https://doi.org/10.1038/ncomms5910'
+      },
+      {
+        title: 'Determining the control circuitry of redox metabolism at the genome-scale',
+        authors:
+          'S Federowicz, D Kim, A Ebrahim, JA Lerman, H Nagarajan, BK Cho, K Zengler, BØ Palsson',
+        firstAuthor: 'S Federowicz',
+        boldAuthors: ['D Kim'],
+        journal: 'PLoS Genet',
+        publishedDate: '2014 Apr',
+        doi: '10.1371/journal.pgen.1004264',
+        link: 'https://doi.org/10.1371/journal.pgen.1004264'
+      },
+      {
+        title:
+          'Genome-scale reconstruction of the sigma factor network in Escherichia coli: topology and functional states',
+        authors: 'BK Cho#, D Kim#, EM Knight, K Zengler, BO Palsson',
+        firstAuthor: 'BK Cho',
+        boldAuthors: ['D Kim'],
+        journal: 'BMC Biol',
+        publishedDate: '2014 Jan',
+        doi: '10.1186/1741-7007-12-4',
+        link: 'https://doi.org/10.1186/1741-7007-12-4'
+      },
+      {
+        title:
+          'Structural Systems Biology Evaluation of Metabolic Thermotolerance in Escherichia coli',
+        authors: 'RL Chang, K Andrews, D Kim, Z Li, A Godzik, BO Palsson',
+        firstAuthor: 'RL Chang',
+        boldAuthors: ['D Kim'],
+        journal: 'Science',
+        publishedDate: '2013 Jun',
+        doi: '10.1126/science.1234012',
+        link: 'https://doi.org/10.1126/science.1234012'
+      },
+      {
+        title:
+          'Multiple-omic data analysis of Klebsiella pneumoniae MGH 78578 reveals its transcriptional architecture and regulatory features',
+        authors: 'JH Seo#, JS Hong#, D Kim, BK Cho, TW Huang, SF Tsai, BO Palsson, P Charusanti',
+        firstAuthor: 'JH Seo',
+        boldAuthors: ['D Kim'],
+        journal: 'BMC Genomics',
+        publishedDate: '2012 Nov',
+        doi: '10.1186/1471-2164-13-679',
+        link: 'https://doi.org/10.1186/1471-2164-13-679'
+      },
+      {
+        title: 'Network context and selection in the evolution to enzyme specificity',
+        authors: 'H Nam#, NE Lewis#, JA Lerman, DH Lee, RL Chang, D Kim, BO Palsson',
+        firstAuthor: 'H Nam',
+        boldAuthors: ['D Kim'],
+        journal: 'Science',
+        publishedDate: '2012 Aug',
+        doi: '10.1126/science.1216861',
+        link: 'https://doi.org/10.1126/science.1216861'
+      },
+      {
+        title:
+          'Comparative analysis of regulatory elements between Escherichia coli and Klebsiella pneumoniae by genome-wide transcription start site profiling',
+        authors: 'D Kim#, JS Hong#, Y Qiu, H Nagarajan, JH Seo, BK Cho, SF Tsai, BØ Palsson',
+        firstAuthor: 'D Kim',
+        boldAuthors: ['D Kim'],
+        journal: 'PLoS Genet',
+        publishedDate: '2012 Aug',
+        doi: '10.1371/journal.pgen.1002867',
+        link: 'https://doi.org/10.1371/journal.pgen.1002867'
+      },
+      {
+        title: 'The PurR regulon in Escherichia coli K-12 MG1655',
+        authors: 'BK Cho, SA Federowicz, M Embree, YS Park, D Kim, BØ Palsson',
+        firstAuthor: 'BK Cho',
+        boldAuthors: ['D Kim'],
+        journal: 'Nucleic Acids Res',
+        publishedDate: '2011 Aug',
+        doi: '10.1093/nar/gkr307',
+        link: 'https://doi.org/10.1093/nar/gkr307'
+      },
+      {
+        title:
+          'Functional links between clustered microRNAs: suppression of cell-cycle inhibitors by microRNA clusters in gastric cancer',
+        authors:
+          'YK Kim, J Yu, TS Han, SY Park, B Namkoong, D Kim, K Hur, MW Yoo, HJ Lee, HK Yang, VN Kim',
+        firstAuthor: 'YK Kim',
+        boldAuthors: ['D Kim'],
+        journal: 'Nucleic Acids Res',
+        publishedDate: '2009 Apr',
+        doi: '10.1093/nar/gkp002',
+        link: 'https://doi.org/10.1093/nar/gkp002'
+      }
+    ]
+  },
+  patents: {
+    title: 'Patents',
+    items: [
+      {
+        title:
+          'Device and method for predicting coenzyme preference of enzyme based on artificial intelligence model',
+        authors: 'D Kim, J Kim, J Woo',
+        firstAuthor: 'D Kim',
+        boldAuthors: ['D Kim', 'J Kim', 'J Woo'],
+        journal: 'Korean Patent',
+        publishedDate: 'Filed Apr 09, 2025',
+        doi: 'UTP25106KR-00'
+      },
+      {
+        title:
+          'Machine Learning-based Battery Healt State Estimation Method and Computing Device for Performing The Same',
+        authors: 'Y Choi, D Kim, S Park, Y Kim, R Yoo',
+        firstAuthor: 'Y Choi',
+        boldAuthors: ['D Kim', 'S Park', 'Y Kim'],
+        journal: 'Korean Patent',
+        publishedDate: 'Filed Apr 10, 2025',
+        doi: '10-2025-0046943'
+      },
+      {
+        title: 'Battery state prediction system and battery state prediction method',
+        authors: 'H Lim, D Kim, Y Choi, S Park, H Lee',
+        firstAuthor: 'H Lim',
+        boldAuthors: ['D Kim', 'S Park'],
+        journal: 'Korean Patent',
+        publishedDate: 'Filed Feb 05, 2024',
+        doi: 'UTP23334KR-00'
+      },
+      {
+        title:
+          'Battery SOC/SOH prediction system based on computational fluid dynamics and machine learning model and method thereof',
+        authors:
+          'H Lim, H Jeong, A Syauqi, U Hosanna, V Nagulapati, Y Choi, D Kim, H Kim, N Aleksey',
+        firstAuthor: 'H Lim',
+        boldAuthors: ['D Kim'],
+        journal: 'Korean Patent',
+        publishedDate: 'Granted Oct 02, 2025',
+        doi: '10-2870381'
+      },
+      {
+        title: 'CFD and Machine Learning-Based Battery SOC/SOH Prediction System',
+        authors: 'H Lim, Y Choi, D Kim, H Kim, A Ni, H Uwitonze, NV Mohan, S Ahmad',
+        firstAuthor: 'H Lim',
+        boldAuthors: ['D Kim'],
+        journal: 'Korean Patent',
+        publishedDate: 'Filed Dec 06, 2023',
+        doi: 'UTP23504KR-00'
+      },
+      {
+        title: 'CFD and Transfer Learning-Based Battery SOC/SOH Prediction System',
+        authors: 'H Lim, Y Choi, D Kim, H Kim, A Ni, H Uwitonze, NV Mohan, S Ahmad',
+        firstAuthor: 'H Lim',
+        boldAuthors: ['D Kim'],
+        journal: 'Korean Patent',
+        publishedDate: 'Filed Dec 06, 2023',
+        doi: 'UTP23505KR-00'
+      },
+      {
+        title:
+          'Multiplex PCR kit for detecting vancomycin, methicillin, erythromycin and tetracycline resistant strains',
+        authors: 'D Kim, S Ko, H-Y Kim, H Yoon',
+        firstAuthor: 'D Kim',
+        boldAuthors: ['D Kim', 'S Ko'],
+        journal: 'Korean Patent',
+        publishedDate: 'Filed May 26, 2023',
+        doi: '10-2023-0068269'
+      },
+      {
+        title: 'Multiplex PCR kit for detecting colistin and quinolone resistant strains',
+        authors: 'D Kim, S Ko, H-Y Kim, H Yoon',
+        firstAuthor: 'D Kim',
+        boldAuthors: ['D Kim', 'S Ko'],
+        journal: 'Korean Patent',
+        publishedDate: 'Filed Aug 30, 2022',
+        doi: '10-2022-0108902'
+      },
+      {
+        title: 'Multiplex PCR kit for detecting ESBL resistant strains',
+        authors: 'D Kim, S Ko, H-Y Kim, H Yoon',
+        firstAuthor: 'D Kim',
+        boldAuthors: ['D Kim', 'S Ko'],
+        journal: 'Korean Patent',
+        publishedDate: 'Granted Mar 18, 2025',
+        doi: '10-2784-8710000'
+      },
+      {
+        title: 'PCR primer set for detecting Salmonella serovars and uses thereof',
+        authors: 'H-Y Kim, S-M Yang, H Yoon, D Kim',
+        firstAuthor: 'H-Y Kim',
+        boldAuthors: ['D Kim'],
+        journal: 'Korean Patent',
+        publishedDate: 'Granted Feb 05, 2024',
+        doi: '10-2635-1430000'
+      },
+      {
+        title:
+          'Biomarker for discrimination of Mycobacterium avium subsp. paratuberculosis subtype and use thereof',
+        authors: 'D Kim, J Lim, HS Yoo, H-T Park',
+        firstAuthor: 'D Kim',
+        boldAuthors: ['D Kim', 'J Lim'],
+        journal: 'Korean Patent',
+        publishedDate: 'Granted Feb 03, 2022',
+        doi: '10-2359-8380000'
+      }
+    ]
+  },
+  conference: {
+    title: 'Conference Papers',
+    items: [
+      {
+        title:
+          'Feasibility prediction model for hydrogen production system of methanol steam reforming with membrane filters by machine learning regression algorithm',
+        authors: 'M Byun, S Park, D Kim*, H Lim*',
+        firstAuthor: 'M Byun',
+        correspondingAuthors: ['D Kim', 'H Lim'],
+        boldAuthors: ['S Park', 'D Kim'],
+        journal: 'International Conference on Applied Energy',
+        publishedDate: '2021 Nov 29'
+      }
+    ]
+  }
+};

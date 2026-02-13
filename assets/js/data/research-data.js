@@ -23,7 +23,7 @@ const researchData = [
                 content: "To conduct the high-throughput experiment data analysis, we have developed a specific pipeline and deep-learning-based high-performance software for TRN reconstruction and analysis."
             }
         ],
-        images: ["research-photo/TRN.png"]
+        images: ["assets/images/research/TRN.png"]
     },
     {
         id: "genome-modeling",
@@ -44,7 +44,7 @@ const researchData = [
                 content: "Our models are used for metabolic engineering, pathway optimization, and predicting cellular behavior under various environmental conditions."
             }
         ],
-        images: ["research-photo/GSM.png", "research-photo/Methylotrophs.png"]
+        images: ["assets/images/research/GSM.png", "assets/images/research/Methylotrophs.png"]
     },
     {
         id: "bacterial-strains",
@@ -62,7 +62,7 @@ const researchData = [
                 ]
             }
         ],
-        images: ["research-photo/phage.png"]
+        images: ["assets/images/research/phage.png"]
     },
     {
         id: "antimicrobial",
@@ -80,7 +80,7 @@ const researchData = [
                 ]
             }
         ],
-        images: ["research-photo/AMR.png"]
+        images: ["assets/images/research/AMR.png"]
     },
     {
         id: "machine-learning",
@@ -98,6 +98,6 @@ const researchData = [
                 ]
             }
         ],
-        images: ["research-photo/ML.png"]
+        images: ["assets/images/research/ML.png"]
     }
 ];

@@ -6,7 +6,7 @@ function loadNavigation() {
     <nav role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <a href="index.html" class="logo" aria-label="SBML Lab 홈페이지">
-                <img src="Icons/logo.png" alt="SBML Lab Logo" style="height: 75px; vertical-align: left;" loading="lazy">
+                <img src="assets/images/icons/logo.png" alt="SBML Lab Logo" style="height: 75px; vertical-align: left;" loading="lazy">
             </a>
 
             <ul class="nav-links" role="menubar">
